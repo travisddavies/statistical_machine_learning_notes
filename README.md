@@ -1,2 +1,3 @@
-# statistical_machine_learning_notes
-My notes for COMP90051 Statistical Machine Learning at University of Melbourne
+# Statistical Machine Learning
+My notes for COMP90051 Statistical Machine Learning.
+1. ![Math Review](Math Review.md)
