@@ -195,3 +195,83 @@ Using conditional probabilities, we can tell if $X,Y$ are **independent** if $P(
 In the following graph, we can see that $x$ clearly influences $y$ given that the expected value of $x$ is proportional with the given values of $y$.
 
 ![](Images/dependent_graph.png)
+
+## Inverting Conditioning: Bayes' Theorem
+Bayes Theorem defines the following formula:
+$$P(A|B) = \frac{P(B|A)P(A)}{P(B)}$$
+This rule allows us to swap between $P(A|B)$ and $P(B|A)$.
+Probabilistic and Bayesian inference make heavy use of:
+- **Marginals**: the probabilities of individual variables
+- **The Sum Rule** of marginalisation: this sums away all but the random variable of interest. It uses the following formula:
+$$P(A) = \sum_b P(A, B=b)$$
+**Example**:
+We want to know the probability of success of movies of a specific genre ($A=\{comedy, thriller, romance\}$). But we only have data on movie success probabilities in a specific market, namely ($\beta = \{EU, NA, AUS\}$).
+
+$P(A) = \underset{b \in \beta} \sum P(A, B=b)$
+
+![](sum_rule_example.png)
+
+![](sum_rule_example2.png)
+
+# Vectors
+## What are Vectors?
+Suppose $u = [u_1, u_2]'$. What does $u$ really represent?
+- **Ordered set of numbers**: 
+	$\{u_1, u_2, u_3, u_4, u_5, u_6\}$ 
+- **Cartesian coordinates of a point**:
+	![](cartesian_plane.png)
+ - **A direction**:
+	 ![](direction.png)
+
+## Dot Product: Algebraic Definition
+Given two $m$-dimensional vectors $u$ and $v$, their dot product is:
+$$u \cdot v \equiv u'v \equiv \sum^m_{i=1}u_iv_i$$
+$u'$ in this case means that $u$ has been transposed. We turn $u$ on its side and then move left to right across $u$ and top to bottom across $v$. An example is as follows:
+
+$a = [2.0, 1.4, 4.6, 5.5]$, $b = [1.0, 2.4, 6.6, 2.5]$
+
+Imagine that both are vertical, we now transpose $a$ and make it horizontal and do the dot product like below.
+
+$a \cdot b = 2 \times 1 + 1.4 \times 2.4 + 4.6 \times 6.6 + 5.5 \times 2.5$
+
+$a \cdot b = 49.47$
+
+If $k$ is a scalar, $a, b, c$ are vectors then:
+
+$(ka)'b = k(a'b) = a'(kb)$
+$a'(b+c)=a'b+a'c$
+
+This basically means that the constant will be broadcasted over the whole of one vector, and the dot product will apply be broadcasted over both vectors if the vectors are being added.
+
+## Dot Product: Geometric Definition
+Given two $m$-dimensional Euclidean vectors $u$ and $v$, their dot product is: 
+$$u \cdot v \equiv u'v \equiv \lVert u \rVert \lVert v \rVert \cos \theta$$
+$\lVert u \rVert$ and $\lVert v \rVert$ mean the $L_2$ norms for $u$, $v$, which is the like the right angle distance of a side on a triangle. 
+
+$\theta$ is the angle between the vectors
+
+For example the euclidean distance of the below vectors can be calculated as such:
+
+$v = [2.0, 1.4, 4.6]$, $u = [1.0, 2.4, 6.6]$, $\theta = 60$ 
+
+$\lVert v \rVert = \sqrt{2^2 + 1.4^2 + 4.6^2}$
+
+$\lVert v \rVert = 5.21$
+
+$\lVert u \rVert = \sqrt{1^2 + 2.4^2 + 6.6^2}$
+
+$\lVert u \rVert = 7.09$
+
+$u \cdot v = 5.21 \times 7.09 \times \cos(60)$
+
+$u \cdot v = -35.18$
+
+The **scalar projection** of $u$ onto $v$ is given by:
+$$u_v = \lVert u \rVert \cos \theta$$
+
+This visually can be seen below, which basically casts a shadow on the other vector.
+![[scalar_projection.png]]
+
+Thus dot product is:
+$$u'v = u_v \lVert v \rVert = v_u \lVert u \rVert$$
+## Geometric Properties of the Dot Product
