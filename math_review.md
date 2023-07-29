@@ -219,9 +219,11 @@ Suppose $u = [u_1, u_2]'$. What does $u$ really represent?
 - **Ordered set of numbers**: 
 	$\{u_1, u_2, u_3, u_4, u_5, u_6\}$ 
 - **Cartesian coordinates of a point**:
+
 ![](Images/cartesian_plane.png)
 
  - **A direction**:
+
 ![](Images/direction.png)
 
 ## Dot Product: Algebraic Definition
