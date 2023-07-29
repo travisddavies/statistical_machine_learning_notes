@@ -1,19 +1,19 @@
 # Probability
 ## Axioms of Probability
-Let $S$ be the sample space and $A_i$, $A_j$ be events in $S$, i.e. $A \in S$: 
-1. $P(A) \geq 0$ 
+Let $S$ be the sample space and $A_i$, $A_j$ be events in $S$, i.e. $A \in S$:
+1. $P(A) \geq 0$
 2. $P(S) = 1$
-3. $\cap A_i = \emptyset \text{ then } \cup P(A_i) = P(A_i) + P(A_2) ...$ , _this can also be described as_: $A \cap B = \emptyset \text{ then } P(A \cup B) = P(A) + P(B)$ 
+3. $\cap A_i = \emptyset \text{ then } \cup P(A_i) = P(A_i) + P(A_2) ...$ , _this can also be described as_: $A \cap B = \emptyset \text{ then } P(A \cup B) = P(A) + P(B)$
 
 An example of this is demonstrated below, as it can be seen with the two sets below, there is no intersection between the two sets, therefore the probability of either event happening, i.e. _the joint probability_ $P(A \cup B)$, is simply equal to the probability of both events occurring.
-![[2_independent_sets_union.png]] 
+![[Images/2_independent_sets_union.png]]
 
 ## Random Variables
 **Random variables** map outcomes of random processes to numbers, in other words, a random variable $X$ is a numeric function of
 outcome $X(\omega) ∈ R$. One example would be as shown below:
-$$X = \begin{cases}  
-   1 &\text{if } heads \\  
-   0 &\text{if } tails 
+$$X = \begin{cases}
+   1 &\text{if } heads \\
+   0 &\text{if } tails
 \end{cases}$$
 Note that the random variable $X$ is **capitalised**, this is the common convention for random variables. The value of 1 was assigned to $heads$ and 0 to $tails$, these values can be anything in reality, even 100 and 703, it doesn't really matter. But conventionally, we will use 0 and 1.
 
@@ -29,7 +29,7 @@ Discrete data is data that can be **counted** rather than measured, or having a 
 - The number of heads landed when flipping a coin
 
 Discrete data on a graph will also not be connected, it will show jumps in the data, as shown below:
-![[discrete_data_graph.png]]
+![[Images/discrete_data_graph.png]]
 
 ### Continuous Data
 Continuous data on the other hand, is data which can be **measured**, and can be a real number. Examples include:
@@ -38,11 +38,11 @@ Continuous data on the other hand, is data which can be **measured**, and can be
 - The total profit of a company
 
 Continuous data on a graph is connected, as shown below:
-![[continuous_data_graph.png]]
+![[Images/continuous_data_graph.png]]
 
 ### Discrete Distribution Functions
 Discrete data is described by the **probability mass function** (PMF), an example is shown below:
-![[discrete_distribution_function.png]]
+![[Images/discrete_distribution_function.png]]
 In this distribution, we would calculate probability in the following way: $$P(X \leq x) = \sum^x_{a=- \infty} P(a)$$
 In the example above, if we wanted $P(X \leq 3)$, we would do the following:
 $$P(X \leq 3) = P(X = 1) + P(X = 2) + P(X = 3)$$
@@ -55,10 +55,10 @@ Examples of discrete distribution functions include the following:
 
 ### Continuous Distribution Function
 Continuous data is described by the **probability density function** (PDF), an example is shown below:
-![[continuous_density_function.png]]
+![[Images/continuous_density_function.png]]
 In this distribution, we could calculate the probability in the following way: $$P(X \leq x) = \int^x_{a=-\infty} P(a)\delta a$$
 In the example above, if we wanted $P(X \leq 160)$, we would find the area under the curve, as shown in the picture below:
-![[area_under_density_function.png]]
+![[Images/area_under_density_function.png]]
 
 Examples of continuous distribution functions include the following:
 - Uniform
@@ -73,7 +73,7 @@ An expected value $E[X]$ is simply the random variable that is expected to be th
 
 For discrete values, the way to calculate the expected value is as follows:
 $$E[X] = \sum_x xP(X=x)$$
-An example may be the following: 
+An example may be the following:
  $X = \text{no. of workouts in a week}$
 
 | X | P(x) |
@@ -90,9 +90,9 @@ This means that it's _expected_ that the number of workouts that this person wil
 
 For continuous values, the way to calculate the expected value is as follows: $$E[X] = \int_x xP(X=x) \delta x$$
 An example for how we would calculate this is shown below, we calculate the areas under the curve for a set interval, by multiplying the height and width.
-![[expected_value_continuous.png]]
+![[Images/expected_value_continuous.png]]
 We do this for each interval as shown below, then we multiply each area by the value on the graph.
-![[areas_under_continuous_function.png]]
+![[Images/areas_under_continuous_function.png]]
 $E[X] = 0.4 \times 10 + 0.2 \times 20 + 0.1 \times 30 + 0.09 \times 40 + 0.05 \times 50 + 0.03 \times 60 + 0.02 \times 70 + 0.01 \times 80 + 0.01 \times 90$$E[X] = 22$
 
 ### The Linearity Property of Expectation
@@ -101,7 +101,7 @@ $$E[aX+b] = aE[X] + b$$
 Another instance of this rule can be if you want to increase the expected value $E[X]$ by $Y$, then we can calculate this by applying the following calculation:
 $$E[X + Y] = E[X] + E[Y]$$
 A simple example may be if you want to increase everyone's salaries by 2 with a bonus of $100, with a prior expected salary of $60,000, then we can calculate the expected salary after the raise as:
-$Y = 2E[X] + 100$  
+$Y = 2E[X] + 100$
 $E[Y] = 2 \times 60,000 + 100$
 $E[Y] = 120,100$
 
@@ -137,18 +137,18 @@ $Var(X) = 0.48$
 
 ## Multivariate Distributions
 Much like the univariate cases for probability distribution, there exists probability distributions for multivariate cases. Below shows a Gaussian distribution, but in 3D.
-![[3D_gaussian.png]]
+![[Images/3D_gaussian.png]]
 
-To calculate the joint probabilities from the probability mass function or probability density function, it is just like the univariate method, but we add an extra dimension. Imagine instead of taking the area under the graph, you now take the volume under the graph. The height will be $P(x,y)$, the width will be $x$, and the breadth will be $y$. 
-![[joint_pdf.png]]
+To calculate the joint probabilities from the probability mass function or probability density function, it is just like the univariate method, but we add an extra dimension. Imagine instead of taking the area under the graph, you now take the volume under the graph. The height will be $P(x,y)$, the width will be $x$, and the breadth will be $y$.
+![[Images/joint_pdf.png]]
 The formulas for calculating these probabilities are as shown below:
 **Discrete**:  $P(X, Y \in A) = \sum_{(x,y)\in A} p(x,y)$
-**Continuous**:  $P(X, Y \in A) = \int_A p(x,y)dx dy$ 
+**Continuous**:  $P(X, Y \in A) = \int_A p(x,y)dx dy$
 
 ## Independence and Conditioning
-$X$ and $Y$ are **independent** if: 
+$X$ and $Y$ are **independent** if:
 - **Discrete**: $P(X \in A, Y \in B) = P(X \in A)P(Y \in B)$
-- **Continuous**: $p_{x,y}(x,y) = p_x(x)p_y(y)$ 
+- **Continuous**: $p_{x,y}(x,y) = p_x(x)p_y(y)$
 
 What this means is that knowing $Y$ doesn't have any influence over $X$. Algebraically, this means that the joint on $X,Y$ factorises.
 
@@ -163,4 +163,4 @@ $$P(A \cap B) = P(A|B)P(B)$$
 Using conditional probabilities, we can tell if $X,Y$ are **independent** if $P(Y=y|X=x) = P(Y=y)$.
 
 In the following graph, we can see that $x$ clearly influences $y$ given that the expected value of $x$ is proportional with the given values of $y$.
-![[dependent_graph.png]]
+![[Images/dependent_graph.png]]
