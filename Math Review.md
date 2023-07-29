@@ -32,6 +32,7 @@ Discrete data is data that can be **counted** rather than measured, or having a 
 - The number of heads landed when flipping a coin
 
 Discrete data on a graph will also not be connected, it will show jumps in the data, as shown below:
+
 ![](Images/discrete_data_graph.png)
 
 ### Continuous Data
@@ -41,6 +42,7 @@ Continuous data on the other hand, is data which can be **measured**, and can be
 - The total profit of a company
 
 Continuous data on a graph is connected, as shown below:
+
 ![](Images/continuous_data_graph.png)
 
 ### Discrete Distribution Functions
@@ -60,9 +62,12 @@ Examples of discrete distribution functions include the following:
 
 ### Continuous Distribution Function
 Continuous data is described by the **probability density function** (PDF), an example is shown below:
+
 ![](Images/continuous_density_function.png)
+
 In this distribution, we could calculate the probability in the following way: $$P(X \leq x) = \int^x_{} P(a)\delta a$$
 In the example above, if we wanted $P(X \leq 160)$, we would find the area under the curve, as shown in the picture below:
+
 ![](Images/area_under_density_function.png)
 
 Examples of continuous distribution functions include the following:
@@ -95,9 +100,13 @@ This means that it's _expected_ that the number of workouts that this person wil
 
 For continuous values, the way to calculate the expected value is as follows: $$E[X] = \int_x xP(X=x) \delta x$$
 An example for how we would calculate this is shown below, we calculate the areas under the curve for a set interval, by multiplying the height and width.
+
 ![](Images/expected_value_continuous.png)
+
 We do this for each interval as shown below, then we multiply each area by the value on the graph.
+
 ![](Images/areas_under_continuous_function.png)
+
 $E[X] = 0.4 \times 10 + 0.2 \times 20 + 0.1 \times 30 + 0.09 \times 40 + 0.05 \times 50 + 0.03 \times 60 + 0.02 \times 70 + 0.01 \times 80 + 0.01 \times 90$$E[X] = 22$
 
 ### The Linearity Property of Expectation
@@ -142,10 +151,13 @@ $Var(X) = 0.48$
 
 ## Multivariate Distributions
 Much like the univariate cases for probability distribution, there exists probability distributions for multivariate cases. Below shows a Gaussian distribution, but in 3D.
+
 ![](Images/3D_gaussian.png)
 
 To calculate the joint probabilities from the probability mass function or probability density function, it is just like the univariate method, but we add an extra dimension. Imagine instead of taking the area under the graph, you now take the volume under the graph. The height will be $P(x,y)$, the width will be $x$, and the breadth will be $y$.
+
 ![](Images/joint_pdf.png)
+
 The formulas for calculating these probabilities are as shown below:
 **Discrete**:  $P(X, Y \in A) = \sum_{(x,y)\in A} p(x,y)$
 **Continuous**:  $P(X, Y \in A) = \int_A p(x,y)dx dy$
@@ -168,4 +180,5 @@ $$P(A \cap B) = P(A|B)P(B)$$
 Using conditional probabilities, we can tell if $X,Y$ are **independent** if $P(Y=y|X=x) = P(Y=y)$.
 
 In the following graph, we can see that $x$ clearly influences $y$ given that the expected value of $x$ is proportional with the given values of $y$.
+
 ![](Images/dependent_graph.png)
