@@ -6,6 +6,7 @@ Let $S$ be the sample space and $A_i$, $A_j$ be events in $S$, i.e. $A \in S$:
 3. $\cap A_i = \emptyset \text{ then } \cup P(A_i) = P(A_i) + P(A_2) ...$ , _this can also be described as_: $A \cap B = \emptyset \text{ then } P(A \cup B) = P(A) + P(B)$
 
 An example of this is demonstrated below, as it can be seen with the two sets below, there is no intersection between the two sets, therefore the probability of either event happening, i.e. _the joint probability_ $P(A \cup B)$, is simply equal to the probability of both events occurring.
+
 ![](Images/2_independent_sets_union.png)
 
 ## Random Variables
