@@ -11,6 +11,7 @@ An example of this is demonstrated below, as it can be seen with the two sets be
 ## Random Variables
 **Random variables** map outcomes of random processes to numbers, in other words, a random variable $X$ is a numeric function of
 outcome $X(\omega) ∈ R$. One example would be as shown below:
+
 $$X = \begin{cases}
    1 &\text{if } heads \\
    0 &\text{if } tails
