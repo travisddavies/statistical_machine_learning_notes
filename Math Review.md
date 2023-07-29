@@ -44,7 +44,9 @@ Continuous data on a graph is connected, as shown below:
 
 ### Discrete Distribution Functions
 Discrete data is described by the **probability mass function** (PMF), an example is shown below:
+
 ![](Images/discrete_distribution_function.png)
+
 In this distribution, we would calculate probability in the following way: $$P(X \leq x) = \sum^x_{a=- \infty} P(a)$$
 In the example above, if we wanted $P(X \leq 3)$, we would do the following:
 $$P(X \leq 3) = P(X = 1) + P(X = 2) + P(X = 3)$$
