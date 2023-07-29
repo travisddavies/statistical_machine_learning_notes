@@ -16,6 +16,7 @@ $$X = \begin{cases}
    1 &\text{if } heads \\
    0 &\text{if } tails
 \end{cases}$$
+
 Note that the random variable $X$ is **capitalised**, this is the common convention for random variables. The value of 1 was assigned to $heads$ and 0 to $tails$, these values can be anything in reality, even 100 and 703, it doesn't really matter. But conventionally, we will use 0 and 1.
 
 The point of random variables is so that we can simplify the expressions in our probability equations, for example:
