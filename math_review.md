@@ -220,11 +220,11 @@ Suppose $u = [u_1, u_2]'$. What does $u$ really represent?
 	$\{u_1, u_2, u_3, u_4, u_5, u_6\}$ 
 - **Cartesian coordinates of a point**:
 
-	![](cartesian_plane.png)
+	![](Images/cartesian_plane.png)
 
  - **A direction**:
  
-	 ![](direction.png)
+	 ![](Images/direction.png)
 
 ## Dot Product: Algebraic Definition
 Given two $m$-dimensional vectors $u$ and $v$, their dot product is:
@@ -274,7 +274,7 @@ $$u_v = \lVert u \rVert \cos \theta$$
 
 This visually can be seen below, which basically casts a shadow on the other vector.
 
-![[scalar_projection.png]]
+![](Images/scalar_projection.png)
 
 Thus dot product is:
 $$u'v = u_v \lVert v \rVert = v_u \lVert u \rVert$$
