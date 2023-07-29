@@ -93,6 +93,7 @@ An example may be the following:
 | 2 | 0.4  |
 | 3 | 0.25 |
 | 4 | 0.1  |
+
 To calculate this, we will do the following:
 $E[X] = \mu_X = 0 \times 0.1 + 1 \times 0.15 + 2 \times 0.4 + 3 \times 0.25 + 4 \times 0.1 = 2.1$
 $E[X] = 2.1$
