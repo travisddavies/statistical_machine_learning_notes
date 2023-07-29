@@ -95,11 +95,14 @@ An example may be the following:
 | 4 | 0.1  |
 
 To calculate this, we will do the following:
+
 $E[X] = \mu_X = 0 \times 0.1 + 1 \times 0.15 + 2 \times 0.4 + 3 \times 0.25 + 4 \times 0.1 = 2.1$
 $E[X] = 2.1$
+
 This means that it's _expected_ that the number of workouts that this person will do per week is 2.1.
 
-For continuous values, the way to calculate the expected value is as follows: $$E[X] = \int_x xP(X=x) \delta x$$
+For continuous values, the way to calculate the expected value is as follows: 
+$$E[X] = \int_x xP(X=x) \delta x$$
 An example for how we would calculate this is shown below, we calculate the areas under the curve for a set interval, by multiplying the height and width.
 
 ![](Images/expected_value_continuous.png)
@@ -108,7 +111,8 @@ We do this for each interval as shown below, then we multiply each area by the v
 
 ![](Images/areas_under_continuous_function.png)
 
-$E[X] = 0.4 \times 10 + 0.2 \times 20 + 0.1 \times 30 + 0.09 \times 40 + 0.05 \times 50 + 0.03 \times 60 + 0.02 \times 70 + 0.01 \times 80 + 0.01 \times 90$$E[X] = 22$
+$E[X] = 0.4 \times 10 + 0.2 \times 20 + 0.1 \times 30 + 0.09 \times 40 + 0.05 \times 50 + 0.03 \times 60 + 0.02 \times 70 + 0.01 \times 80 + 0.01 \times 90$
+$E[X] = 22$
 
 ### The Linearity Property of Expectation
 Expectation has a linear property, meaning that if we have an expected value $E[X]$, and we want to increase the expected value by $aX + b$, then can calculate this by applying the following calculation:
@@ -116,8 +120,11 @@ $$E[aX+b] = aE[X] + b$$
 Another instance of this rule can be if you want to increase the expected value $E[X]$ by $Y$, then we can calculate this by applying the following calculation:
 $$E[X + Y] = E[X] + E[Y]$$
 A simple example may be if you want to increase everyone's salaries by 2 with a bonus of $100, with a prior expected salary of $60,000, then we can calculate the expected salary after the raise as:
+
 $Y = 2E[X] + 100$
+
 $E[Y] = 2 \times 60,000 + 100$
+
 $E[Y] = 120,100$
 
 ### The Monotonic Property of Expectation
@@ -139,15 +146,20 @@ $E[X] = 0 \times 0.16 + 1 \times 0.48 + 2 \times 0.36$
 $E[X] = 1.2$
 
 Now we calculate $E[X]^2$
+
 $E[X]^2 = 1.2^2$
+
 $E[X]^2 = 1.44$
 
 Now we can calculate $E[X^2]$
+
 $E[X^2] = 0^2 \times 0.16 + 1^2 \times 0.48 + 2^2 \times 0.36$
+
 $E[X^2] = 1.92$
 
 Now plug them into the formula:
 $Var(X) = 1.92 - 1.44$
+
 $Var(X) = 0.48$
 
 ## Multivariate Distributions
