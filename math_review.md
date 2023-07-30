@@ -309,6 +309,7 @@ A visual demonstration of the difference between a **line** and a **hyperplane**
 $$\lVert a \rVert = \lVert a \rVert_2 \equiv \sqrt{a_1^2 + ... + a_n^2}$$
 - $L_1$ norm is the **Manhattan distance**:
 $$\lVert a \rVert_1 \equiv |a_1| + ... + |a_n|$$
+
 # Vector Spaces and Bases
 ## Linear Combinations, Independence
 A **linear combination** of vectors is simply just combining several vectors and applying a factor of each vector. A demonstration is shown below:
@@ -345,3 +346,5 @@ What this means is that $B$ is a basis if it has the minimum number of vectors t
 An **orthonormal** basis is a basis in which:
 1. Each pair of basis vectors are orthogonal (zero dot prod); and 
 2. Each vector has norm equal to 1.
+
+# Basic Matrices
