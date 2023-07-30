@@ -309,3 +309,39 @@ A visual demonstration of the difference between a **line** and a **hyperplane**
 $$\lVert a \rVert = \lVert a \rVert_2 \equiv \sqrt{a_1^2 + ... + a_n^2}$$
 - $L_1$ norm is the **Manhattan distance**:
 $$\lVert a \rVert_1 \equiv |a_1| + ... + |a_n|$$
+# Vector Spaces and Bases
+## Linear Combinations, Independence
+A **linear combination** of vectors is simply just combining several vectors and applying a factor of each vector. A demonstration is shown below:
+
+$v_1 = \begin{bmatrix} 1 \\ 2 \end{bmatrix}$ $v_2 = \begin{bmatrix} 0 \\ 3 \end{bmatrix}$
+
+$c_1 = 3$, $c_2 = -2$
+
+$c_1v_1 - c_2v_2 = \begin{bmatrix} 3 \times 1 - 2 \times 0 \\ 3 \times 2 - 2 \times 3 \end{bmatrix}$ 
+
+$c_1v_1 - c_2v_2 = \begin{bmatrix} 3 \\ 0 \end{bmatrix}$ 
+
+A more formal definition is a **linear combination** of vectors $v_1, ..., v_k \in V$ some vector space, is a new vector $\sum^k_{i=1}a_iv_i$ for some scalars $a_1, ..., a_k$
+
+A set of vectors $\{v_1, ..., v_k\} \subseteq V$ is called **linearly dependent** if one element $v_j$ can be written as a linear combination of the other elements. A set that isn't linearly dependent is **linearly independent**.
+
+## Spans, Bases
+The **span** of vectors $v_1, ..., v_k \in V$ is the set of all obtainable linear combinations (ranging over all scalar coefficients) of the vectors. This can be explained with an example:
+
+The below graph shows the plots for $v_1$ and $v_2$ in the vectors above. These two vectors can create a linear combination that can plot anything in this 2D space, you just simply adjust the weights applied to the vectors. Therefore for the **below graph** we can say that the **span** is $span(b_1, v_2) = \mathbb{R} ^2$. 
+
+![](span.png)
+
+For the two vectors shown below, no matter what scalars you apply to either vector, the linear combination will only span along that single axis. Therefore we can say that the **span** is $c_1x + c_2x$ 
+
+![](no_span.png)
+
+A set of vectors $B = \{v_1, ..., v_k\} \subseteq V$ is called a **basis** for a vector subspace $V' \subseteq V$ if
+1. The set $B$ is linearly independent; and
+2. Every $v \in V'$ is a linear combination of the set $B$ 
+
+What this means is that $B$ is a basis if it has the minimum number of vectors to span across the whole vector space of some arbitrary set such as $V'$, therefore each vector must be linearly independent (much like how the vectors along the $x$, $y$ and $z$ axes are linearly independent and their linear combinations can span across any basis in the $\mathbb{R}^3$ space).
+
+An **orthonormal** basis is a basis in which:
+1. Each pair of basis vectors are orthogonal (zero dot prod); and 
+2. Each vector has norm equal to 1.
