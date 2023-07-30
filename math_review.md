@@ -317,16 +317,14 @@ $$
 \begin{align}
 v_1 &= \begin{bmatrix} 1 \\ 2 \end{bmatrix}
 \end{align} \ \ \
-v_2 = \begin{bmatrix} 0 \\ 3 \end{bmatrix}
+v_2 = \begin{bmatrix} 0 \\ 3 \end{bmatrix} \ \ \ 
+c_2 = -2 \ \ \
+c_1 = 3
 $$
 
-$$v_2 = \begin{bmatrix} 0 \\ 3 \end{bmatrix}$$
+$$c_1v_1 - c_2v_2 = \begin{bmatrix} 3 \times 1 - 2 \times 0 \\ 3 \times 2 - 2 \times 3 \end{bmatrix}$$
 
-$c_1 = 3$, $c_2 = -2$
-
-$c_1v_1 - c_2v_2 = \begin{bmatrix} 3 \times 1 - 2 \times 0 \\ 3 \times 2 - 2 \times 3 \end{bmatrix}$ 
-
-$c_1v_1 - c_2v_2 = \begin{bmatrix} 3 \\ 0 \end{bmatrix}$ 
+$$c_1v_1 - c_2v_2 = \begin{bmatrix} 3 \\ 0 \end{bmatrix}$$ 
 
 A more formal definition is a **linear combination** of vectors $v_1, ..., v_k \in V$ some vector space, is a new vector $\sum^k_{i=1} a_iv_i$ for some scalars $a_1, ..., a_k$
 
