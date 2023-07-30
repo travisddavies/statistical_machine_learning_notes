@@ -282,7 +282,7 @@ $$u'v = u_v \lVert v \rVert = v_u \lVert u \rVert$$
 - If two vectors are parallel then $u'v = \lVert u \rVert \lVert v \rVert$, if they are anti-parallel then $u'v = -\lVert u \rVert \lVert v \rVert$ 
 - $u'u = \lVert u \rVert ^2$, so $\lVert u \rVert = \sqrt{u_1^2 + ... + u_m^2}$ defines the Euclidean vector length
 
-![](two_vectors.png)
+![](Images/two_vectors.png)
 
 ## Hyperplanes and Normal Vectors
 A **hyperplane** defined by parameters $w$ and $b$ is a set of points that satisfy $X'W + b = 0$. What this means can be seen in the following way:
@@ -290,17 +290,17 @@ A **hyperplane** defined by parameters $w$ and $b$ is a set of points that satis
 - A 3D equation such as $az + by + cz + d = 0$ which can be defined as $w_3x_3 + w_2x_2 + w_1x_1 + w_0 = 0$, we call a <u>plane</u>.
 - An $n$-dimensional plane such as $w_0 + w_1x_1 + w_2x_2 + ... + w_nx_n = 0$ is a called a <u>hyperplane</u>.
 
-![](normal_hyperplane.png)
+![](Images/normal_hyperplane.png)
 
 A normal vector is defined in the following way:
 - Consider a line defined by $w_1$, $w_2$ and b
 - Vector $w = [w_1. w_2]'$ is a normal vector
 
-![](normal_vector.png)
+![](Images/normal_vector.png)
 
 A visual demonstration of the difference between a **line** and a **hyperplane** are shown below.
 
-![](hyperplane_v_line.png)
+![](Images/hyperplane_v_line.png)
 
 ## $L_1$ and $L_2$ Norms
 - Intuitively, norms measure lengths of vectors in some sense
