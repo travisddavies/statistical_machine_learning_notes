@@ -313,11 +313,15 @@ $$\lVert a \rVert_1 \equiv |a_1| + ... + |a_n|$$
 ## Linear Combinations, Independence
 A **linear combination** of vectors is simply just combining several vectors and applying a factor of each vector. A demonstration is shown below:
 
+
 $v_1 = \begin{bmatrix} 1 \\ 2 \end{bmatrix}$ $v_2 = \begin{bmatrix} 0 \\ 3 \end{bmatrix}$
+
 
 $c_1 = 3$, $c_2 = -2$
 
+
 $c_1v_1 - c_2v_2 = \begin{bmatrix} 3 \times 1 - 2 \times 0 \\ 3 \times 2 - 2 \times 3 \end{bmatrix}$ 
+
 
 $c_1v_1 - c_2v_2 = \begin{bmatrix} 3 \\ 0 \end{bmatrix}$ 
 
@@ -330,11 +334,11 @@ The **span** of vectors $v_1, ..., v_k \in V$ is the set of all obtainable linea
 
 The below graph shows the plots for $v_1$ and $v_2$ in the vectors above. These two vectors can create a linear combination that can plot anything in this 2D space, you just simply adjust the weights applied to the vectors. Therefore for the **below graph** we can say that the **span** is $span(b_1, v_2) = \mathbb{R} ^2$. 
 
-![](span.png)
+![](Images/span.png)
 
 For the two vectors shown below, no matter what scalars you apply to either vector, the linear combination will only span along that single axis. Therefore we can say that the **span** is $c_1x + c_2x$ 
 
-![](no_span.png)
+![](Images/no_span.png)
 
 A set of vectors $B = \{v_1, ..., v_k\} \subseteq V$ is called a **basis** for a vector subspace $V' \subseteq V$ if
 1. The set $B$ is linearly independent; and
