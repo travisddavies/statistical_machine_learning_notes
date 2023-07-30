@@ -209,9 +209,9 @@ We want to know the probability of success of movies of a specific genre ($A=\{c
 
 $P(A) = \underset{b \in \beta} \sum P(A, B=b)$
 
-![](sum_rule_example.png)
+![](Images/sum_rule_example.png)
 
-![](sum_rule_example2.png)
+![](Images/sum_rule_example2.png)
 
 # Vectors
 ## What are Vectors?
