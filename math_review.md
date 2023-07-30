@@ -431,3 +431,48 @@ In the above case, the eigenvalue $\lambda$ equalled 1, so therefore the eigenve
 	- Then $A$ has (strictly) positive eigenvalues
 
 # Sequence and Limits
+## Infinite Sequences
+- Written like $x_!, x_2, ... \text{ or } \{x_i\}_{i \in \mathbb{N}}$ 
+- Formally: a function from the positive (from 1) or non-negative (from 0) integers
+- Index set: subscript set e.g. $\mathbb{N}$ 
+- Sequences allow us to reason about test error when training data grows indefinitely, or training error (or a stopping criterion) when training runs arbitrarily long
+
+What this means is that we may define a sequence such as this:
+
+$a_n = 2n$
+
+$a_n = 2, 4, 6, 8, 10, 12, ..., 2\mathbb{N}$ 
+
+Where $\mathbb{N}$ is an arbitrary non-negative integer. This is a sequence
+
+## Limits and Convergence
+- A sequence $\{ x_i \}_{i \in \mathbb{N}}$ **converges** if its elements become and remain arbitrarily close to a fixed **limit** point $L$.
+- Formally: $x_i \rightarrow L$ if, for all $\epsilon > 0$, there exists $N \in \mathbb{N}$ such that for all $n \geq N$ we have $\lVert x_n - L \rVert < \epsilon$ 
+
+![](Images/convergence.png)
+
+**Notes**:
+- Epsilon $\epsilon$ represents distance of sequence to limit point
+- Distance can be arbitrarily small
+- Definition says we eventually get that close (at some finite $N$) and we stay at least that close for ever more
+
+What this means is that say we have this sequence:
+
+$\underset{n \rightarrow \infty}{\lim} 2n$ 
+
+If we substituted $\infty$ into this, it would give $\infty$, therefore this sequence diverges.
+
+Now if we have a sequence like this:
+
+$\underset{n \rightarrow \infty} {\lim} \frac{(5n + 3)}{7n -4}$ 
+
+We can then divide both the numerator and denominator by $\frac{1}{n}$ 
+
+$\underset{n \rightarrow \infty} {\lim} \frac{(5 + \frac{3}{n})}{7 - \frac{4}{n}}$  
+
+Now if we substitute in $\infty$, we get this:
+
+$\underset{n \rightarrow \infty} {\lim} \frac{(5 + \frac{3}{\infty})}{7 - \frac{4}{\infty}} = \frac{5}{7}$ 
+
+This equals a constant, therefore this sequence converges
+
