@@ -1,4 +1,3 @@
-<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 # Probability
 ## Axioms of Probability
 Let $S$ be the sample space and $A_i$, $A_j$ be events in $S$, i.e. $A \in S$:
@@ -316,7 +315,7 @@ A **linear combination** of vectors is simply just combining several vectors and
 
 $$
 \begin{align}
-v_1 &= \begin{bmatrix} 1  \\ 2 \end{bmatrix}
+v_1 &= \begin{bmatrix} 1  \\2 \end{bmatrix}
 \end{align} \ \ \ \ \
 v_2 = \begin{bmatrix} 0  \\ 3 \end{bmatrix} \ \ \ \ \
 c_2 = -2 \ \ \ \ \
