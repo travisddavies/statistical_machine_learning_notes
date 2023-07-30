@@ -348,3 +348,86 @@ An **orthonormal** basis is a basis in which:
 2. Each vector has norm equal to 1.
 
 # Basic Matrices
+- A rectangular array, often denoted by upper-case, with two indices first for row, second for column
+$$
+basicMatrix = 
+\begin{bmatrix} 
+1 & 2 \\ 
+3 & 4
+\end{bmatrix}
+$$
+- **Square matrix** has equal dimensions (number of rows and columns)
+- **Matrix transpose** $A'$ or $A^T$ of $m$ by $n$ matrix $A$ is an $n$ by $m$ matrix with entries $A'_{ij}=A_{ji}$. What this means is that the matrix will be flipped along the diagonal, and all the $x$ coordinates will become the $y$ coordinates and vice-versa.
+- A square matrix $A$ with $A=A'$ is called **symmetric**
+- The (square) **identity matrix** $l$ has 1 on the diagonal, 0 off-diagonal
+$$
+I = 
+\begin{bmatrix} 
+1 & 0 & 0 \\ 
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+$$
+- **Matrix inverse** $A^{-1}$ of square matrix $A$ (if it exists) satisfies $A^{-1}A=I$ 
+
+## Matrix Eigenspectrum
+Scalar, vector pair $(\lambda, v)$ are called an **eigenvalue-eigenvector** pair of a **square matrix** $A$ if $Av = \lambda v$. A demonstration is shown below for what this all means
+
+You have a typical plane as shown below, with two vectors acting as axes as shown below.
+
+![](Images/normal_plane.png)
+
+Now we stretch it with a matrix as shown below, now the whole plane is distorted and stretched. The horizontal axis is now stretched 3 times longer, and the vertical axis is now slanted to the right and stretched out vertically.
+
+![](Images/stretched_plane.png)
+
+Take note of what happens to the vector below, it currently spans out along the white line.
+
+![](straight_plane2.png)
+
+With this matrix distorting the plane, this vector has now been stretched and distorted along a different span, as most vectors would.
+
+![](Images/stretched_vector.png)
+
+Some vectors, however remain in their same span, as can be seen from the horizontal vector in the picture below, it was stretched by a factor of 3, but it remained on its original span. This is an **eigenvector**. 
+
+![](Images/eigenvector1.png)
+
+Another eigenvector in this space is shown below, as you can see, it is stretched but not moved off its span.
+
+![](Images/diagonal_eigenvector.png)
+
+![](Images/diagonal_eigonvector2.png)
+
+The eigenvalue is just merely the factor by which the eigenvectors are stretched by from the scalar factor matrix, as shown below.
+
+![](Images/2_eigenvectors.png)
+
+So to find the eigenvectors and eigenvalues in a space, we can use the following formula:
+$$A\vec{v} = (\lambda I) \vec{v} $$
+Where $A$ is the scaling matrix that distorted the plane, and $\lambda$ is the eigenvalue, but in this case applied over an identity matrix $I$.  What this means is we can find the eigenvector and eigenvalue with the following formula:
+$$(A - \lambda I) \vec{v} = \vec{0}$$
+This essentially means we would subtract $\lambda$ along the diagonals of the matrix $A$ and the determinant of the matrix will equal zero. This will then provide the eigenvalues, which can be used to find the eigenvector.
+
+What this essentially does is remove a dimension in the plane to become a single line, as shown below:
+
+![](Images/undistorted_plane.png)
+
+![](Images/remove_dimension.png)
+
+In the above case, the eigenvalue $\lambda$ equalled 1, so therefore the eigenvector for $A\vec{v}$ is $1\vec{v}$, as shown below.
+
+![](Images/eigenvector_matrix.png)
+
+## Spectra of Common Matrices
+- Eigenvalues of **symmetric matrices** are always real (no imaginary component)
+- A matrix with linear dependent columns has some zero eigenvalues (called rank deficient) $\rightarrow$ no matrix inverse exists
+
+## Positive (semi)Definite Matrices
+- A symmetric square matrix $A$ is called **positive semidefinite** if for all vectors $v$ we have $v'Av \geq 0$.
+	- Then $A$ has non-negative eigenvalues
+	- For example, any $A = X'X$ since: $v'X'Xv = \lVert Xv \rVert^2 \geq 0$ 
+- Further if $v'Av \geq 0$ holds as a strict inequality then $A$ is called **positive definite**.
+	- Then $A$ has (strictly) positive eigenvalues
+
+# Sequence and Limits
