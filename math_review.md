@@ -1,3 +1,4 @@
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 # Probability
 ## Axioms of Probability
 Let $S$ be the sample space and $A_i$, $A_j$ be events in $S$, i.e. $A \in S$:
