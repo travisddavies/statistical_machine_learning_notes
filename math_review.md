@@ -313,7 +313,7 @@ $$\lVert a \rVert_1 \equiv |a_1| + ... + |a_n|$$
 ## Linear Combinations, Independence
 A **linear combination** of vectors is simply just combining several vectors and applying a factor of each vector. A demonstration is shown below:
 
-$$v_1 = \begin{bmatrix} 1 \\ 2 \end{bmatrix}$$
+$v_1 = \begin{bmatrix} 1 \\ 2 \end{bmatrix}$
 
 $v_2 = \begin{bmatrix} 0 \\ 3 \end{bmatrix}$
 
