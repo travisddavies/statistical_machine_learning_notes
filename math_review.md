@@ -316,10 +316,11 @@ A **linear combination** of vectors is simply just combining several vectors and
 $$
 \begin{align}
 v_1 &= \begin{bmatrix} 1 \\ 2 \end{bmatrix}
-\end{align}
+\end{align} \ \ \
+v_2 = \begin{bmatrix} 0 \\ 3 \end{bmatrix}
 $$
 
-$v_2 = \begin{bmatrix} 0 \\ 3 \end{bmatrix}$
+$$v_2 = \begin{bmatrix} 0 \\ 3 \end{bmatrix}$$
 
 $c_1 = 3$, $c_2 = -2$
 
