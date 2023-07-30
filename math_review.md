@@ -239,7 +239,7 @@ $a \cdot b = 2 \times 1 + 1.4 \times 2.4 + 4.6 \times 6.6 + 5.5 \times 2.5$
 
 $a \cdot b = 49.47$
 
-If $k$ is a scalar, $a, b, c$ are vectors then:
+It's also important to note that the output of the dot product is a **scalar**. Also, if $k$ is a scalar, $a, b, c$ are vectors then:
 
 $(ka)'b = k(a'b) = a'(kb)$
 $a'(b+c)=a'b+a'c$
@@ -249,9 +249,8 @@ This basically means that the constant will be broadcasted over the whole of one
 ## Dot Product: Geometric Definition
 Given two $m$-dimensional Euclidean vectors $u$ and $v$, their dot product is: 
 $$u \cdot v \equiv u'v \equiv \lVert u \rVert \lVert v \rVert \cos \theta$$
-$\lVert u \rVert$ and $\lVert v \rVert$ mean the $L_2$ norms for $u$, $v$, which is the like the right angle distance of a side on a triangle. 
-
-$\theta$ is the angle between the vectors
+$\lVert u \rVert$ and $\lVert v \rVert$ mean the $L_2$ norms for $u$, $v$, which is the like the right angle distance of a side on a triangle.  $\theta$ is the angle between the vectors. This can be simplified into this relationship:
+$$\cos \theta  \equiv \frac{u \cdot v} {\lVert u \rVert \lVert v \rVert }$$
 
 For example the euclidean distance of the below vectors can be calculated as such:
 
@@ -279,3 +278,34 @@ This visually can be seen below, which basically casts a shadow on the other vec
 Thus dot product is:
 $$u'v = u_v \lVert v \rVert = v_u \lVert u \rVert$$
 ## Geometric Properties of the Dot Product
+- Since $\cos(90)$ is 0, if two vectors are orthogonal (perpendicular) then $u'v = 0$.  
+- If two vectors are parallel then $u'v = \lVert u \rVert \lVert v \rVert$, if they are anti-parallel then $u'v = -\lVert u \rVert \lVert v \rVert$ 
+- $u'u = \lVert u \rVert ^2$, so $\lVert u \rVert = \sqrt{u_1^2 + ... + u_m^2}$ defines the Euclidean vector length
+
+![](two_vectors.png)
+
+## Hyperplanes and Normal Vectors
+A **hyperplane** defined by parameters $w$ and $b$ is a set of points that satisfy $X'W + b = 0$. What this means can be seen in the following way:
+- A 2D equation such as $ay + bx + c = 0$ which can be defined as $w_2x_2 + w_1x_1 + w_0 = 0$, we call a <u>line</u>.
+- A 3D equation such as $az + by + cz + d = 0$ which can be defined as $w_3x_3 + w_2x_2 + w_1x_1 + w_0 = 0$, we call a <u>plane</u>.
+- An $n$-dimensional plane such as $w_0 + w_1x_1 + w_2x_2 + ... + w_nx_n = 0$ is a called a <u>hyperplane</u>.
+
+![](normal_hyperplane.png)
+
+A normal vector is defined in the following way:
+- Consider a line defined by $w_1$, $w_2$ and b
+- Vector $w = [w_1. w_2]'$ is a normal vector
+
+![](normal_vector.png)
+
+A visual demonstration of the difference between a **line** and a **hyperplane** are shown below.
+
+![](hyperplane_v_line.png)
+
+## $L_1$ and $L_2$ Norms
+- Intuitively, norms measure lengths of vectors in some sense
+- Often component of objectives or stopping criteria in optimisation-for-ML
+- $L_2$ norm is **Euclidean distance**:
+$$\lVert a \rVert = \lVert a \rVert_2 \equiv \sqrt{a_1^2 + ... + a_n^2}$$
+- $L_1$ norm is the **Manhattan distance**:
+$$\lVert a \rVert_1 \equiv |a_1| + ... + |a_n|$$
