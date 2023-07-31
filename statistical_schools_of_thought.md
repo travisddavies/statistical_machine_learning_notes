@@ -90,6 +90,7 @@ The derivation of this is as follows:
 1. Write as joint distribution over all $X$
 
 $$\prod^n_{i=1}p_{\theta}(x_i) = \prod^n_{i=1} \theta^{x_i}(1 - \theta^{1 - x_i})$$   
+
 2. Take the logarithms. **Note**: the log brought the powers down, hence why the $x_i$ and $1-x_i$ are brought down.  The multiplication is split up because of the rule $\log(a \times b) = \log(a) + \log(b)$ . This is also the reason why the product went away and became a sum.
 
 $$
@@ -101,6 +102,7 @@ $$
 $$
 \frac{dL}{d\theta} = \frac{\sum^n_{i=1} x_i}{\theta} + \frac{\sum^n_{i=1}(1-x_i)}{1- \theta}
 $$
+
 4. We can now simplify this slightly so it's easier to solve, let's change the sums to just $\bar{X}$, and simplify the sum of 1's to just $n$. 
 
 $$
@@ -111,7 +113,6 @@ $$
 
 $$
 0 = \frac{\bar{X}}{\theta} + \frac{n-\bar{X}}{1 -\theta}
-
 $$
 
 $$
