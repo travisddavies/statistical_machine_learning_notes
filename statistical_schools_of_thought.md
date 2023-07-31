@@ -91,24 +91,33 @@ The derivation of this is as follows:
 
 $$\prod^n_{i=1}p_{\theta}(x_i) = \prod^n_{i=1} \theta^{x_i}(1 - \theta^{1 - x_i})$$   
 2. Take the logarithms. **Note**: the log brought the powers down, hence why the $x_i$ and $1-x_i$ are brought down.  The multiplication is split up because of the rule $\log(a \times b) = \log(a) + \log(b)$ . This is also the reason why the product went away and became a sum.
+
 $$
 L(\theta) = \log \theta \sum^n_{i=1}x_i + \log(1-\theta) \sum^n_{i=1} (1-x_i) 
 $$
+
 3. We can now find the derivative with respect to $\theta$. The derivative of a log is just the inverse, which is why the fractions formed.
+
 $$
 \frac{dL}{d\theta} = \frac{\sum^n_{i=1} x_i}{\theta} + \frac{\sum^n_{i=1}(1-x_i)}{1- \theta}
 $$
 4. We can now simplify this slightly so it's easier to solve, let's change the sums to just $\bar{X}$, and simplify the sum of 1's to just $n$. 
+
 $$
 \frac{dL}{d \theta} = \frac{\bar{X}}{\theta} + \frac{n - \bar{X}}{1 - \theta}
 $$
+
 5. Set the derivative to zero and then solve for $\theta$
+
 $$
 0 = \frac{\bar{X}}{\theta} + \frac{n-\bar{X}}{1 -\theta}
+
 $$
+
 $$
 \theta = \frac{1}{n}\sum^n_{i=1}x_i
 $$
+
 ### Example II: Normal
 - Know data comes from Normal distribution with variance 1 but unknown mean; find mean
 - MLE for mean
