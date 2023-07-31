@@ -534,4 +534,3 @@ An example is shown below, for an ordinary convergence, there is a point where t
 For probability convergence, it's a similar concept, but we can think of it as the Gaussian distribution will eventually become confined between $a + \epsilon$ and $a - \epsilon$, meaning that the probability of a sequence number being outside of this range will approach 0.
  
 ![](Images/probability_convergence.png)
-
