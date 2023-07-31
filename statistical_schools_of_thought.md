@@ -123,4 +123,30 @@ $$
 
 ### Example II: Normal
 - Know data comes from Normal distribution with variance 1 but unknown mean; find mean
-- MLE for mean
+MLE for mean:
+
+$$
+p_{\theta}(x) = \frac{1}{\sqrt{2 \pi}}\exp(-\frac{1}{2}(x-\theta)^2)
+$$
+
+Maximising likelihood yields 
+
+$$
+\hat{\theta} = \frac{1}{n}\sum^n_{i=1}X_i
+$$
+Exercise: derive MLE for variance $\sigma^2$ based on
+
+$$
+p_{\theta}(x) = \frac{1}{\sqrt{2\pi \sigma^2}}\exp(-\frac{1}{2\sigma^2}(x-\mu)^2) \text{ with } \theta = (\mu, \sigma^2) 
+$$
+
+**This needs to be come back to**
+
+## MLE 'Algorithm'
+1. Given data $X_1, ..., X_2$ **define** probability distribution, $p_{\theta}$, assumed to have **generated the data**
+2. Express likelihood of data, $\prod^n_{i=1}p_{\theta}(X_i)$ 
+	- (usually its **logarithm**... why?) Because logarithms are monotonic, so this prevents stack underflow.
+3. Optimise to find _best_ (most likely) parameters $\hat{\theta}$ 
+	1. Take partial derivatives of log likelihood wrt $\theta$ 
+	2. Set to 0 and solve
+	    (failing that, use **gradient descent**)
