@@ -524,4 +524,14 @@ This equals a constant, therefore this sequence converges
 - A sequence $\{X_n\}$ of random variables **converges almost surely** to random variable $X$ if: $Pr(X_n \rightarrow X) = 1$ 
 - Chain of implications:
 	- Almost sure (strongest) $\implies$ in probability $\implies$ in distribution (weakest)
-	- 
+
+What this all means is that as our sequence approaches infinity, the sample mean of the data will reach the global mean, and your prediction accuracy will also converge. Therefore, the probability of our predictor predicting an appropriate random variable between a specified range $\epsilon$ will also reach 1, or in the inverse, the probability of predicting the appropriate random variable being outside this range will approach 0.
+
+An example is shown below, for an ordinary convergence, there is a point where the numbers in sequence $a_n$ will converge between $a + \epsilon$ and $a - \epsilon$. In the plot below, that point in $n_0$.
+
+![](Images/ordinary_convergence.png)
+
+For probability convergence, it's a similar concept, but we can think of it as the Gaussian distribution will eventually become confined between $a + \epsilon$ and $a - \epsilon$, meaning that the probability of a sequence number being outside of this range will approach 0.
+ 
+![](Images/probability_convergence.png)
+
