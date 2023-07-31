@@ -5,7 +5,7 @@ Wherein unknown model parameters are treated as having fixed but unknown values.
 - Abstract problem
 	- Given: $X_1, X_2, ..., X_n$ drawn i.i.d* from some distribution
 	- Want to: identify unknown distribution, or a property of it
- 
+
 - Parametric approach ("**parameter estimator**")
 	- Class of models $\{p_{\theta}(x): \theta \in \varTheta\}$ indexed by **parameters** $\varTheta$ (could be a real number, or vector, or ...)
 	 - **Point estimate** $\hat{\theta}^*$ $(X_1, ..., X_n)$ a function (or **statistic**) of data
@@ -27,7 +27,7 @@ Frequentists have some ways of measuring the performance of their estimators, as
 ## Estimator Bias
 Frequentists seek good behaviour, in ideal conditions
 - **Bias**: $B_{\theta}(\hat{\theta}) = E_{\theta}[\hat{\theta}(X_1, ..., X_n)] - \theta$
-	- What this means is that the bias is simply the difference between the actual value and the estimated value given a certain estimator and its parameters. 
+	- What this means is that the bias is simply the difference between the actual value and the estimated value given a certain estimator and its parameters.
 
 **Example**: $\text{for } i=1 ... 40$
 - $X_{i, 1}, X_{i, 20} \thicksim p_{\theta} = Normal(\theta = 0, \sigma ^ 2)$
