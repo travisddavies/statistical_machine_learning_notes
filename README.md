@@ -6,4 +6,4 @@ GitHub's LaTex renderer seems to not work well on matrices, so the matrix sectio
 
 ## Table of Contents
 1. [Math Review](math_review.md)
-2. 
+2. [Statistical Schools of Thought](statistical_schools_of_thought.md) 
