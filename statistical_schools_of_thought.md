@@ -46,7 +46,7 @@ Frequentists seek good behaviour, in ideal conditions
 - **Variance**: $Var(\hat{\theta}) = E_{\theta}[(\hat{\theta} - E_{\theta} [\hat{\theta}])^2]$
 
 **Example** continued:
-- Plot each $(\hat{\theta}_i - E_{\theta}[\hat{\theta}_i])^2 = \hat{\theta}_i^2$ as a blue dot as shown below
+- Plot each $(\hat{\theta}_{i} - E_{\theta}[\hat{\theta}_i])^2 = \hat{\theta}_i^2$ as a blue dot as shown below
 
 ![](Images/variance_estimator.png)
 
