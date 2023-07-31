@@ -50,6 +50,65 @@ Frequentists seek good behaviour, in ideal conditions
 
 ![](Images/variance_estimator.png)
 
-What the above is essentially asking is how much does the **estimator's** predictions vary from the mean predicted value, which basically means how stable is our estimator at predicting . This should not be mistaken with the variance of the data itself, this variance is focused on the estimator.
+What the above is essentially saying is how much does the **estimator's** predictions vary from the mean predicted value, which basically means how stable is our estimator at predicting . This should not be mistaken with the variance of the data itself, this variance is focused on the estimator.
 
 The example above follows the same method as the previous example, except this time it is measuring the average variance of the estimator's predictions and plotting it, then comparing the average variance of all the measurements with the variance of the data itself. As can be seen in the figure above, the variance of the estimator is similar to the true variance.
+
+## Asymptotically Well Behaved
+For our example estimator (sample mean), we could calculate its exact bias (zero) and variance ($\sigma^2$). Usually can't guarantee low bias/variance exactly :(
+
+Asymptotic properties often hold! :)
+- **Consistency**: $\hat{\theta}(X_1, ..., X_n) \rightarrow \theta$ in probability*
+- **Asymptotic efficiency**: $Var_{\theta}(\hat{\theta}(X_1, ..., X_n))$ converges to the smallest possible variance of any estimator of $\theta$
+
+**Note** *:
+- The $\rightarrow \theta$ in this case means that bias closer and closer to zero 
+
+What the above is basically saying is that despite some estimators performing poorly on given data there are some asymptotic guarantees. These are that the **bias** and **variance** will converge to their minimum are the data approaches **infinity**. 
+
+## Maximum-Likelihood Estimation
+- A **general principle** for designing estimators
+- Involves **optimisation**
+- $\hat{\theta}(x_1, ..., x_n) \in \underset{\theta \in \varTheta}{\text{argmax}} \prod^n_{i=1} p_{\theta}(x_i)$ 
+- "_The best estimator is one under which observed data is most likely_" - Fischer
+
+What this is basically saying is that for the frequentist approach of designing estimators, they use the **maximum-likelihood estimation** approach. This basically is a general principle where the estimator which maximises the probability of predicting observed data. The rule above shows that the product of the probabilities for each parameter is calculated for each model, and the one with the highest probability is chosen as the estimator.
+
+### Example I: Bernoulli
+- Know data comes from Bernoulli distribution with unknown parameter (e.g., biased coin); find mean
+MLE for mean:
+$$p_{\theta}(x) = \begin{cases}
+   \theta, &\text{if } x=1 \\
+   1-\theta, &\text{if } x = 0
+\end{cases}
+$$
+(note: $p_{\theta}(x) = 0$ for all other $x$)
+$$p_{\theta}(x) = \theta^x(1-\theta)^{1-x}$$
+Maximising likelihood yields $\hat{\theta} = \frac{1}{n}\sum^n_{i=1}X_i$
+
+The derivation of this is as follows:
+1. Write as joint distribution over all $X$
+
+$$\prod^n_{i=1}p_{\theta}(x_i) = \prod^n_{i=1} \theta^{x_i}(1 - \theta^{1 - x_i})$$   
+2. Take the logarithms. **Note**: the log brought the powers down, hence why the $x_i$ and $1-x_i$ are brought down.  The multiplication is split up because of the rule $\log(a \times b) = \log(a) + \log(b)$ . This is also the reason why the product went away and became a sum.
+$$
+L(\theta) = \log \theta \sum^n_{i=1}x_i + \log(1-\theta) \sum^n_{i=1} (1-x_i) 
+$$
+3. We can now find the derivative with respect to $\theta$. The derivative of a log is just the inverse, which is why the fractions formed.
+$$
+\frac{dL}{d\theta} = \frac{\sum^n_{i=1} x_i}{\theta} + \frac{\sum^n_{i=1}(1-x_i)}{1- \theta}
+$$
+4. We can now simplify this slightly so it's easier to solve, let's change the sums to just $\bar{X}$, and simplify the sum of 1's to just $n$. 
+$$
+\frac{dL}{d \theta} = \frac{\bar{X}}{\theta} + \frac{n - \bar{X}}{1 - \theta}
+$$
+5. Set the derivative to zero and then solve for $\theta$
+$$
+0 = \frac{\bar{X}}{\theta} + \frac{n-\bar{X}}{1 -\theta}
+$$
+$$
+\theta = \frac{1}{n}\sum^n_{i=1}x_i
+$$
+### Example II: Normal
+- Know data comes from Normal distribution with variance 1 but unknown mean; find mean
+- MLE for mean
