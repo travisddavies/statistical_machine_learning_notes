@@ -134,6 +134,7 @@ Maximising likelihood yields
 $$
 \hat{\theta} = \frac{1}{n}\sum^n_{i=1}X_i
 $$
+
 Exercise: derive MLE for variance $\sigma^2$ based on
 
 $$
