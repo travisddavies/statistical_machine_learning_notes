@@ -84,7 +84,9 @@ $$p_{\theta}(x) = \begin{cases}
 $$
 (note: $p_{\theta}(x) = 0$ for all other $x$)
 $$p_{\theta}(x) = \theta^x(1-\theta)^{1-x}$$
-Maximising likelihood yields $\hat{\theta} = \frac{1}{n}\sum^n_{i=1}X_i$
+Maximising likelihood yields 
+
+$$\hat{\theta} = \frac{1}{n}\sum^n_{i=1}X_i$$
 
 The derivation of this is as follows:
 1. Write as joint distribution over all $X$
