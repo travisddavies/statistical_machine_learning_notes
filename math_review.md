@@ -476,3 +476,38 @@ $\underset{n \rightarrow \infty} {\lim} \frac{(5 + \frac{3}{\infty})}{7 - \frac{
 
 This equals a constant, therefore this sequence converges
 
+# Supremum
+## When Does the Maximum Exist?
+- Can you always take a **max of a set**?
+- Finite sets: what's the max of $\{1, 7, 3, 2, 9\}$?
+	- The max is 9, since that is the largest number in the closed set
+- Closed, bounded, intervals: what's the max of $[0,1]$?
+	- The max is 1, since that is the largest possible number in the closed set
+- Open, bounded intervals: what's the max of $[0,1)$?
+	- The max does not exist, since a number will always approach 1, but will never reach it.
+- Open, unbounded intervals: what's the max of $[0, \infty )$?
+	- The max does not exist, since a number will always approach $\infty$ but never reach it.
+
+## What About "Least Upper Bound"?
+- Can you always take a least-upper-bound of a set? (much more often!)
+- Finite sets: what's the max of $\{1, 7, 3, 2, 9\}$?
+	- The max is 9, and the LUB is 9, for the same reason as before
+- Closed, bounded, intervals: what's the max of $[0,1]$?
+	- The max is 1, and the LUB is 1, for the same reason as before
+- Open, bounded intervals: what's the max of $[0,1)$?
+	- The max does not exist like before, but the LUB is 1, since that is the lowest maximum number in the set.
+- Open, unbounded intervals: what's the max of $[0, \infty )$?
+	- The max does not exist like before, but the LUB is $\infty$, since that is the lowest maximum number of the set.
+
+## The Supremum
+- Consider any subset of $S$ of the reals
+- **Upper bound** $u \in \mathbb{R}^+$ of the set $S$ has: $u \geq x$ for all $x \in S$. 
+	- What this means is that upper bound $u$ must be a real number that belongs to a set and is greater than all other numbers in the set.
+- If $u$ is not bigger than any other upper bound of $S$ then it's called a least upper bound or **supremum** of $S$, written as $sup(S)$ and pronounced "soup":
+	- $z \geq u$ for all upper bounds $z \in \mathbb{R}^+$ of $S$.
+		- What this means that the upper bound $u$ must be smaller than all other upper bounds to be considered a supremum
+- When we don't know, or can't guarantee, that a set or sequence has a max, it is better to use its **sup**
+
+![](Images/supremum.png)
+
+# Stochastic Convergence
