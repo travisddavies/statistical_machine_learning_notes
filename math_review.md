@@ -511,3 +511,17 @@ This equals a constant, therefore this sequence converges
 ![](Images/supremum.png)
 
 # Stochastic Convergence
+## Why Simple Limits Aren't Enough
+- Consider running your favourite learner on varying numbers of $n$ training examples giving classifier $c_n$ 
+- If your learner minimises training error, you'd wish its test error wasn't much bigger than its training error
+- If $R_n = err_{test}(c_n) - err_{train}(c_n)$, you'd wish for $R_n \rightarrow 0$ as this would mean **eventually tiny test error** 
+- But both training data and test data are random!
+- Even if **$R_n \rightarrow 0$ usually happens**, it won't always!!
+
+## Stochastic Convergence
+- A sequence $\{X_n\}$ of random variables (CDFs $F_n$) **converges in distribution** to random variable $X$ (CDF $F$) if $F_n(x) \rightarrow F(x)$ for all constants $x$
+- A sequence $\{X_n\}$ of random variables **converges in probability** to random variable $X$ if for all $\epsilon > 0$: $Pr(|X_n - X| > \epsilon) \rightarrow 0$ 
+- A sequence $\{X_n\}$ of random variables **converges almost surely** to random variable $X$ if: $Pr(X_n \rightarrow X) = 1$ 
+- Chain of implications:
+	- Almost sure (strongest) $\implies$ in probability $\implies$ in distribution (weakest)
+	- 
