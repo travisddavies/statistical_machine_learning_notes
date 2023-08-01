@@ -180,7 +180,8 @@ Take for example the table below, this is an example of utilities from decision 
 - Can't directly! Why?
 	- **Need to come back to this**
  - **ERM**: Use training set $X$ to approximate R_{\theta}
-	 - Minimise **empirical risk** $\hat{R}_{\theta} [\delta] = \frac{1}{n}\sum^n_{i=1}l(\delta(X_i), \theta)$ 
+	 - Minimise **empirical risk**: 
+		 - $\hat{R}_{\theta} [\delta] = \frac{1}{n}\sum^n_{i=1}l(\delta(X_i), \theta)$ 
 
 What this basically means is that we really want a very low loss if we were to pick out a random sample and make a prediction with it, so what we do is use the **expected** loss, a.k.a the **risk**, as a measurement for the loss if were to predict a random sample. This is much like how we would measure the average loss from a test dataset and use that as our expectation of the model's loss out in the wild. Therefore, the aim is to minimise the **risk** of our model. 
 
