@@ -83,6 +83,7 @@ $$p_{\theta}(x) = \begin{cases}
    1-\theta, &\text{if } x = 0
 \end{cases}
 $$
+
 (note: $p_{\theta}(x) = 0$ for all other $x$)
 $$p_{\theta}(x) = \theta^x(1-\theta)^{1-x}$$
 Maximising likelihood yields 
