@@ -198,6 +198,7 @@ But are they equally important? How related?
 $$
 E_{\theta}[(\theta - \hat{\theta})^2] = [B(\hat{\theta})]^2 + Var_{\theta}(\hat{\theta})
 $$ 
+
 What this basically means is that there is this tension between the **bias** and **variance** for the **loss** of a model. If the bias is high in a model, then the variance will likely be low, and vice-versa. So to **minimise** the loss of the function, both the bias and the variance need to be **reduced**.
 
 # Extremum Estimators
