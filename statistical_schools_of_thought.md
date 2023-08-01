@@ -258,6 +258,7 @@ This means that will make its estimations about a sample of data based on prior 
 
 ### Primary Tools to Obtain the Posterior
 - **Bayes Rule**: reverses order of conditioning (more info [here](math_review.md#L199))
+
 $$
 P(\theta|X=x) = \frac{P(X=x| \theta)P(\theta)}{P(x=x)}
 $$
