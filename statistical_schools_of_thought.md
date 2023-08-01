@@ -194,6 +194,7 @@ We've already seen
 
 But are they equally important? How related?
 - **Bias-variance decomposition** of square-loss risk
+
 $$
 E_{\theta}[(\theta - \hat{\theta})^2] = [B(\hat{\theta})]^2 + Var_{\theta}(\hat{\theta})
 $$ 
