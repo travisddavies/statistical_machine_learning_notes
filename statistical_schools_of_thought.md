@@ -151,3 +151,55 @@ $$
 	1. Take partial derivatives of log likelihood wrt $\theta$ 
 	2. Set to 0 and solve
 	    (failing that, use **gradient descent**)
+
+# Statistical Decision Theory
+## Decision Theory
+- Act to maximise utility - connected to economics and operations research
+- **Decision rule** $\delta(x) \in A$ an action space
+	- E.g. point estimate $\hat{\theta}(x_1, ..., x_2)$
+	- E.g. Out-of-sample prediction $\hat{Y}_{n+1}|X_1, Y_1, ..., X_n, Y_n, X_{n+1}$ 
+- **Loss function** $l(a,\theta)$: economic cost, error metric
+	- E.g. square loss of estimate $(\hat{\theta}-\theta)^2$ 
+	- E.g. 0-1 loss of classifier predictions $1[y \not = \hat{y}]$ 
+
+What this basically means is that **decision theory** is about choosing **actions** that are within an **action space** given the provided **data**. The goal is to maximise the **utility** of the decision, which is basically like a **score** for the outcome of the decision.
+
+Take for example the table below, this is an example of utilities from decision theory. If the doctor performs surgery on a patient and the estimation is **correct** that the patient has cancer, then the score is 100%. However, if the doctor is **incorrect** in its prediction and the cancer is absent, then the utility is only 40%. Much like for if the surgery is not performed, the misclassified case has a utility of 0%, and the correct estimation is 85%. The goal of the estimator would be to **minimise** the loss of its estimations as much as possible.  
+
+|                | Surgery Performed | Surgery Not Performed |
+|----------------|-------------------|-----------------------|
+| Cancer Present | 100%              | 0%                    |
+| Cancer Absent  | 40%               | 80%                   |
+
+## Risk & Empirical Risk Minimisation (ERM)
+- In decision theory, we really care about _expected_ loss
+- **Risk** $R_{\theta}[\delta] = E_{X \thicksim \theta}  [l(\delta (X), \theta)]$
+	- E.g. true test error
+	- aka generalisation error
+- Want: Choose $\delta$ to minimise $R_{\theta}[\delta]$ 
+- Can't directly! Why?
+	- **Need to come back to this**
+ - **ERM**: Use training set $X$ to approximate R_{\theta}
+	 - Minimise **empirical risk** $\hat{R}_{\theta} [\delta] = \frac{1}{n}\sum^n_{i=1}l(\delta(X_i), \theta)$ 
+
+What this basically means is that we really want a very low loss if we were to pick out a random sample and make a prediction with it, so what we do is use the **expected** loss, a.k.a the **risk**, as a measurement for the loss if were to predict a random sample. This is much like how we would measure the average loss from a test dataset and use that as our expectation of the model's loss out in the wild. Therefore, the aim is to minimise the **risk** of our model. 
+
+Much like for other methods of calculating the expected value, the **risk** in this case is measured by calculating the average loss of the model over a finite number of samples
+
+## Decision Theory vs. Bias-Variance
+We've already seen
+
+- Bias: $B_{\theta}(\hat{\theta}) = E_{\theta}[\hat{\theta}(X_n, ..., X_n)] - \theta$ 
+- Variance: $Var_{\theta}(\hat{\theta}) = E_{\theta}[(\hat{\theta} - E_{\theta}[\hat{\theta}])^2]$ 
+
+But are they equally important? How related?
+- **Bias-variance decomposition** of square-loss risk
+$$
+E_{\theta}[(\theta - \hat{\theta})^2] = [B(\hat{\theta})]^2 + Var_{\theta}(\hat{\theta})
+$$ 
+What this basically means is that there is this tension between the **bias** and **variance** for the **loss** of a model. If the bias is high in a model, then the variance will likely be low, and vice-versa. So to **minimise** the loss of the function, both the bias and the variance need to be **reduced**.
+
+# Extremum Estimators
+Very general framework that covers elements of major statistical learning frameworks; enjoy good asymptotic behaviour in general!!
+
+## About Extremum Estimators
