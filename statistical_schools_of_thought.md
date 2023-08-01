@@ -207,3 +207,26 @@ What this basically means is that there is this tension between the **bias** and
 Very general framework that covers elements of major statistical learning frameworks; enjoy good asymptotic behaviour in general!!
 
 ## About Extremum Estimators
+- $\hat{\theta}_n (X) \in \underset{\theta \in \varTheta} {\text{argmin}} Q_n(X, \theta)$ for any objective $Q_n()$ 
+- Generalises bits of all statistical frameworks.
+	- MLE and ERM seen earlier this lecture; and
+	- MAP seen later in this lecture.
+	- These are all $M$-estimators, with $Q$ as a sum over data (i.e. of log-likelihood, loss, log-likelihood plus log prior)
+ - And it generalises other frameworks too!
+
+## Consistency of Extremum Estimators
+- Recall consistency: stochastic convergence to 0 bias
+- Theorem for extremum estimators: $\hat{\theta}_n \rightarrow \theta$ in probability
+
+## A Game Changer
+- Frequentists: estimators that aren't even correct with infinite data (inconsistent), aren't adequate in practice
+- Proving consistency for every new estimator? Ouch!
+- So many estimators are extremum estimators - general guarantees **make it much easier** (but not easy!) to prove
+- **Asymptotic Normality** 
+	- Extremum estimators converge to Gaussian in distribution
+	- Asymptotic efficiency: the variance of that limiting Gaussian
+- Practical: **Confidence intervals** - think error bars!!
+$\rightarrow$ Frequentists like to have this asymptotic theory for their algorithms
+
+# Bayesian Statistics
+- 
