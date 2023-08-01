@@ -77,6 +77,7 @@ What this is basically saying is that for the frequentist approach of designing 
 ### Example I: Bernoulli
 - Know data comes from Bernoulli distribution with unknown parameter (e.g., biased coin); find mean
 MLE for mean:
+
 $$p_{\theta}(x) = \begin{cases}
    \theta, &\text{if } x=1 \\
    1-\theta, &\text{if } x = 0
