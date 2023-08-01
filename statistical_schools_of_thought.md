@@ -229,4 +229,40 @@ Very general framework that covers elements of major statistical learning framew
 $\rightarrow$ Frequentists like to have this asymptotic theory for their algorithms
 
 # Bayesian Statistics
-- 
+Wherein unknown model parameters have associated distributions reflecting prior belief
+
+## About Bayesian Statistics
+- Probabilities correspond to beliefs
+- Parameters
+	- Modelled as random variables having distributions
+	- Prior belief in $\theta$ encoded by **prior distribution** $P(\theta)$ 
+		- Parameters are modelled like random variables (even if not really random)
+		- Thus: data likelihood $P_{\theta}(X)$ written as conditional $P(X|\theta)$
+	- Rather than point estimate $\hat{\theta}$,  Bayesians update belief $P(\theta)$ with observed data to $P(\theta|X)$ the **posterior distribution**)
+
+ What this basically means is that as opposed to the frequentist approach, Bayesian statistics uses prior knowledge and historic data to make its estimations, and will iteratively update its model as it gets information that contradicts its model's estimations.
+
+The model will like a little something like this:
+
+$$
+P(X) = P(X|\theta_1, \theta_2, ... \theta_3)
+$$
+
+This means that will make its estimations about a sample of data based on prior knowledge of different factors.
+
+## Tools of Probabilistic Inference
+- Bayesian probabilistic inference
+	- Start with prior $P(\theta)$ and likelihood $P(X|\theta)$ 
+	- Observe data $X=x$ 
+	- Update prior to posterior $P(\theta|X=x)$
+
+### Primary Tools to Obtain the Posterior
+- **Bayes Rule**: reverses order of conditioning (more info [here](math_review.md#L199))
+$$
+P(\theta|X=x) = \frac{P(X=x| \theta)P(\theta)}{P(x=x)}
+$$
+
+- **Marginalisation**: eliminates unwanted variables
+$$
+P(X=x) = \sum_t P(X=x, \theta = t)
+$$
