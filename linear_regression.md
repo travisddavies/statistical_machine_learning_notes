@@ -80,6 +80,7 @@ Here $w_0, ..., w_m \in \mathbb{R}$ denote weights (models parameters)
 # Linear Regression via Frequentist Probabilistic Model
 ## Data is Noisy!
 **Example**: predict mark for Statistical Machine Learning (SML) from mark for Intro ML (IML aka KT)
+
 ![](Images/IML_stats.png)
 
 ## Regression as a Probabilistic Model
@@ -120,7 +121,8 @@ p(x|y) = \frac{1}{\sqrt{2\pi\sigma^2}}\exp(-\frac{(y - x'w)^2}{2\sigma^2})
 $$
 
 - Unknown parameters: $w$, $\not {\sigma^2}$ 
-![[gaussian_line_fit.png]]
+
+![](Images/gaussian_line_fit.png) 
 
 - Given observed data $\{(X_1, Y_1), ..., (X_n, Y_n)\}$, we want to find parameter values that "best" explain the data
 - **Maximum-likelihood estimation**: choose parameter values that maximise the probability of observed data
@@ -164,7 +166,7 @@ $$\hat{w} = (X'X)^{-1}X'y$$
 - How to marry non-linear data to a linear method?
 If you can't beat em, join em!
 
-![[linear_graph.png]]
+![](Images/linear_graph.png) 
 
 ## Transform the Data
 - The trick is to **transform the data**: Map data into another features space, s.t. data is linear in that space
