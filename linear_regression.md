@@ -108,6 +108,7 @@ $$
 $$
 L = \log(\frac{1}{\sqrt{2\pi\sigma^2}}) + \frac{1}{2\sigma^2}(y-x'w)^2
 $$
+
 2. We can now remove the constants, and what we're left with is the sum of squared errors loss function!
 $$
 L = (y-x'w)^2
