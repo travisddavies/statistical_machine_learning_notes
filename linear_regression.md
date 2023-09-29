@@ -80,7 +80,7 @@ Here $w_0, ..., w_m \in \mathbb{R}$ denote weights (models parameters)
 # Linear Regression via Frequentist Probabilistic Model
 ## Data is Noisy!
 **Example**: predict mark for Statistical Machine Learning (SML) from mark for Intro ML (IML aka KT)
-![[IML_stats.png]]
+![](Images/IML_stats.png)
 
 ## Regression as a Probabilistic Model
 - Assume a **probabilistic model**: $Y=X'w + \epsilon$ 
