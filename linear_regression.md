@@ -4,9 +4,9 @@ In regression, the task is to numeric response (aka dependent variable) from fea
 Assume a linear relation: $H = a + bT$
 ($H$ - humidity; $T$ - temperature; $a$, $b$, $b$ - parameters)
 
-![[coords.png]]
+![](Images/coords.png)
 
-![[lin_reg_chart.png]]
+![](lin_reg_chart.png)![[]]
 
 In this above example, we would iteratively change the slope and bias until we have the lowest possible sum of **squared errors**
 ## Example: Minimise Sum Squared Errors
