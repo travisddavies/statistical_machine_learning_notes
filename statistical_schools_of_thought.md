@@ -50,7 +50,7 @@ Frequentists seek good behaviour, in ideal conditions
 
 ![](Images/variance_estimator.png)
 
-What the above is essentially saying is how much does the **estimator's** predictions vary from the mean predicted value, which basically means how stable is our estimator at predicting . This should not be mistaken with the variance of the data itself, this variance is focused on the estimator.
+What the above is essentially saying is how much does the **estimator's** predictions vary from the mean predicted value, which basically means how stable is our estimator at predicting. This should not be mistaken with the variance of the data itself, this variance is focused on the estimator.
 
 The example above follows the same method as the previous example, except this time it is measuring the average variance of the estimator's predictions and plotting it, then comparing the average variance of all the measurements with the variance of the data itself. As can be seen in the figure above, the variance of the estimator is similar to the true variance.
 
@@ -64,7 +64,7 @@ Asymptotic properties often hold! :)
 **Note** *:
 - The $\rightarrow \theta$ in this case means that bias closer and closer to zero 
 
-What the above is basically saying is that despite some estimators performing poorly on given data there are some asymptotic guarantees. These are that the **bias** and **variance** will converge to their minimum are the data approaches **infinity**. 
+What the above is basically saying is that despite some estimators performing poorly on given data, there are some asymptotic guarantees. These guarantees are that the **bias** and **variance** will converge to their minimum are the data approaches **infinity**. 
 
 ## Maximum-Likelihood Estimation
 - A **general principle** for designing estimators
@@ -101,22 +101,22 @@ $$
 L(\theta) = \log \theta \sum^n_{i=1}x_i + \log(1-\theta) \sum^n_{i=1} (1-x_i) 
 $$
 
-3. We can now find the derivative with respect to $\theta$. The derivative of a log is just the inverse, which is why the fractions formed.
+3. We can now find the derivative with respect to $\theta$. The derivative of a log is just the inverse, which is why the fractions formed. We get a negative for the second fraction because of the chain rule and the derivative of $-x_i$ is -1.
 
 $$
-\frac{dL}{d\theta} = \frac{\sum^n_{i=1} x_i}{\theta} + \frac{\sum^n_{i=1}(1-x_i)}{1- \theta}
+\frac{dL}{d\theta} = \frac{\sum^n_{i=1} x_i}{\theta} - \frac{\sum^n_{i=1}(1-x_i)}{1- \theta}
 $$
 
 4. We can now simplify this slightly so it's easier to solve, let's change the sums to just $\bar{X}$, and simplify the sum of 1's to just $n$. 
 
 $$
-\frac{dL}{d \theta} = \frac{\bar{X}}{\theta} + \frac{n - \bar{X}}{1 - \theta}
+\frac{dL}{d \theta} = \frac{\bar{X}}{\theta} - \frac{n - \bar{X}}{1 - \theta}
 $$
 
 5. Set the derivative to zero and then solve for $\theta$
 
 $$
-0 = \frac{\bar{X}}{\theta} + \frac{n-\bar{X}}{1 -\theta}
+0 = \frac{\bar{X}}{\theta} - \frac{n-\bar{X}}{1 -\theta}
 $$
 
 $$
@@ -143,7 +143,24 @@ $$
 p_{\theta}(x) = \frac{1}{\sqrt{2\pi \sigma^2}}\exp(-\frac{1}{2\sigma^2}(x-\mu)^2) \text{ with } \theta = (\mu, \sigma^2) 
 $$
 
-**This needs to be come back to**
+$$
+\prod^n_{i=1}p_{\theta}(x) = \prod^n_{i=1}\frac{1}{\sqrt{2\pi \sigma^2}}\exp(-\frac{1}{2\sigma^2}(x-\mu)^2)
+$$
+$$
+\log(L) = \sum^n_{i=1}[-\frac{1}{2}\log(2\pi\sigma^2)-\frac{(x_i-\mu)}{\sigma^2}]
+$$
+$$
+	\frac{dL}{d\sigma^2} = \sum^n_{i=1}[-\frac{1}{2\sigma^2}+\frac{(x_i-\mu)^2}{2(\sigma^2)^2}]=0 
+$$
+$$
+-\frac{n}{2\sigma^2}+\frac{\sum^n_{i=1}(x_i-\mu)^2}{2(\sigma^2)^2}=0
+$$
+$$
+\frac{\sum^n_{i=1}(x_i-\mu)^2}{\sigma^2}=n
+$$
+$$
+\sigma^2=\frac{1}{n}\sum^n_{i=1}(x_i-\mu)^2
+$$
 
 ## MLE 'Algorithm'
 1. Given data $X_1, ..., X_2$ **define** probability distribution, $p_{\theta}$, assumed to have **generated the data**
@@ -181,7 +198,7 @@ Take for example the table below, this is an example of utilities from decision 
 - Want: Choose $\delta$ to minimise $R_{\theta}[\delta]$ 
 - Can't directly! Why?
 	- **Need to come back to this**
- - **ERM**: Use training set $X$ to approximate R_{\theta}
+ - **ERM**: Use training set $X$ to approximate $R_{\theta}$ 
 	 - Minimise **empirical risk**:  $\hat{R}_{\theta} [\delta] = \frac{1}{n}\sum^n_{i=1}l(\delta(X_i), \theta)$ 
 
 What this basically means is that we really want a very low loss if we were to pick out a random sample and make a prediction with it, so what we do is use the **expected** loss, a.k.a the **risk**, as a measurement for the loss if were to predict a random sample. This is much like how we would measure the average loss from a test dataset and use that as our expectation of the model's loss out in the wild. Therefore, the aim is to minimise the **risk** of our model. 
@@ -240,7 +257,7 @@ Wherein unknown model parameters have associated distributions reflecting prior 
 		- Thus: data likelihood $P_{\theta}(X)$ written as conditional $P(X|\theta)$
 	- Rather than point estimate $\hat{\theta}$,  Bayesians update belief $P(\theta)$ with observed data to $P(\theta|X)$ the **posterior distribution**)
 
- What this basically means is that as opposed to the frequentist approach, Bayesian statistics uses prior knowledge and historic data to make its estimations, and will iteratively update its model as it gets information that contradicts its model's estimations.
+ What this basically means is that as opposed to the frequentist approach, Bayesian statistics uses prior knowledge and historic data to make its estimations, and will iteratively update its model as it gets information that goes against its model's estimations.
 
 The model will like a little something like this:
 
@@ -263,7 +280,70 @@ $$
 P(\theta|X=x) = \frac{P(X=x| \theta)P(\theta)}{P(x=x)}
 $$
 
-- **Marginalisation**: eliminates unwanted variables
+- **Marginalisation**: eliminates unwanted variables (more info [here](math_review.md))
+
 $$
 P(X=x) = \sum_t P(X=x, \theta = t)
 $$
+
+### Example 
+- We model $X|\theta$ as $N(\theta, 1)$ with prior $N(0, 1)$
+- Suppose we observe $X=1$, then update posterior
+ 
+$P(\theta|X=1) = \frac{P(X=1|\theta)P(\theta)}{P(X=1)}$
+
+$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \propto P(X=1| \theta) P(\theta)$ 
+
+$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ = [\frac{1}{\sqrt{2\pi}}\exp (-\frac{(1-\theta)^2}{2})][\frac{1}{\sqrt{2\pi}}\exp(-\frac{\theta^2}{2})]$ 
+
+$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \propto \exp(-\frac{(1-\theta)^2+\theta^2}{2}) = \exp(-\frac{2\theta^2-2\theta+1}{2})$ 
+
+Now we make the leading numerator coefficient 1: $\times \frac{1}{2}$ on top and bottom
+
+$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \propto \exp(-\frac{\theta^2-\theta+\frac{1}{2}}{2 \times \frac{1}{2}})$   
+
+Now we need to set it up as the normal distribution to find where $\sigma$ and $\mu$ are in this new gaussian distribution. In the numerator we need to form the $(x - \mu^2)$ and in the denominator we need to form the $2\sigma^2$. We already can find our $\sigma$ since we already have the 2 out the front, but we still need to find $\mu$. 
+
+To find $\mu$, we need to apply the square trick, which is the following rule:
+
+$\theta^2 - \theta + \frac{1}{2} \rightarrow (\theta-?)^2$ 
+
+$ax^2 +bx + c = a(x + \frac{b}{2a})^2 + c - \frac{b^2}{4a}$ 
+
+$\theta^2 - \theta + \frac{1}{2} = (\theta - \frac{1}{2})^2 + \frac{1}{4}$ 
+
+Now let's separate out the constants from the equation to form the gaussian equation
+
+$= \exp(-\frac{(\theta-\frac{1}{2})^2}{2 \times \frac{1}{2}}) \times \exp(-\frac{\frac{1}{4}}{2 \times \frac{1}{2}})$ 
+
+$\propto \exp(-\frac{(\theta-\frac{1}{2})^2}{2 \times \frac{1}{2}})$ 
+
+$P(\theta|X=1) \propto N(0.5,0.5)$ 
+
+## How Bayesians Make Point Estimates
+- They don't, unless forced at gunpoint!
+	- The posterior carries full unformation, why discard it?
+- But, there are common approaches
+	- Posterior mean $E_{\theta|X}[\theta] = \int\theta P(\theta|X)\delta \theta$ 
+	- Posterior mode $\underset{\theta}{\text{argmax}}P(\theta|X)$ (max a posteriori or MAP)
+	- There're Bayesian decision-theoretic interpretations of these
+ 
+![[MAP.png]]
+
+## MLE in Bayesian Context
+- MLE formulation: find parameters that best fit data
+$$\hat{\theta} \in \underset{\theta}{\text{argmax}}P(X=x| \theta)$$
+- Consider the MAP under a Bayesian formulation
+$\hat{\theta} \in \underset{\theta}{\text{argmax}} P(\theta|X=x)$  
+$\ \ = \underset{\theta}{\text{argmax}}\frac{P(X=x|\theta)P(\theta)}{P(X=x)}$ 
+$\ \ = \underset{\theta}{\text{argmax}} P(X=x|\theta)P(\theta)$ 
+- Prior $P(\theta)$ weights; MLE like uniform $P(\theta) \propto 1$ 
+- What the above dot point means is that the prior acts as a weight for the posterior probability, and if the value is uniform across all parameters, then it is basically a constant
+- Extremum estimator: Max $\log P(X=x|\theta) + \log P(\theta)$ 
+
+## Frequentists vs Bayesians - Oh My!
+- Two key schools  of statistical thinking
+	- Decision theory complements both
+- Past: controversy; animosity; almost a 'religious' choice
+- Nowadays: deeply connected
+![[bayesians_v_frequentists.png]]

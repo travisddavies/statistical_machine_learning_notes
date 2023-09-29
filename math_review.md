@@ -132,7 +132,7 @@ This simply means that if a random variable $X$ is less than or equal to random 
 $$X \leq Y \mapsto E[X] \leq E[Y]$$
 ### Variance from Expectation
 Variance can be calculated from expectation with the following formula:
-$$Var(X) = E[(X) - E[X])^2]$$
+$$Var(X) = E[(X - E[X])^2]$$
 This can be made even simpler with the following formula:
 $$Var(X) = E(X^2) - E(X)^2$$
 Now let's just take an example where we have data that 60% of Americans approve of the president's work, so you sample 2 people to see if they approve. You get a probability distribution for the outcome as follows:
