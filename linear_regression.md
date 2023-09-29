@@ -174,7 +174,7 @@ If you can't beat em, join em!
 - Denote this transformation $\varphi$: $\mathbb{R}^m \rightarrow \mathbb{R}^k$. If $x$ is the original set of features, $\varphi(x)$ denotes new feature set
 - **Example**: suppose there is just one feature $x$, and the data is scattered around a parabola rather than a straight line
 
-![[dots_on_plane.png]]
+![](Images/dots_on_plane.png)
 
 ## Example: Polynomial Regression
 - Define 
@@ -193,7 +193,7 @@ $$
 $$
 Where $z_i$ some pre-defined constants
 - Choose $z_1 = [0,0]' , z_2 = [0, 1]', z_3 = [1,0]', z_4 = [1,1]'$ 
-![[linear_classification.png]]
+![](Images/linear_classification.png)
 
 In the above example, what is essentially done is that we find the Euclidean distance between the $x$ components of an instance and the 4 $z$ components. These distances will be used as the $\varphi(x)$ components, and then we will multiply these with 4 $w$ components, where the weights of one class will be much higher than the other class. Once we do the dot product, the output will be distinctly $2$ for one class and $\sqrt{2}$ for the other class, this is then used as a way to classify the dataset into the two linearly inseparable classes.
 
@@ -219,16 +219,17 @@ Therefore, instance 1 is Class A because the dot product is $\sqrt{2}$
 - Examples:
 - $\varphi(x) = \lVert x - z \rVert$ 
 - $\varphi(x) = \exp(\frac{1}{\sigma}\lVert x - z \rVert^2)$ 
-- ![[radial_basis.png]]
+
+- ![](Images/radial_basis.png)
 
 ## Example
 - Predict whether it is summer based on the month of the year
 
-![[radial_basis_plot.png]]
+![](Images/radial_basis_plot.png)
 
 - Transform using $\varphi(x) = \exp(-\frac{1}{\sigma}\lVert x - 7 \rVert^2)$ 
 
-![[radial_basis_gaussian.png]]
+![](Images/radial_basis_gaussian.png)
 
 - New features (points on $y$ axis) are linearly separable
 - Could use $\varphi(x)$ and $x$ as features, or drop $x$ 
