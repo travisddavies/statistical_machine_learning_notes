@@ -26,7 +26,7 @@ if we know $a$, then $\hat{b} = \frac{1}{\sum^{10}_{i=1}T_i^2} \sum^{10}_{i=1}T_
 - We have two equations and two unknowns $a$, $b$
 - Rewrites as a system of linear equations
 
-$$\begin{pmatrix}  
+$$ \begin{pmatrix}  
    10 & \sum^{10}_{i=1}T_i \\  
    \sum^{10}_{i=1}T_i & \sum^{10}_{i=1}T_i^2
 \end{pmatrix}
