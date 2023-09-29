@@ -6,11 +6,11 @@ Assume a linear relation: $H = a + bT$
 
 ![](Images/coords.png)
 
-![](Images/lin_reg_chart.png)![[]]
+![](Images/lin_reg_chart.png)
 
 In this above example, we would iteratively change the slope and bias until we have the lowest possible sum of **squared errors**
 ## Example: Minimise Sum Squared Errors
-To find $a$, $b$ that minimise $L = \sum^{10}_{i=1}(H_i - (a + bT_i))^2$ 
+To find $a$, $b$ that minimise $L = \sum^{10}_{i=1} (H_i - (a + bT_i))^2$ 
 **set derivatives to zero**:
 
 $\frac{\delta L}{\delta a} =2 \sum^{10}_{i=1}(H_i - a - bT_i) = 0$
