@@ -191,9 +191,11 @@ $$
 
 ## Re-formulating Soft-Margin Objective
 - Introduce **slack variables** as an upper bound on loss
+
 $$
 \xi_i \geq l_h = \max(0,1-y_i(w'x_i+b))
 $$
+
 or equivalently $\xi_i \geq 1 - y_i(w'x_i +b)$ and $\xi_i \geq 0$ 
 - Re-write the soft-margin SVM objective as:
 
