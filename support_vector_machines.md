@@ -2,6 +2,7 @@
 _A new twist to binary linear classification_
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ny1iZ5A8ilA?si=4i2PV52Toxyn0MZn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## Beginning: Linear SVMs
 - In the first part, we will consider a basic setup of SVMs, something called linear **_hard-margin SVM_** 
 - Keep in mind: SVMs are more powerful than they initially appear
