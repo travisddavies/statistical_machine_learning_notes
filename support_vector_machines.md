@@ -196,27 +196,37 @@ $$
 $$
 or equivalently $\xi_i \geq 1 - y_i(w'x_i +b)$ and $\xi_i \geq 0$ 
 - Re-write the soft-margin SVM objective as:
+
 $$
 \underset{w,b,\xi}{\text{argmin}}(\frac{1}{2}\lVert w \rVert^2 + C\sum_{i=1}^n\xi_i)
 $$
+
 $$s.t. \xi_i \geq 1 - y_i(w'x_i +b) \text{ for } i=1,..., n$$
+
 $$\xi_i \geq 0 \text{ for } i = 1,...,n$$
+
 - The larger you make $C$, the smaller the margin will be. Smaller $C$ will make the margin larger
 ## Side-by-side: Two Variations of SVM
 - Hard-margin SVM objective:
+
 $$
 \underset{w,b}{\text{argmin}}\frac{1}{2}\lVert w \rVert^2
 $$
+
 $$
 s.t. y_i(w'x+b) \geq 1 \text{ for } i = 1, ..., n
 $$
+
 - Soft-margin SVM objective:
+
 $$
 \underset{w,b,\xi}{\text{argmin}}\Big(\frac{1}{2}\lVert w \rVert^2+C\sum^n_{i=1}\xi_i \Big)
 $$
+
 $$
 s.t. y_i(w'x_i +b) \geq 1 - \xi_i \text{ for } i = 1, ..., n
 $$
+
 $$
 \xi_i \geq 0 \text{ for } i = 1, ..., n
 $$
