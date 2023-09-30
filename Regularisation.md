@@ -15,7 +15,8 @@ _Linear regression on rank-deficient data_
 - Linear model on three features
 	- $X$ is matrix on $n = 4$ instances (rows)
 	- Model: $y = w_1x_1 + w_2x_2 + w_3x_3 + w_0$
-![[regularisation_example.png]]
+ 
+![](Images/regularisation_example.png)
 
 Question: Which feature is more important?
 $x_3$ is more important, because it has the highest weight
@@ -23,12 +24,14 @@ $x_3$ is more important, because it has the highest weight
 Now consider this:
 - First two columns of $X$ for the above weights are identical
 - Feature 2 (or 1) is **irrelevant** 
-![[same_X_column.png]]
+
+![](Images/same_X_column.png)
 
 Now what is the effect of perturbations on model predictions?
 - Add $\Delta$ to $w_1$ 
 - Subtract $\Delta$ from $w_2$ 
-![[delta_added_weights.png]]
+
+![](Images/delta_added_weights.png)
 
 This is what we will explore now
 
@@ -42,7 +45,7 @@ This is what we will explore now
 	- Lack of **interpretability** 
 	- Optimising to learn parameters is **ill-posed problem**
 
-What this basically means is that there is an infinite combination of weights that $\hat{w}_1$ and $\hat{w}_2$ could be, as we could just increasing one weight and decreasing the other weight by any number and it would still be the minimum. This means that our model has no clear solution and is an **ill-posed question** that lacks **interpretability**. 
+What this basically means is that there is an infinite combination of weights that $\hat{w}_1$ and $\hat{w}_2$ could be, as we could just increasing one weight and decreasing the other weight by any number and it would still be the minimum. This means that our model has no clear solution and is an **ill-posed problem** that lacks **interpretability**. 
 ## Irrelevant (Co-linear) features in general
 - Extreme case: features complete clones
 - For linear models, more generally
@@ -59,7 +62,8 @@ $$X._{j} = \sum_{l \not = j} \alpha_l X._{l}$$
 	- Model has two parameters (slope and intercept)
 	- Only one data point
 - Undetermined system
-![[lack_of_data.png]]
+
+![](Images/lack_of_data.png)
 
 ## Ill-Posed Problems
 - In both examples, finding the best parameters becomes an **ill-posed problem**
@@ -70,9 +74,10 @@ $$
 \hat{w} = (X'X)^{-1}X'y
 $$
 - With irrelevant/multicolinear features, matrix $X'X$ has **no inverse**
-![[infinite_solutions.png]]
 
-The above has a convex, but there is now strict convex. This means that the we could keep travelling to infinity, meaning there is no strict finite amount of solutions to this problem. This is a visual representation of the problem we mentioned in the example before, where there are an infinite number of solutions to reach the minimum for the objective function. We say that matrix $X'X$ has no inverse because it it has no eigenvalues, meaning there is no axis to rotate on.
+![](Images/infinite_solutions.png)
+
+The above has a convex, but there is no strict convex. This means that the we could keep travelling to infinity, meaning there is no strict finite amount of solutions to this problem. This is a visual representation of the problem we mentioned in the example before, where there are an infinite number of solutions to reach the minimum for the objective function. We say that matrix $X'X$ has no inverse because it it has no eigenvalues, meaning there is no axis to rotate on.
 
 # Regularisation in Linear Models
 _Ridge regression and the Lasso_
@@ -90,7 +95,8 @@ $$
 - This formulation is called **ridge regression** 
 	- Turns the ridge into a deep, singular valley
 	- Adds $\lambda$ to eigenvalues of $X'X$: makes invertible
-![[change_to_convex.png]]
+ 
+![](Images/change_to_convex.png)
 
 This above graph is now strictly convex.
 
@@ -111,7 +117,8 @@ $$
 What this means as that we treat $w$ as a prior probability in terms of the Bayes Rule in order to derive the ridge regression equation. To do this, we consider $w$ to be a value between -1 and 1. To describe this, we can use a Gaussian distribution where $\mu$ is 0, and $\sigma^2$ is $1/\lambda$.
 ## Computing Posterior Using Bayes Rule
 - The prior is then used to compute the posterior
-![[bayes_rule.png]]
+
+![](Images/bayes_rule.png)
 
 - Instead of maximum likelihood (MLE), take **maximum a posteriori** estimate (MAP)
 - Apply log trick, so that
@@ -146,7 +153,7 @@ $$
 - For illustrative purposes, consider a modified problem:
 	minimise $\lVert y - Xw \rVert^2_2$ subject to $\lVert w \rVert^2_2 \leq \lambda$ for $\lambda > 0$
 
-![[ridge_lasso_regression.png]]
+![](Images/ridge_lasso_regression.png)
 
 - **Lasso ($L_1$ regularisation)** encourages solutions to sit on the axes
 	- Some of the weights are set to zero $\rightarrow$ **solution is sparse**
@@ -157,7 +164,8 @@ For lasso regression, since it is the $L_1$ norm, it will form a diamond. The sa
 
 What this also means is that the larger we choose lambda to be, the larger the circle or diamond will be, which will take the loss function further from the true minimum of the sum of squares error. Meaning **the more we increase $\lambda$, the more we increase the bias in the model**.
 ## Regularised Linear Regression
-![[types_of_regression.png]]
+
+![](Images/types_of_regression.png)
 
 # Regularisation in Non-Linear Models
 _Model selection in ML_
@@ -165,21 +173,22 @@ _Model selection in ML_
 ## Example Regression Problem
 **How complex** should our model be for the below plot?
 
-![[regression_dot_plot.png]]
+![](Images/regression_dot_plot.png)
 
 ## Underfitting (Linear Regression)
 Model class $\varTheta$ can be **too simple** to possibly fit true model.
 
-![[underfitting.png]]
+![](Images/underfitting.png)
 
 ## Overfitting (Non-Parametric Smoothing)
 Model class $\varTheta$ can be **so complex** it can fit true model + noise
 
-![[overfitting.png]]
+![](Images/overfitting.png)
 
 ## Actual Model ($x\sin x$)
 The **right model class** $\varTheta$ will sacrifice some training error, for test error.
-![[good_fit.png]]
+
+![](Images/good_fit.png)
 
 ## Approach: Explicit Model Selection
 - Try different classes of models. Example, try polynomial models of various degree $d$ (linear, quadratic, cubic, ...)
@@ -210,9 +219,10 @@ $$
 \hat{f} = w_0 + w_1x + ... + w_9x^9
 $$
 		regularised with $\lambda \lVert w \rVert ^2_2$ term
-![[train_test_error.png]]
+  
+![](Images/train_test_error.png)
 
-![[different_lambdas.png]]
+![](Images/different_lambdas.png)
 
 What these charts are showing that as the $\lambda$ value increases, so does the bias of the model. When $\lambda$ is 0, then the model is much more complex and thus has more variance, as the $\lambda$ value increases, we can see that the model captures less and less complexities in the data.
 
@@ -231,7 +241,7 @@ _Train error, test error and model complexity in **supervised regression**_
 - More complex model $\rightarrow$ training error goes down
 - Finite number of points $\rightarrow$ usually can reduce training error to 0 (is it always possible?)
 
-![[train_error_complexity.png]]
+![](Images/train_error_complexity.png)
 
 ## (Another) Bias-Variance Decomposition
 - Squared loss for **supervised-regression** predictions
@@ -241,7 +251,9 @@ $$
 - Lemma: Bias-variance decomposition
 $$
 E[l(Y,\hat{X_0})] = (E[Y] - E[\hat{f}])^2 + Var[\hat{f}] + Var[Y]
-$$ ![[risk_error.png]]
+$$
+
+![](Images/risk_error.png)
 
 ## Decomposition Proof Sketch
 - Here ($x$) is omitted to de-clutter
@@ -262,16 +274,16 @@ Therefore we can say that the test error of the model is  $\text{risk / test err
 
 ## Training Data as a Random Variable
 
-![[training_data_random_variable.png]]
+![](Images/training_data_random_variable.png)
 
-![[training_data_random_variable2.png]]
+![](Images/training_data_random_variable2.png)
 
 ## Intuition: Model Complexity and Variance
 - Simple model $\rightarrow$ low variance
 -  Complex model $\rightarrow$ high variance
 
-![[simple_complex_model.png]]
+![](Images/simple_complex_model.png)
 
 ## Test Error and Training Error
 
-![[train_test_error2.png]]
+![](Images/train_test_error2.png)
