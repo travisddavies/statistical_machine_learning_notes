@@ -10,12 +10,12 @@ _A new twist to binary linear classification_
 - Predict class $A$ if $x \geq 0$ predict class $B$ if $s < 0$ where $s = b + \sum^m_{i=1}x_iw_i$ 
 - SVM is a <u>linear classifier</u>: $s$ is a linear function of inputs, and the separating boundary is linear
 
-![[separating_hyperplanes.png]]
+![](Images/separating_hyperplanes.png)
 
 ## Choosing Separation Boundary
 - An SVM is a linear binary classifier: choosing parameters means choosing a separating boundary (hyperplane)
 - In 2D:
-![[separation_boundary.png]]
+![](Images/separation_boundary.png)
 
 Which boundary would you choose?
 - A (Green)
@@ -28,14 +28,14 @@ Answer: A, because it generalises the best.
 - If defining loss as 0-1 mistakes, $A$ and $B$ are equally good.
 - But... line $A$ seems more reliable. When new data point arrives, line $B$ is likely to misclassify it
 
-![[boundary_example.png]]
+![](Images/boundary_example.png)
 
 ## Aiming for the Safest Boundary
 - Intuitively, the most reliable boundary would be the one that is between the classes and as far away from both classes as possible
 - SVM objective captures this observation
 - SVMs aim to find the separation boundary that **maximises the margin** between the classes
 
-![[safest_boundary.png]]
+![](Images/safest_boundary.png)
 
 ## Maximum-Margin Classifier
 - An SVM is a linear binary classifier. SVM training aims to find the separating boundary that maximises margin
@@ -50,7 +50,8 @@ _A geometric derivation of the (hard-margin) SVM's objective_
 - While the margin can be thought as the space between two dashed lines, it is more convenient to define **margin width** as the distance between the separating boundary and the nearest data point(s)
 - Point(s) on margin boundaries called **_support vectors_** 
 - We want to maximise the distance to support vectors
-![[support_vectors.png]]
+
+![](support_vectors.png)
 
 ## Distance from Point to Hyperplane
 - Consider an arbitrary point $x$ (from either of the classes, and not necessarily the closest one to the boundary), and let $x_p$ denote the **projection** of $x$ onto the separating boundary
@@ -59,16 +60,16 @@ _A geometric derivation of the (hard-margin) SVM's objective_
 - From our linear algebra slides, recall that $w$ is a vector normal (perpendicular) to the boundary
 - In the figure, $w$ is drawn from an arbitrary starting point on boundary
 
-![[point_hyperplane.png]]
+![](Images/point_hyperplane.png)
 
 ## Distance from Point to Hyperplane
 - **Distance** is $\lVert r \rVert = \frac{w'x+b}{\lVert w \rVert}$, or more generally$\lVert r \rVert = \pm \frac{w'x + b}{\lVert w \rVert}$ 
 
-![[hyperplane_distance.png]]
+![](Images/hyperplane_distance.png)
 
 $\frac{\lVert r \rVert}{\lVert w \rVert}w$ is just a factor which equals the same as r, since they are parallel. Therefore, this plus $x$ will take us to $x_p$ 
 
-![[svm_solution.png]]
+![](Images/svm_solution.png)
 
 ## Encoding the Side Using Labels
 - Training data is a collection $\{x_i, y_i\}, i = 1, ... n,$ where each $x_i$ is an $m$-dimensional instance and $y_i$ is the corresponding binary label encoded as  -1, or 1
@@ -91,7 +92,7 @@ What this basically means is that $y_i$ will be either +1 or -1, therefore we ca
 - However, the same set of points will also satisfy $\tilde{w}'x + \tilde{b} = 0$, with $\tilde{w} = \alpha w$ and $\tilde{b} = \alpha b$, where $\alpha > 0$ is arbitrary
 - The same boundary, and essentially the same classifier can be expressed with **infinitely** many parameters combinations - that **diverge**!
 
-![[diverge.png]]
+![](Images/diverge.png)
 
 ## Constraining the Objective for Uniqueness
 - SVMs aim to maximise $(\underset{i=1,...,n}{\min} \frac{y_i(w'x_i + b)}{\lVert w \rVert})$ 
@@ -102,13 +103,13 @@ What this basically means is that $y_i$ will be either +1 or -1, therefore we ca
 
 ## Hard-Margin SVM Objective
 We now have a major result: SVMs aim to find $$\underset{w,b}{\text{argmin}}\lVert w \rVert$$
-s.t. $y_i(w'x_i+b) \geq \text{ for } i = 1, ..., n$ 
+s.t. $y_i(w'x_i+b) \geq 1\text{ for } i = 1, ..., n$ 
 
 Note 1: parameters $b$ is optimised indirectly by influencing constraints
 Note 2: all points are enforced to be on or outside the margin
 Therefore, this version of SVM is called _hard-margin_ SVM
 
-![[hard-margin.png]]
+![](Images/hard-margin.png)
 
 # SVM Objective as Regularised Loss
 Relating the resulting objective functions to that of other machine learning methods
@@ -122,8 +123,8 @@ How do SVMs fit this pattern
 
 ## SVM as Regularised ERM
 
-![[svm-erm.png]]
-
+![](Images/svm-erm.png)
+- Remember that $+\text{ve} \times \text{+ve} = \text{+ve} \text{ and } \text{-ve} \times \text{-ve} = \text{+ve}$ 
 ## Hard Margin SVM Loss
 - The constraints can be interpreted as loss
 $$
@@ -134,7 +135,7 @@ l_{\infty} = \begin{cases}
 $$
 - In other words, for each point:
 	- If it's on the right side of the boundary and at least $\frac{1}{\lVert w \rVert}$ units away from the boundary, we're OK, the loss is 0
-	- If the point is on the wrong side, or too close to the boundary, we immediately give infinite loss thus prohibiting such a solution altogether
+	- If the point is on the wrong side, we immediately give infinite loss thus prohibiting such a solution altogether
 
 # Soft-Margin SVMs
 Addressing linear inseparability
@@ -156,7 +157,7 @@ SVMs offer 3 approaches to address this problem:
 - However, we **penalise boundaries by the extent of "violation"**
 - In the figure, the objective penalty will take into account the orange distances
 
-![[soft-margin.png]]
+![](Images/soft-margin.png)
 
 ## Hinge Loss: Soft-Margin SVM Loss
 - Hard-margin SVM loss
@@ -169,7 +170,7 @@ $$
 
 - Soft-margin SVM loss (**hinge loss**)
 
-![[soft-margin-svm.png]]
+![](soft-margin-svm.png)
 
 ## Soft-Margin SVM Objective
 - Soft-margin SVM **objective** 
@@ -192,14 +193,14 @@ $$
 $$
 $$s.t. \xi_i \geq 1 - y_i(w'x_i +b) \text{ for } i=1,..., n$$
 $$\xi_i \geq 0 \text{ for } i = 1,...,n$$
-
+- The larger you make $C$, the smaller the margin will be. Smaller $C$ will make the margin larger
 ## Side-by-side: Two Variations of SVM
 - Hard-margin SVM objective:
 $$
 \underset{w,b}{\text{argmin}}\frac{1}{2}\lVert w \rVert^2
 $$
 $$
-s.t. y_i(w'x+b) \geq 1 for i = 1, ..., n
+s.t. y_i(w'x+b) \geq 1 \text{ for } i = 1, ..., n
 $$
 - Soft-margin SVM objective:
 $$
