@@ -15,6 +15,7 @@ _A new twist to binary linear classification_
 ## Choosing Separation Boundary
 - An SVM is a linear binary classifier: choosing parameters means choosing a separating boundary (hyperplane)
 - In 2D:
+
 ![](Images/separation_boundary.png)
 
 Which boundary would you choose?
@@ -75,6 +76,7 @@ $\frac{\lVert r \rVert}{\lVert w \rVert}w$ is just a factor which equals the sam
 - Training data is a collection $\{x_i, y_i\}, i = 1, ... n,$ where each $x_i$ is an $m$-dimensional instance and $y_i$ is the corresponding binary label encoded as  -1, or 1
 - Given a **perfect** separation boundary, $y_i$ will encode the side of the boundary each $x_i$ is on
 - Thus the distance from the $i$-th point to a perfect boundary can be encoded as
+
 $$
 \lVert r_i \rVert = \frac{y_i(w'x_i+b)}{\lVert w \rVert}
 $$
@@ -102,7 +104,10 @@ What this basically means is that $y_i$ will be either +1 or -1, therefore we ca
 - Ensure classifier makes no errors: constrain $y_i(w'x_i + b) \geq 1$ 
 
 ## Hard-Margin SVM Objective
-We now have a major result: SVMs aim to find $$\underset{w,b}{\text{argmin}}\lVert w \rVert$$
+We now have a major result: SVMs aim to find 
+
+$$\underset{w,b}{\text{argmin}}\lVert w \rVert$$
+
 s.t. $y_i(w'x_i+b) \geq 1\text{ for } i = 1, ..., n$ 
 
 Note 1: parameters $b$ is optimised indirectly by influencing constraints
@@ -127,12 +132,14 @@ How do SVMs fit this pattern
 - Remember that $+\text{ve} \times \text{+ve} = \text{+ve} \text{ and } \text{-ve} \times \text{-ve} = \text{+ve}$ 
 ## Hard Margin SVM Loss
 - The constraints can be interpreted as loss
+
 $$
 l_{\infty} = \begin{cases} 
    0 &1-y_i(w'x_i + b) \leq 0 \\
    \infty &1-y_i(w'x_i +b) > 0
 \end{cases}
 $$
+
 - In other words, for each point:
 	- If it's on the right side of the boundary and at least $\frac{1}{\lVert w \rVert}$ units away from the boundary, we're OK, the loss is 0
 	- If the point is on the wrong side, we immediately give infinite loss thus prohibiting such a solution altogether
@@ -161,6 +168,7 @@ SVMs offer 3 approaches to address this problem:
 
 ## Hinge Loss: Soft-Margin SVM Loss
 - Hard-margin SVM loss
+
 $$
 l_{\infty} =  \begin{cases}
    0 & 1-y(w'x+b) \leq 0 \\
