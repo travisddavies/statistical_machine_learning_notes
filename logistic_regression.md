@@ -45,7 +45,7 @@ $$
 	- Outer for loop: each loop (called **epoch**) sweeps through all training data
 	- Within each epoch, randomly shuffle training data; then for loop: do gradient steps only on batches of data. Batch might be 1 or few
 
-![[regression.png]]
+![](Images/regression.png)
 
 ## Convex Objective Functions
 - 'Bowl shaped' functions
@@ -53,7 +53,9 @@ $$
 - Formally* $f: D \rightarrow \mathbb{R}$ is convex if $\forall a, b \in D, t \in [0,1]$: $f(ta + (1-t)b) \leq tf(a) + (1-t)f(b)$ 
 - Strictly convex if inequality is strict (<)
 - Gradient descent on (strictly) convex function guaranteed to find a (unique) global minimum!
-![[convex.png]]
+
+![](Images/convex.png)
+
 
 In simpler terms:
 1. **Domain (D)**: The function $f$ is defined on a certain domain $D$. This is the set of input values for which the function is defined.
@@ -65,8 +67,10 @@ In even simpler terms, this property implies that the line segment connecting an
 This geometric interpretation is important because it has implications for optimisation. When dealing with convex optimisation problems (minimising convex functions), finding the minimum becomes much easier and well-behaved compared to non-convex functions. Convex optimisation has efficient algorithms that can guarantee finding the global minimum, and there are well-defined optimality conditions.
 
 # Newton-Raphson
-![[newton-raphson.png]]
-- Critical points of $L(\theta) = \text{Zero-crossings of } L'(\theta)$
+
+![](Images/newton-raphson.png)
+
+- Critical points of $L(\theta) = \text{} L'(\theta)$
 - Crossing case of scalar $\theta$. Starting at given/random $\theta_0$, iteratively:
 1. Fit tangent line to $L'(\theta)$ at $\theta_t$ 
 2. Need to find $\theta_{t+1} = \theta_t +\Delta$ using linear approximation's zero crossing
@@ -96,15 +100,16 @@ This geometric interpretation is important because it has implications for optim
 	- Denoted $s \equiv x'w$ 
 	- Predict "Yes" if $s \geq 0.5$ 
 	- Predict "No" if $s < 0.5$ 
-![[binary_regression.png]]
+ 
+![](Images/binary_regression.png)
 
 ## Why Not Linear Regression
 - Due to the square loss, points far from boundary have loss squared - even if they're confidently correct!
 - Such "outliers" will "pull at" the linear regression
 - Overall, the least-squares criterion looks unnatural in this setting
-![[binary_pulling.png]]
 
-## Logistic Regression Model
+![](Images/binary_pulling.png)
+
 - Probabilistic approach to classification
 	- $P(Y=1|x)=f(x)= ?$ 
 	- Use a linear function? E.g., $s(x)=x'w$ 
@@ -113,7 +118,7 @@ This geometric interpretation is important because it has implications for optim
 - Logistic regression model
 	$P(Y=1|x) = \frac{1}{1+\exp(-x'w)}$ 
 	
-![[logistic_regression.png]]
+![](Images/logistic_regression.png)
 
 ## How is Logistic Regression Linear?
 - Logistic regression model:
@@ -127,7 +132,7 @@ $$
 \frac{1}{1+\exp(-x'w)}=\frac{1}{2}
 $$
 
-![[Logistic_curve.png]]
+![](Logistic_curve.png)
 
 A further note on what this means, basically we can classify a machine learning models as linear functions if they separate classes using a straight line or a hyperplane. Therefore if we can see if the decision boundary for logistic regression can be represented as the equivalent of something like $w'x + b$, then we can say that it is a linear function.
 
@@ -173,6 +178,7 @@ $= \sum^n_{i=1}\log((\theta(x_i))^{y_i}(1-\theta(x_i))^{1-y_i})$
 $= \sum^n_{i=1}(y_i\log(\theta(x_i))+ (1-y_i)\log(1-\theta(x_i)))$  
 
 Now substitute in the logistic function and simplify
+
 $= \sum^n_{i=1}(y_i\log((1+\exp(-wx_i))^{-1}) + (1-y_i)\log(1 - (1+\exp(-wx_i))^{-1}))$   
 
 $= \sum^n_{i=1}(-y_i\log((1+\exp(-wx_i))+ (1-y_i)\log(\frac{\exp(-wx_i)}{1+\exp(-wx_i)}))$  
