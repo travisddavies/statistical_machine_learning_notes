@@ -33,10 +33,12 @@ _Allows us to match a small filter across multiple patches of a 2D image or rang
 ## Convolution
 - Concept from signal processing, with wide-spread application
 	- Defined as
+ 
 $$
 (f * g)(t) = \int^{\infty}_{-\infty}f(\tau)g(t-\tau)d\tau
 $$
-		Measures how the shape of one function matches the other as it **slides** along
+
+- Measures how the shape of one function matches the other as it **slides** along
 - **ConvNets** use this idea applied to **discrete** inputs
 
 ![[conv_graph.png]]

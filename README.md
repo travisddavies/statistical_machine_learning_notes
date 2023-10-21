@@ -9,4 +9,4 @@ GitHub's LaTex renderer seems to not work well on some sections, especially matr
 2. [Statistical Schools of Thought](statistical_schools_of_thought.md)
 3. [Linear Regression](linear_regression.md)
 4. [Logistic Regression](logistic_regression.md)
-5. [Regularisation](Regularisation.md)
+5. [regularisation](regularisation.md)

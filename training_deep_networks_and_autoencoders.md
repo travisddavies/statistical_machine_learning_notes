@@ -154,7 +154,7 @@ _Best practices in preventing overfitting, a big problem for such high capacity 
 - With some activation functions (e.g. tanh / sigmoid) this also **shrinks** the DNN towards a linear function
 
 ## Dropout
-- Randomly mask fraction fraction of units during training
+- Randomly mask fraction of units during training
 	- Different masking each presentation
 	- Promotes **redundancy** in network hidden representation (a form of regularisation)
 	- A form of **ensemble** of exponential space
@@ -193,7 +193,7 @@ _A DNN training setup that can be used for unsupervised learning, initialisation
 ## Under-/Over-Completeness
 - Manner of bottleneck gives rise to:
 	- **Undercomplete**: model with thinner bottleneck than input forced to generalise
-	- Overcomplete: wider bottleneck than input, can just "copy" directly to output
+	- **Overcomplete**: wider bottleneck than input, can just "copy" directly to output
 - Even undercomplete models can learn trivial codes, given complex non-linear encoder and decoder
 - Various methods to ensure learning
 
@@ -220,7 +220,7 @@ _A DNN training setup that can be used for unsupervised learning, initialisation
 	![[pca_unexamined.png]]
 
 - $\sum_Xp_1 = \lambda_1 p_1$
-- Precisely defines $p_1 as an **eigenvector** of covariance $\sum_X$ with $\lambda_1$ being the corresponding **eigenvalue**
+- Precisely defines $p_1$ as an **eigenvector** of covariance $\sum_X$ with $\lambda_1$ being the corresponding **eigenvalue**
 
 ## PCA vs Autoencoding
 - If you use linear activation functions and only one hidden layer, then the setup becomes almost that of **Principal Component Analysis** (PCA)
@@ -235,4 +235,3 @@ _A DNN training setup that can be used for unsupervised learning, initialisation
 - Pre-training of deep models
 	- Warm-starting training by initialising model weights with encoder parameters
 	- In some fields of vision, mostly replaced with supervised pre-training on very large datasets
-

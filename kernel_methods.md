@@ -40,17 +40,19 @@ We can, however, find our optimal value for the objective function by turning th
 
 ## The Lagrangian and Duality
 - Introduce auxiliary objective function via auxiliary variables
+
 $$
 L(x,\lambda, v) = f(x) + \sum^n_{i=1}\lambda_i g_i(x) + \sum^m_{j=1}v_jh_j(x)
 $$
+
 - Called the _**Lagrangian**_ function
 - New $\lambda$ and $v$ are called the _**Lagrange multipliers** or **dual variables**_ 
 - (Old) **primal program**: $\min_x\max_{\lambda\geq 0,v} L(x, \lambda, v)$ `` 
 - (New) **dual program**: $\max_{\lambda \geq 0, v}\min_x L(x,\lambda, v)$
-		- The new program may be easier to solve, advantageous
+	- The new program may be easier to solve, advantageous
   - Duality theory relates primal/dual:
-	  - Weak duality: dual optimum $\leq$ primal optimum
-	  - For convex programs (inc. SVM!) **strong duality**: optima coincide!
+	- Weak duality: dual optimum $\leq$ primal optimum
+	- For convex programs (inc. SVM!) **strong duality**: optima coincide!
 
 ### My Explanation
 What this all means is that we have made a Lagrangian that can find us an optimal value, and we are now essentially penalising the values that are **not less than or equal to zero**. So we are essentially encoding these objectives and constraints into our **dual program** and **primal program**. 
@@ -97,6 +99,7 @@ The **dual program** is simply just the max and min swapped around. In general, 
 	- Don't penalise if constraint satisfied
 - **Stationary**: $\nabla_xL(x^*,\lambda^*,v^*) =0$ 
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/uh1Dk68cfWs?si=Yx0hJStEw2dwZzhg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 ## KKT Conditions for Hard-Margin SVM
 The Lagrangian
 $$
@@ -112,24 +115,32 @@ KKT conditions:
 What this all means is that for the Lagrangian of the hard-margin SVM, we only consider the **inequality constraint**, so we only have $\lambda_i$ as a Lagrangian multiplier. 
 
 For the first feasibility point, this makes sense since the point can either be outside the margin or just on the margin. The complementary slackness rule is just following the same rule that we discussed for KKT necessary conditions. We shall demonstrate:
+
 $$
 g_i(w^*,b^*,x_i) = y_i((w^*)'x_i+b^*)-1
 $$
-This makes sense since $g_i(x)$ is simply the inequality constraint, no if we consider this:
+
+This makes sense since $g_i(x)$ is simply the inequality constraint, now if we consider this:
+
 $$
 \lambda_i^* g_i(w^*,b^*,x_i) = 0
 $$
+
 This rule then matches with the previously stated KKT necessary conditions.
 
 ## Let's Minimise Lagrangian w.r.t Primal Variables
 - Lagrangian:
+
 $$
 L(w,b,\lambda) = \frac{1}{2}\lVert w \rVert^2 - \sum^n_{i=1}\lambda_i(y_i(w'x_i+b)-1)
 $$
+
 - Stationary conditions give us more information:
+
 $$
 \frac{\delta L}{\delta b} = \sum^n_{i=1}\lambda_iy_i=0
 $$
+
 - $\uparrow$  This one becomes our new constraint
 $$
 \frac{\delta L}{\delta w_j} = w_j^* - \sum^n_{i=1}\lambda_iy_i(x_i)_j = 0
@@ -149,12 +160,15 @@ Also note the $j$ index, this means the _element_ within a vector. So  $(x_i)_j$
 
 ## Dual Program for Hard-Margin SVM
 - Having minimised the Lagrangian with respect to primal variables, now maximising w.r.t dual variables yields the **dual program**
+
 $$
 \underset{\lambda}{\text{argmax}}\sum^n_{i=1}\lambda_i - \frac{1}{2}\sum^n_{i=1}\sum^n_{j=1}\lambda_i\lambda_jy_iy_jx'_ix_j
 $$
+
 $$
 \text{s.t. } \lambda_i \geq 0 \text{ and } \sum^n_{i=1}\lambda_iy_i = 0
 $$
+
 - **Strong duality**: Solving dual, solves the primal!!
 - Like primal: A so-called _quadratic program_ - off-the-shelf software can solve - more later
 - Unlike primal:
@@ -280,9 +294,10 @@ $$
 $$
 - <u>Making predictions</u>: classify new instance $x$ based on sign of
 $$
-s = b^* + \sum^n_{i=1}\lambda^*_iy_i\textcolor{red}{K(x_i,x)}
+s = b^* + \sum^n_{i=1}\lambda^*_iy_i\textcolor{red}{K(x_i,x_j)}
 $$
-		| the $K(x_i,x)$ is the **kernel feature mapping**
+
+- the $K(x_i,x)$ is the **kernel feature mapping**
 - Here $b^*$ can be found by noting that for support vector $j$ we have $y_i(b^*+\sum^n_{i=1}\lambda_i^*y_i\textcolor{red}{K(x_i,x_j)})=1$ 
 
 ## Approaches to Non-Linearity
