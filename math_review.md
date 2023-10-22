@@ -50,8 +50,12 @@ Discrete data is described by the **probability mass function** (PMF), an exampl
 
 ![](Images/discrete_distribution_function.png)
 
-In this distribution, we would calculate probability in the following way: $$P(X \leq x) = \sum^x_{a=- \infty} P(a)$$
+In this distribution, we would calculate probability in the following way: 
+
+$$P(X \leq x) = \sum^x_{a=- \infty} P(a)$$
+
 In the example above, if we wanted $P(X \leq 3)$, we would do the following:
+
 $$P(X \leq 3) = P(X = 1) + P(X = 2) + P(X = 3)$$
 
 Examples of discrete distribution functions include the following:
@@ -65,7 +69,10 @@ Continuous data is described by the **probability density function** (PDF), an e
 
 ![](Images/continuous_density_function.png)
 
-In this distribution, we could calculate the probability in the following way: $$P(X \leq x) = \int^x_{} P(a)\delta a$$
+In this distribution, we could calculate the probability in the following way: 
+
+$$P(X \leq x) = \int^x_{} P(a)\delta a$$
+
 In the example above, if we wanted $P(X \leq 160)$, we would find the area under the curve, as shown in the picture below:
 
 ![](Images/area_under_density_function.png)
@@ -82,7 +89,9 @@ Examples of continuous distribution functions include the following:
 An expected value $E[X]$ is simply the random variable that is expected to be the outcome from a probability distribution, which just so happens to be the mean value $\mu$. In a Gaussian distribution, as shown in the probability density function graph above, the mean is the centre of the distribution, which _just so happens to be_ the most likely outcome in that given probability space, a.k.a our **expected value**.
 
 For discrete values, the way to calculate the expected value is as follows:
+
 $$E[X] = \sum_x xP(X=x)$$
+
 An example may be the following:
  $X = \text{no. of workouts in a week}$
 
@@ -102,7 +111,9 @@ $E[X] = 2.1$
 This means that it's _expected_ that the number of workouts that this person will do per week is 2.1.
 
 For continuous values, the way to calculate the expected value is as follows: 
+
 $$E[X] = \int_x xP(X=x) \delta x$$
+
 An example for how we would calculate this is shown below, we calculate the areas under the curve for a set interval, by multiplying the height and width.
 
 ![](Images/expected_value_continuous.png)
@@ -112,13 +123,18 @@ We do this for each interval as shown below, then we multiply each area by the v
 ![](Images/areas_under_continuous_function.png)
 
 $E[X] = 0.4 \times 10 + 0.2 \times 20 + 0.1 \times 30 + 0.09 \times 40 + 0.05 \times 50 + 0.03 \times 60 + 0.02 \times 70 + 0.01 \times 80 + 0.01 \times 90$
+
 $E[X] = 22$
 
 ### The Linearity Property of Expectation
 Expectation has a linear property, meaning that if we have an expected value $E[X]$, and we want to increase the expected value by $aX + b$, then can calculate this by applying the following calculation:
+
 $$E[aX+b] = aE[X] + b$$
+
 Another instance of this rule can be if you want to increase the expected value $E[X]$ by $Y$, then we can calculate this by applying the following calculation:
+
 $$E[X + Y] = E[X] + E[Y]$$
+
 A simple example may be if you want to increase everyone's salaries by 2 with a bonus of $100, with a prior expected salary of $60,000, then we can calculate the expected salary after the raise as:
 
 $Y = 2E[X] + 100$
@@ -129,12 +145,18 @@ $E[Y] = 120,100$
 
 ### The Monotonic Property of Expectation
 This simply means that if a random variable $X$ is less than or equal to random variable $Y$, ($X \leq Y$), then $E[X]$ will also be less than or equal to $E[Y]$:
+
 $$X \leq Y \mapsto E[X] \leq E[Y]$$
+
 ### Variance from Expectation
 Variance can be calculated from expectation with the following formula:
+
 $$Var(X) = E[(X - E[X])^2]$$
+
 This can be made even simpler with the following formula:
+
 $$Var(X) = E(X^2) - E(X)^2$$
+
 Now let's just take an example where we have data that 60% of Americans approve of the president's work, so you sample 2 people to see if they approve. You get a probability distribution for the outcome as follows:
 
 | $X$    | 0    | 1    | 2    |
@@ -143,6 +165,7 @@ Now let's just take an example where we have data that 60% of Americans approve 
 
 To calculate the **variance** we first calculate the **expected value**
 $E[X] = 0 \times 0.16 + 1 \times 0.48 + 2 \times 0.36$
+
 $E[X] = 1.2$
 
 Now we calculate $E[X]^2$
@@ -158,6 +181,7 @@ $E[X^2] = 0^2 \times 0.16 + 1^2 \times 0.48 + 2^2 \times 0.36$
 $E[X^2] = 1.92$
 
 Now plug them into the formula:
+
 $Var(X) = 1.92 - 1.44$
 
 $Var(X) = 0.48$
@@ -189,7 +213,9 @@ In summary, conditional probability is calculated as follows:
 What this means is that what is the probability of event $A$ given that we know that event $B$ has happened.
 
 To calculate the **joint probability** given the **conditional probability**, we use the following formula:
+
 $$P(A \cap B) = P(A|B)P(B)$$
+
 Using conditional probabilities, we can tell if $X,Y$ are **independent** if $P(Y=y|X=x) = P(Y=y)$.
 
 In the following graph, we can see that $x$ clearly influences $y$ given that the expected value of $x$ is proportional with the given values of $y$.
@@ -198,12 +224,16 @@ In the following graph, we can see that $x$ clearly influences $y$ given that th
 
 ## Inverting Conditioning: Bayes' Theorem
 Bayes Theorem defines the following formula:
+
 $$P(A|B) = \frac{P(B|A)P(A)}{P(B)}$$
+
 This rule allows us to swap between $P(A|B)$ and $P(B|A)$.
 Probabilistic and Bayesian inference make heavy use of:
 - **Marginals**: the probabilities of individual variables
 - **The Sum Rule** of marginalisation: this sums away all but the random variable of interest. It uses the following formula:
+
 $$P(A) = \sum_b P(A, B=b)$$
+
 **Example**:
 We want to know the probability of success of movies of a specific genre ($A=\{comedy, thriller, romance\}$). But we only have data on movie success probabilities in a specific market, namely ($\beta = \{EU, NA, AUS\}$).
 
@@ -228,7 +258,9 @@ Suppose $u = [u_1, u_2]'$. What does $u$ really represent?
 
 ## Dot Product: Algebraic Definition
 Given two $m$-dimensional vectors $u$ and $v$, their dot product is:
+
 $$u \cdot v \equiv u'v \equiv \sum^m_{i=1}u_iv_i$$
+
 $u'$ in this case means that $u$ has been transposed. We turn $u$ on its side and then move left to right across $u$ and top to bottom across $v$. An example is as follows:
 
 $a = [2.0, 1.4, 4.6, 5.5]$, $b = [1.0, 2.4, 6.6, 2.5]$
@@ -242,14 +274,18 @@ $a \cdot b = 49.47$
 It's also important to note that the output of the dot product is a **scalar**. Also, if $k$ is a scalar, $a, b, c$ are vectors then:
 
 $(ka)'b = k(a'b) = a'(kb)$
+
 $a'(b+c)=a'b+a'c$
 
 This basically means that the constant will be broadcasted over the whole of one vector, and the dot product will apply be broadcasted over both vectors if the vectors are being added.
 
 ## Dot Product: Geometric Definition
 Given two $m$-dimensional Euclidean vectors $u$ and $v$, their dot product is: 
+
 $$u \cdot v \equiv u'v \equiv \lVert u \rVert \lVert v \rVert \cos \theta$$
+
 $\lVert u \rVert$ and $\lVert v \rVert$ mean the $L_2$ norms for $u$, $v$, which is the like the right angle distance of a side on a triangle.  $\theta$ is the angle between the vectors. This can be simplified into this relationship:
+
 $$\cos \theta  \equiv \frac{u \cdot v} {\lVert u \rVert \lVert v \rVert }$$
 
 For example the euclidean distance of the below vectors can be calculated as such:
@@ -269,6 +305,7 @@ $u \cdot v = 5.21 \times 7.09 \times \cos(60)$
 $u \cdot v = -35.18$
 
 The **scalar projection** of $u$ onto $v$ is given by:
+
 $$u_v = \lVert u \rVert \cos \theta$$
 
 This visually can be seen below, which basically casts a shadow on the other vector.
@@ -276,7 +313,9 @@ This visually can be seen below, which basically casts a shadow on the other vec
 ![](Images/scalar_projection.png)
 
 Thus dot product is:
+
 $$u'v = u_v \lVert v \rVert = v_u \lVert u \rVert$$
+
 ## Geometric Properties of the Dot Product
 - Since $\cos(90)$ is 0, if two vectors are orthogonal (perpendicular) then $u'v = 0$.  
 - If two vectors are parallel then $u'v = \lVert u \rVert \lVert v \rVert$, if they are anti-parallel then $u'v = -\lVert u \rVert \lVert v \rVert$ 
@@ -306,8 +345,11 @@ A visual demonstration of the difference between a **line** and a **hyperplane**
 - Intuitively, norms measure lengths of vectors in some sense
 - Often component of objectives or stopping criteria in optimisation-for-ML
 - $L_2$ norm is **Euclidean distance**:
+
 $$\lVert a \rVert = \lVert a \rVert_2 \equiv \sqrt{a_1^2 + ... + a_n^2}$$
+
 - $L_1$ norm is the **Manhattan distance**:
+
 $$\lVert a \rVert_1 \equiv |a_1| + ... + |a_n|$$
 
 # Vector Spaces and Bases
@@ -349,6 +391,7 @@ An **orthonormal** basis is a basis in which:
 
 # Basic Matrices
 - A rectangular array, often denoted by upper-case, with two indices first for row, second for column
+
 $$
 basicMatrix = 
 \begin{bmatrix} 
@@ -356,10 +399,12 @@ basicMatrix =
 3 & 4
 \end{bmatrix}
 $$
+
 - **Square matrix** has equal dimensions (number of rows and columns)
 - **Matrix transpose** $A'$ or $A^T$ of $m$ by $n$ matrix $A$ is an $n$ by $m$ matrix with entries $A'_{ij}=A_{ji}$. What this means is that the matrix will be flipped along the diagonal, and all the $x$ coordinates will become the $y$ coordinates and vice-versa.
 - A square matrix $A$ with $A=A'$ is called **symmetric**
 - The (square) **identity matrix** $l$ has 1 on the diagonal, 0 off-diagonal
+
 $$
 I = 
 \begin{bmatrix} 
@@ -368,6 +413,7 @@ I =
 0 & 0 & 1
 \end{bmatrix}
 $$
+
 - **Matrix inverse** $A^{-1}$ of square matrix $A$ (if it exists) satisfies $A^{-1}A=I$ 
 
 ## Matrix Eigenspectrum
@@ -404,9 +450,13 @@ The eigenvalue is just merely the factor by which the eigenvectors are stretched
 ![](Images/2_eigenvectors.png)
 
 So to find the eigenvectors and eigenvalues in a space, we can use the following formula:
+
 $$A\vec{v} = (\lambda I) \vec{v} $$
+
 Where $A$ is the scaling matrix that distorted the plane, and $\lambda$ is the eigenvalue, but in this case applied over an identity matrix $I$.  What this means is we can find the eigenvector and eigenvalue with the following formula:
+
 $$(A - \lambda I) \vec{v} = \vec{0}$$
+
 This essentially means we would subtract $\lambda$ along the diagonals of the matrix $A$ and the determinant of the matrix will equal zero. This will then provide the eigenvalues, which can be used to find the eigenvector.
 
 What this essentially does is remove a dimension in the plane to become a single line, as shown below:
