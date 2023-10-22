@@ -108,6 +108,7 @@ The **dual program** is simply just the max and min swapped around. In general, 
 - **Stationary**: $\nabla_xL(x^*,\lambda^*,v^*) =0$ 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/uh1Dk68cfWs?si=Yx0hJStEw2dwZzhg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## KKT Conditions for Hard-Margin SVM
 The Lagrangian
 
