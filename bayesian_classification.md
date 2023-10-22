@@ -16,15 +16,15 @@
 - Several draws, use _**Binomial dist**_ 
 	- And its conjugate prior, **_Beta dist_**
 
-![][Images/discrete_conjugate_prior.png]]
+![](Images/discrete_conjugate_prior.png)
 
 ## Beta Distribution
 
-![][Images/beta_distribution.png]]
+![](Images/beta_distribution.png)
 
 ## Beta-Binomial Conjugacy
 
-![][Images/beta-binomial-conjugacy.png]
+![](Images/beta-binomial-conjugacy.png)
 
 ## Uniqueness Up to Normalisation
 - A trick used many times:
@@ -47,11 +47,11 @@ _Every morning you observe the sun rising. Based solely on this fact, what's the
 	- let $\alpha = \beta =1$ (_uniform_ prior)
 - Under these assumptions
 
-![][Images/laplaces-sunrise-problem.png]
+![](Images/laplaces-sunrise-problem.png)
 
 Consider human-meaningful period
 
-![][Images/sunrise-problem.png]
+![](Images/sunrise-problem.png)
 
 Effect of prior diminishing with data, but _never disappoints completely_
 
@@ -62,7 +62,7 @@ And then if you look at the graph, as the number of days increases, the probabil
 
 ## Suite of Useful Conjugate Priors
 
-![][Images/suite-of-useful-conjugate-priors.png]
+![](Images/suite-of-useful-conjugate-priors.png)
 
 # Bayesian Logistic Regression
 _Discriminative classifier, which conditions on inputs. How can we do Bayesian inference in this setting?_
@@ -71,7 +71,7 @@ _Discriminative classifier, which conditions on inputs. How can we do Bayesian i
 - Similar problems with parameter uncertainty compared to regression
 	- Although predictive uncertainty in-built to model outputs
 
-![][Images/bayesian-logistic-regression.png]
+![](Images/bayesian-logistic-regression.png)
 
 ## No Conjugacy
 - Can we use conjugate prior? E.g.
@@ -93,7 +93,7 @@ $$
 
 ## Approximation
 
-![][Images/approximation-bayes-classification.png]
+![](Images/approximation-bayes-classification.png)
 
 ## How to Approximate the Posterior
 - To see how to approximate the posterior, we need to go back to Bayes Theorem
@@ -128,19 +128,19 @@ $$
 - Let's first look at the hist graph (frequency of samples) and the probability density function
 - Now let's look at the hist graph and the probability density function
 
-![][Images/stochastic-methods-of-posterior-approximation1.png]
+![](Images/stochastic-methods-of-posterior-approximation1.png)
 
 - What can we do if our interested function $q(\theta)$ is like this?
 
-![][Images/stochastic-methods-of-posterior-approximation.png]
+![](Images/stochastic-methods-of-posterior-approximation.png)
 
 - Let's scale the $q(\theta)$!
 
-![][Images/stochastic-methods-of-posterior-approximation2.png]
+![](Images/stochastic-methods-of-posterior-approximation2.png)
 
 - Let's show our samples back
 
-![][Images/stochastic-methods-of-posterior-approximation3.png]
+![](Images/stochastic-methods-of-posterior-approximation3.png)
 
 ### My Explanation
 What this basically means is that we have a probability density function that is a bit tricky to sample from, and to encapsulate it, we need another function with a factor of this probability density function to scale it accordingly
@@ -148,19 +148,19 @@ What this basically means is that we have a probability density function that is
 ## Rejection Sampling
 - Maybe we can reject/delete some samples
 
-![][Images/rejection_sampling.png]
+![](Images/rejection_sampling.png)
 
 - Can we reject/delete one sample $\theta$
 
-![][Images/rejection-sampling2.png]
+![](Images/rejection-sampling2.png)
 
 - Sure. After we sample $\theta_0$, we can just sample a number $x$ from $U(0,1)$. If $x <$ the accepting rate, then we keep $\theta_0$. Otherwise, we reject $\theta_0$ 
 
-![][Images/rejection-sampling3.png]
+![](Images/rejection-sampling3.png)
 
 - It is also clear that, if we have a $\theta_1$ such that $q(\theta_1) = 0.5 \times M$, then we will never reject $\theta_1$, because the accepting rate of $\theta_1$ is 1 = 100%
 
-![][Images/rejection-sampling4.png]
+![](Images/rejection-sampling4.png)
 
 - This is the well-known Monte Carlo (MC) method!
 
@@ -194,13 +194,13 @@ $$
 ## Rejection Sampling Comments
 - The challenge of rejection sampling is picking $g(\theta)$ such that $q(\theta|y) \leq Mg(\theta) \ \ \  \forall \theta$ while minimising the proportion of candidate samples being rejected
 
-![][Images/recjection-sampling-comments.png]
+![](Images/recjection-sampling-comments.png)
 
 - In the case of the beta posterior example, as $y$ $n$ increases, the probability of any $\theta^s$ being accepted (area in red below dashed line in figure) declines
 
 - Now, based on what you know about asymptotic theory, a normal distribution based on the posterior mode truncated at $[0,1]$ might be a better choice for $g(p)$
 
-![][Images/rejection-sampling-commmetnts3.png]
+![](Images/rejection-sampling-commmetnts3.png)
 
 - As before, and also for ease of calculation, we choose $M$ so that $\max_p p(p|y) = M \max_p g(p)$ matched. While the choice of $g(p)$ looks better, especially for larger $n$, it turns out that $p(P|y)/g(p) \leq M$ does not hold $\forall p$ 
 

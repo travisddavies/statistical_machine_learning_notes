@@ -2,9 +2,11 @@
 ## Optimisation Formulations in ML
 - Training = Fitting = Parameter estimation
 - Typical **formulation**
+
 $$
 \hat{\theta} \in \underset{\theta \in \varTheta}{\text{argmin}} L(data,\theta)
 $$
+
 - $\text{argmin}$ because we want a **minimiser** not the **minimum**
 	- Note: $\text{argmin}$ can return a set (minimiser not always not **unique**!!)
 - $\varTheta$ denotes a **model family** (including constraints)
@@ -16,9 +18,11 @@ $$
 - Analytic (aka closed form) solution
 	- Known only in limited number of cases
 	- Use 1st order necessary condition for optimality*:
+ 
 $$
 \frac{\delta L}{\delta \theta_1} = ... = \frac{\delta L}{\delta \theta_1}= 0
 $$
+
 - Approximate iterative solution
 1. **Initialisation**: choose starting guess $\theta^{(1)}$, set $i = 1$ 
 2. **Update**: $\theta^{(i+1)} \leftarrow SomeRule[\theta^{(i)}]$, set $i \leftarrow i + 1$ 
