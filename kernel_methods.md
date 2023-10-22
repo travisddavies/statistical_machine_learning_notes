@@ -239,20 +239,20 @@ _Feature transformation by basis expansion; sped up by direct evaluation of kern
 	- Run hard-margin or soft-margin SVM in new space
 	- Decision boundary is non-linear in original space
 
-![][Images/data_transformation.png]
+![](Images/data_transformation.png)
 
 ## Feature Transformation (Basis Expansion)
 - Consider a binary classification problem
 - Each example has features $[x_1, x_2]$ 
 - Not linearly separable
 
-![][Images/not_linearly_separable.png]
+![](Images/not_linearly_separable.png)
 
 - Now 'add' a feature $x_3 = x_1^2 + x_2^2$ 
 - Each point is now $[x_1,x_2,x_1^2+x_2^2]$ 
 - Linearly separable
 
-![][Images/linearly_separable_1.png]
+![](Images/linearly_separable_1.png)
 
 ## Naive Workflow
 - Choose/design a linear model
@@ -264,11 +264,11 @@ _Feature transformation by basis expansion; sped up by direct evaluation of kern
 
 ## Hard-Margin SVM's Dual Transformation
 
-![][Images/dual_transformation.png]
+![](Images/dual_transformation.png)
 
 ## Hard-Margin SVM in <u>Feature Space</u> 
 
-![][Images/feature_space.png]
+![](Images/feature_space.png)
 
 ## Observation: Kernel Representation
 - Both parameter estimation and computing predictions depend on data <u>only in a form of a dot product </u>
@@ -326,7 +326,7 @@ $$
 - Elements of $u = \varphi(x)$ are transformed input $x$
 - This $\varphi$ has weights learned from data
 
-![][Images/nnet.png]
+![](Images/nnet.png)
 
 ### SVMs
 - Choice of kernel $K$ determines features $\varphi$ 
