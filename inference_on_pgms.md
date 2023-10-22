@@ -26,15 +26,33 @@ _This deck: how to do it effectively_
 ![[nuclear_power_plant_22_example.png]]
 
 - Numerator (denominator similar) 
-	expanding out sums, joint _summing once over 2^5 table_
+	- expanding out sums, joint _summing once over 2^5 table_
+ 
 	$= \sum_{FG}\sum_{HG} \sum_{FA} Pr(HT) Pr(HG|HT, FG)Pr(FG)Pr(AS=t|FA, HG)Pr(FA)$ 
-	distributing the sums as far down as possible _summing over several smaller tables_	
+ 
+	- distributing the sums as far down as possible _summing over several smaller tables_	
 	
 	$=Pr(HT)\sum_{FG}Pr(FG)\sum_{HG} Pr(HG|HT, FG)\sum_{FA}Pr(FA)Pr(AS=t|FA = t | FA, HG)$
+
+### My Explanation
+To get the conditional probability of $Pr(HT|AS = t) = \frac{Pr(HT, AS=t)}{Pr(AS=t)}$, we need to sum out all the other parameters that aren't part of the condition probability as shown in the fraction equation above. 
+
+What we notice when we start to sum out the the parameters, as shown in the second last summation equation, it is wasteful in terms of time complexity to perform the summation over the entire combination as many of the combinations don't contain that probability. Take for example $FA$, $Pr(HT|AS=t)$ doesn't contain this parameter so there is no need to iterate over this when performing the summation. Therefore we separate our summations as shown in the bottom equation.
 
 ## Nuclear Power Plant (Cont.)
 
 ![[nuclear_power_plant_cont.png]]
+
+### My Explanation
+In the above slide, the general procedure is to:
+1. Eliminate the child node by summing it out and turning it into a message of the parents (as shown in $m_{AS}(FA, HG)$)
+2. Eliminate the parent nodes one by one (as shown in the next steps)
+
+This is done with matrix multiplications, as described in the above slide. The bottom-left corner is showing that to eliminate $FA$, we must perform $m_{FA}(HG) = Pr(FA) \cdot m_{AS}(FA, HG)$. This gives us a result of a $2 \times 1$ matrix, which we will use for the next step.
+
+Once we complete this process, we are left with our last node, as shown on the bottom line of the slide.
+
+Also note that the parent nodes are connected each time we eliminate their child node, this is necessary to complete the procedure.
 
 ## Elimination Algorithm
 
@@ -73,10 +91,11 @@ _This deck: how to do it effectively_
 
 1. Initialise with a string starting $X^{(0)} = \big(X_1^{(0)}, ..., X_d^{(0)} \big)$ with $X_E^{(0)} = x_E$ 
 2. Repeat many times
-	1. Pick non-evidence node $X_j$ uniformly at random
+	1. Pick non-evidence node $X_j$ uniformly at random (all nodes in white)
 	2. Sample single node $X_j' \thicksim p(X_j | X_1^{(i-1)}, ..., X_{j-1}^{(i-1)}, X_{j+1}^{(i-1)}, ..., X_d^{(i-1)})$ 
 	3. Save entire joint sample $X^{(i)} = \big( X_1^{(i-1)}, ..., X_{j-1}, \textcolor{red}{X_j'}, X_{j+1}^{(i-1)}, ..., X_d^{(i-1)} \big)$ 
 - Exercise: Why always $X_E^{(i)} = x_E$?
+	- Because we always ignore the evidence node, so we can call it this.
 - Need not update nodes in random order, e.g. **parents first order**. But do need to be able to **sample from conditionals** (e.g. conjugacy)
 
 ## Markov Blanket
@@ -91,6 +110,14 @@ _This deck: how to do it effectively_
 	- $p(X_i | MB(X_i)) \propto p(X_i | X_{\pi_i}) \prod_{k:i \in \pi_k} p(X_k | X_{\pi_k})$ 
 
 ![[markov_blanket.png]]
+
+## Markov Chain Monte Carlo (MCMC)
+
+![[markov_chain_monte_carlo.png]]
+
+## Initialising Gibbs: Forward Sampling
+
+![[initialising_gibbs_forward_sampling.png]]
 
 ## Now What??
 - With our $X^{(1)}, ..., X^{(T)}$ in hand after running Gibbs for a while with burn-in and thinning...

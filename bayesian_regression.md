@@ -108,7 +108,7 @@ _Retain and model all unknowns (e.g., uncertainty over parameters) and use this 
 	- Less sensitive to overfitting, particularly with small training sets
 	- Can give rise to more expressive model class (Bayesian logistic regression becomes non-linear!)
 
-![[uncertainty_over_params.png]]
+![][Images/uncertainty_over_params.png]
 
 ## Frequentist vs Bayesian "Divide"
 - **Frequentist**: learning using _point estimates_, regularisation, $p$-values
@@ -126,13 +126,13 @@ _Application of Bayesian inference to linear regression, using Normal prior over
 - Recall probabilistic formulation of linear regression
 - Bayes rule:
 
-![[revisiting_linear_regression.png]]
+![][Images/revisiting_linear_regression.png]
 
 - Gives rise to penalised objective (ridge regression)
 
 - Rewind one step, consider full posterior
 
-![[linear_regression_bayesian_rewing.png]]
+![][Images/linear_regression_bayesian_rewing.png]
 
 - Can we compute the denominator (**marginal likelihood** or **evidence**)?
 	- If so, we can use the full posterior, not just its mode
@@ -176,7 +176,7 @@ $$
 
 ## Bayesian Linear Regression Example
 
-![[bayesian_linear_regression_example.png]]
+![][Images/bayesian_linear_regression_example.png]
 
 ## Sequential Bayesian Updating
 - Can formulate $p(w|X,y, \sigma^2)$ for given dataset
@@ -192,13 +192,13 @@ $$
 - Posterior becomes more refined/peaked as more data introduced
 - **Approaches a point mass**
 
-![[sequential_bayesian_updating.png]]
+![][Images/sequential_bayesian_updating.png]
 
 ## Stages of Training
 1. Decide on model formulation & prior
 2. Compute _posterior_ over parameters $p(w|X,y)$
 
-![[stages_of_training.png]]
+![][Images/stages_of_training.png]
 
 ## Prediction with Uncertain $w$
 - Could predict using sampled regression curves
@@ -218,20 +218,19 @@ what the above equation is saying is that: for the last part, given a set of sam
 
 ## Prediction (cont.)
 - Pleasant properties of Gaussian distribution means integration is tractable
+
 $p(y_*|x_*, X, y, \sigma^2) = \int p(x|X,y, \sigma^2)p(y_*|x_*,w,\sigma^2)dw$
 
 $\ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ = \int \text{Normal}(w|x_N,V_N) \text{Normal}(y_*|x_*w, \sigma^2)dw$      
 
 $\ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ = \int \text{Normal}(y_*|x'_*w_N, \sigma^2_N(x_*))$       
+
 - Additive variance based on $x_*$ match to training data
 - **c.f. MLE/MAP estimate, where variance is a fixed constant**
 
-### My Explanation
-
-
 ## Bayesian Prediction Example
 
-![[bayesian_prediction_example.png]]
+![][Images/bayesian_prediction_example.png]
 
 ## Caveats
 - Assumptions
