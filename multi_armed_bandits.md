@@ -11,7 +11,7 @@ _Where we learn to take actions; we receive only indirect supervision in the for
 	- Stochastic search in games (e.g. AlphaGo!)
 	- Adaptive A/B testing
 
-![[pokies.png]]
+![](Images/pokies.png)
 
 ## Stochastic MAB Setting
 - Possible actions $\{1,...,k\}$ called "**arms**"
@@ -29,6 +29,7 @@ _Where we learn to take actions; we receive only indirect supervision in the for
 ## $\epsilon$-Greedy
 - At round $t$
 	- **Estimate value** of each arm $i$ as average reward observed
+ 
 $$
 Q_{t-1}(i) = \begin{cases}
    \frac{\sum^{t-1}_{s=1}R_i(s)1[i_s = i]}{\sum^{t-1}_{s=1}1[i_s = i]}, &\text{if } \sum^{t-1}_{s=1}1[i_s = i] > 0 \\
@@ -53,7 +54,7 @@ $$
 
 ## Kicking the Tyres
 
-![[kicking_the_tyres.png]]
+![](Images/kicking_the_tyres.png)
 
 - 10-armed bandit
 - Rewards $P_i = Normal(\mu_i,1)$ with $\mu_i \thicksim Normal(0,1)$ 
@@ -62,7 +63,7 @@ $$
 
 ## Kicking the Tyres: More Rounds
 
-![[kicking_the_tyres_more_rounds.png]]
+![](Images/kicking_the_tyres_more_rounds.png)
 
 - Greedy increases fast, but levels off at low rewards
 - $\epsilon$-Greedy does **better long-term by exploring**
@@ -70,7 +71,7 @@ $$
 
 ## Optimistic Initialisation Improves Greedy
 
-![[optimistic_initialisation_improves_greedy.png]]
+![](Images/optimistic_initialisation_improves_greedy.png)
 
 - **Pessimism**: init $Q$'s below observable rewards $\rightarrow$ Only try one arm
 - **Optimism**: Init $Q$'s above observable rewards $\rightarrow$ Explore arms once
@@ -93,9 +94,11 @@ _Optimism in the face of uncertainty: A smarter way to balance exploration-explo
 - Theorem: **Hoeffding's inequality**
 	- Let $R_1, ..., R_n$ be i.i.d. random variables in $[0,1]$ mean $\mu$, denote by $R_n$ their sample mean
 	- For any $\epsilon \in (0,1)$ with probability at least $1 - \epsilon$
+ 
 $$
 \mu \leq \bar{R}_n + \sqrt{\frac{\log(1/\epsilon)}{2n}}
 $$
+
 - Application to $Q_{t-1}(i)$ estimate - also i.i.d mean!!
 	- Take $n = N_{t-1}(i) = \sum^{t-1}_{s=1}1[i_s = i]$ number of $i$ plays
 	- Then $\bar{R}_n = Q_{t-1}(i)$ 
@@ -115,9 +118,11 @@ $$
 N_{t-1}(i) = \sum^{t-1}_{s=1}1[i_s = i] \ \ \ \hat{u}_{t-1}(i) = \frac{\sum^{t-1}_{s=1}R_i(s)1[i_s=i]}{\sum^{t-1}_{s=1}1[i_s=i]}
 $$
 - "**Optimism in the face of uncertainty**"
+
 $$
 i_t \thicksim \text{argmax}_{i \leq i \leq k} Q_{t-1}(i)
 $$
+
 ...tie breaking randomly
 - This basically means the arm pulled for a given action will be the one with the highest $Q$ value.
 - Addresses several limitations of $\epsilon$-greedy
@@ -125,15 +130,15 @@ $$
 
 ## Kicking the Tyres: How Does UCB Compare?
 
-![[kicking_the_tyre_how_does_ucb_compare.png]]
+![](Images/kicking_the_tyre_how_does_ucb_compare.png)
 
 - UCB quickly overtakes the $\epsilon$-greedy approaches
 
-![[kicking_the_tyre_how_does_ucb_compare2.png]]
+![](kicking_the_tyre_how_does_ucb_compare2.png)
 
 - Continues to overtake on per round rewards for some time
 
-![[kickingthe_tyre_down_the_road_3.png]]
+![](kickingthe_tyre_down_the_road_3.png)
 
 - More striking when viewed as mean cumulative rewards
 
@@ -148,7 +153,8 @@ Q_{t-1}(i) = \begin{cases}
    Q_0, &\text{otherwise }
 \end{cases}
 $$
-	Captures different $\epsilon$ rates & bounded rewards outside $[0,1]$ 
+
+Captures different $\epsilon$ rates & bounded rewards outside $[0,1]$ 
 - Many variations e.g. different confidence bounds
 - Basis for Monte Carlo Tree Search used in AlphaGo!
 
@@ -169,7 +175,7 @@ _State transitions/dynamics with reinforcement learning._
 	- **Now conditional**: $E[R_i(t)|X_i(t)]$
 - A **regression problem**!!
 
-![[but_wait_theres_more.png]]
+![](but_wait_theres_more.png)
 
 ## MABs vs. Reinforcement Learning
 - Contextual bandits introduce state
