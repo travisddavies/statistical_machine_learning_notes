@@ -3,28 +3,36 @@ _An equivalent formulation, with important consequences_
 
 ## Soft-Margin SVM Recap
 - Soft-margin SVM objective:
+
 $$
 \underset{w,b,\xi}{\text{argmin}}\Big(\frac{1}{2} \lVert w \rVert^2 + C \sum^n_{i=1}\Big)
 $$
+
 $$
 \text{s.t. } y_i(w'x_i+b) \geq 1 - \xi_i \text{ for } i=1,..., n 
 $$
+
 $$
  \xi_i \geq 0 \text{ for } i = 1, ..., n 
 $$
+
 - While we can optimise the above "**primal**", often instead work with the **dual**
 
 ## Constrained Optimisation
 - Constrained optimisation: **canonical form**
+
 $$
 \text{minimise } f(x)
 $$
+
 $$
 \text{s.t. } g(x) \leq 0, i=1,...,n
 $$
+
 $$
 h_j(x) = 0, j=1,...,m
 $$
+
 - E.g., find deepest point in the lake, _south of the bridge_
 - Gradient descent doesn't immediately apply
 - Hard-margin SVM: $\underset{w,b}{\text{argmin}} \frac{1}{2} \lVert w \rVert^2 \text{ s.t. } 1 - y_i(w'x_i+b) \leq 0 \text{ for } i = 1,..., n$ 
@@ -102,9 +110,11 @@ The **dual program** is simply just the max and min swapped around. In general, 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/uh1Dk68cfWs?si=Yx0hJStEw2dwZzhg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 ## KKT Conditions for Hard-Margin SVM
 The Lagrangian
+
 $$
 L(w,b,\lambda) = \frac{1}{2}\lVert w \rVert^2 - \sum^n_{i=1} \lambda_i(y_i(w'x_i+b) - 1)
 $$
+
 KKT conditions:
 - Feasibility: $y_i((w^*)'x_i + b) - 1 \geq 0 \text{ for } i = 1,...,n$ 
 - Feasibility: $\lambda_i^* \geq 0 \text{ for } i = 1,...n$ 
@@ -142,11 +152,14 @@ $$
 $$
 
 - $\uparrow$  This one becomes our new constraint
+
 $$
 \frac{\delta L}{\delta w_j} = w_j^* - \sum^n_{i=1}\lambda_iy_i(x_i)_j = 0
 $$
+
 - $\uparrow$ This one eliminates the primal variables
 - The Lagrangian becomes (with additional constraint, above)
+
 $$
 L(\lambda) = \sum^n_{i=1}\lambda_i - \frac{1}{2}\sum^n_{i=1}\sum^n_{j=1}\lambda_i\lambda_j y_i y_j x'_i x_j
 $$
@@ -187,6 +200,7 @@ Recovering Primal Variables
 - Recall from stationarity: $\textcolor{red}{w_j^*} - \sum^n_{i=1}\lambda_iy_i(x_i)_j=0$ 
 - Complementary slackness: $\textcolor{red}{b^*}$ can be recovered from dual solution, noting for any example $j$ with $\lambda_i^* > 0$, we have $y_i(b^*+\sum^n_{i=1}\lambda_i^*y_ix'_ix_j) = 1$ (these are the **support vectors**) 
 - <u>Testing</u>: classify new instance $x$ based on sign of
+
 $$
 s = b^*+\sum^n_{i=1}\lambda^*_iy_ix'_ix
 $$
@@ -196,12 +210,15 @@ So since we have solved for $w^*$ and we can recover $b^*$ from the dual solutio
 
 ## Soft-Margin SVM's Dual
 - <u>Training</u>: find the $\lambda$ that solves
+
 $$
 \underset{\lambda}{\text{argmax}}\sum^n_{i=1}\lambda_i-\frac{1}{2}\sum^n_{i=1}\sum^n_{j=1}\lambda_i\lambda_jy_iy_jx_i'x_j
 $$
+
 $$
 \text{s.t. } C \geq \lambda_i \geq 0 \text{ and } \sum^n_{i=1}\lambda_iy_i = 0
 $$
+
 - <u>Making predictions</u>: same pattern as in hard-margin case
 
 ### My Explanation
@@ -222,20 +239,20 @@ _Feature transformation by basis expansion; sped up by direct evaluation of kern
 	- Run hard-margin or soft-margin SVM in new space
 	- Decision boundary is non-linear in original space
 
-![[Statistical Machine Learning/Images/data_transformation.png]]
+![][Images/data_transformation.png]
 
 ## Feature Transformation (Basis Expansion)
 - Consider a binary classification problem
 - Each example has features $[x_1, x_2]$ 
 - Not linearly separable
 
-![[not_linearly_separable.png]]
+![][Images/not_linearly_separable.png]
 
 - Now 'add' a feature $x_3 = x_1^2 + x_2^2$ 
 - Each point is now $[x_1,x_2,x_1^2+x_2^2]$ 
 - Linearly separable
 
-![[linearly_separable 1.png]]
+![][Images/linearly_separable_1.png]
 
 ## Naive Workflow
 - Choose/design a linear model
@@ -247,11 +264,11 @@ _Feature transformation by basis expansion; sped up by direct evaluation of kern
 
 ## Hard-Margin SVM's Dual Transformation
 
-![[dual_transformation.png]]
+![][Images/dual_transformation.png]
 
 ## Hard-Margin SVM in <u>Feature Space</u> 
 
-![[feature_space.png]]
+![][Images/feature_space.png]
 
 ## Observation: Kernel Representation
 - Both parameter estimation and computing predictions depend on data <u>only in a form of a dot product </u>
@@ -286,13 +303,17 @@ Basically if we do the feature mapping of $\varphi(x)$, it can take infinite tim
 
 ## Kernel Hard-Margin SVM
 - <u>Training</u>: finding $\lambda$ that solve
+
 $$
 \underset{\lambda}{\text{argmax}}\sum^n_{i=1}\sum^n_{j=1}\lambda_i\lambda_jy_iy_jK(x_i,x_j)
 $$
+
 $$
 \text{s.t. } \lambda_i \geq 0 \text{ and } \sum^n_{i=1}\lambda_iy_i
 $$
+
 - <u>Making predictions</u>: classify new instance $x$ based on sign of
+
 $$
 s = b^* + \sum^n_{i=1}\lambda^*_iy_i\textcolor{red}{K(x_i,x_j)}
 $$
@@ -305,7 +326,7 @@ $$
 - Elements of $u = \varphi(x)$ are transformed input $x$
 - This $\varphi$ has weights learned from data
 
-![[nnet.png]]
+![][Images/nnet.png]
 
 ### SVMs
 - Choice of kernel $K$ determines features $\varphi$ 
@@ -325,13 +346,17 @@ _Kernelisation beyond SVMs; separating the "learning module" from feature space 
 ## Representer Theorem
 **Theorem**:
 For any training set $\{x_i,y_i\}^n_{i=1}$, any empirical risk function $E$, monotonic increasing function $g$, then any solution
+
 $$
 f^* \in \text{argmin}_fE(x_1,y_1,f(x_1),...,x_n,y_n,f(x_n)) + g(\lVert f \rVert)
 $$
+
 has representation for some coefficients
+
 $$
 f^*(x) = \sum^n_{i=1}\alpha_ik(x,x_i)
 $$
+
 - Tells us when a (decision-theoretic) learner is kernelisable
 - The dual tells us the form this linear kernel representation takes
 - SVM not the only case:
@@ -359,6 +384,7 @@ $(u'v)^d = (u_1v_1+...+u_mv_m)(u_1v_1+...+u_mv_m)...(u_1v_1+...+u_mv_m)$
 We can then basically break it down into the below expression, as it is basically just the sum of $u_iv_i$ to some power.
 
 $= \sum^l_{i=1}(u_1v_1)^{a_{i1}}...(u_mv_m)^{a_{im}}$ 
+
 Here $0 \leq a_{ij} \leq d$ and $l$ are integers
 
 This can then be essentially broken down into the below expression, as we can just separate the $u$ values and the $v$ values and give them a power.
