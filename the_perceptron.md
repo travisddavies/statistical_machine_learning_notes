@@ -11,7 +11,7 @@ _A building block for artificial neural networks, yet another linear classifier_
 - Each element converts inputs to output
 - The output is a function (called **activation function**) of a weighted sum of inputs
 
-![[ann.png]]
+![](Images/ann.png)
 
 ## Outline
 - In order to use an ANN we need (a) to design network topology and (b) adjust weights to given data
@@ -21,7 +21,7 @@ _A building block for artificial neural networks, yet another linear classifier_
 
 ## Perceptron Model
 
-![[perceptron.png]]
+![](Images/perceptron.png)
 
 - $x_1, x_2$ - inputs
 - $w_1, w_2$ - synaptic weights
@@ -34,16 +34,16 @@ _A building block for artificial neural networks, yet another linear classifier_
 	- Predict class $B$ if $s < 0$ where $s = \sum^m_{i=0}x_iw_i$ 
 - Perceptron is a <u>linear classifier</u>: $s$ is a linear function of inputs, and the decision boundary is linear
 
-![[perceptron_decision_boundary.png]]
+![](Images/perceptron_decision_boundary.png)
 
 ### Exercise
 Find the weights of a perceptron capable of perfect classification of the following dataset
 
-![[perceptron_exercise.png]]
+![](Images/perceptron_exercise.png)
 
 What we can do is think of a line that would separate the bottom instance from the rest. Since this point is sitting to the most top-right of the set at $[1,1]$. 
 
-![[perceptron_exercise_diagram.png]]
+![](Images/perceptron_exercise_diagram.png)
 
 We can adopt the values $w_1=1,w_2=1,w_0=-1.5$ 
 
@@ -54,6 +54,7 @@ $s_1 = 0 \times 1 + 0 \times 1 -1.5$
 $s_1 = -1.5$
 
 Repeat for each and we get :
+
 $s_2 = -0.5, s_3 = -0.5, s_4 = 0.5$
 
 As we can see, the fourth instance is the only positive instance, therefore we can classify this one differently from the rest. Thus we have successfully made an accurate classifier for this problem.
@@ -75,7 +76,7 @@ _Gateway to stochastic gradient descent. Convergence guaranteed by convexity_
 	- $L(s,y) = |s|$ if both $s,y$ have different signs
 - This can be re-written as $L(s,y) = \max(0,-sy)$ 
 
-![[perceptron_loss_function.png]]
+![](Images/perceptron_loss_function.png)
 
 * * This is similar, but not identical to SVM's loss function: the _**hinge loss**_ 
 
@@ -95,7 +96,7 @@ For $i$ from 1 to $T$ (epochs)
 		Consider example $\{x_j,y_j\}$
 		<u>Update</u>*: $w^{(k++)}=w^{(k)}-\eta\nabla L(w^{(k)})$ 
 
-![[perceptron_training_algorithm.png]]
+![](Images/perceptron_training_algorithm.png)
 
 ## Perceptron Training Rule
 - We have $\frac{\delta L}{\delta w_i} = 0$ when $sy > 0$ 
@@ -104,7 +105,7 @@ For $i$ from 1 to $T$ (epochs)
 - We have $\frac{\delta L}{\delta w_i} = x_i$ when $y = -1$ and $s > 0$ 
 - $s=\sum^m_{i=0}x_iw_i$ 
 
-![[perceptron_loss_function.png]]
+![](Images/perceptron_loss_function.png)
 
 ## Perceptron Training Algorithm
 When classified correctly, weights are unchanged
@@ -112,15 +113,21 @@ When classified correctly, weights are unchanged
 $$
 \text{When misclassified: }w^{(k+1)}+=-\eta(\pm x)  
 $$
+
 $$
 (\eta > 0 \text{ is called learning rate})
 $$
+
 _If $y = 1$, but $s < 0$_:
+
 $w_i \leftarrow w_i +\eta x_i$ 
+
 $w_0 \leftarrow w_0 + \eta$ 
 
 _If $y=-1$, but $s \geq 0$_
+
 $w_i \leftarrow w_i - \eta x_i$ 
+
 $w_0 \leftarrow w_0 - \eta$ 
 
 <u>Convergence Theorem</u>:
@@ -136,33 +143,33 @@ If the training data is linearly separable, the algorithm is guaranteed to conve
 ## Perceptron Learning Example
  **Basic setup**
 
-![[perceptron_setup.png]]
+![](Images/perceptron_setup.png)
 
 **Start with random weights**
 
-![[perceptron_random_weights.png]]
+![](Images/perceptron_random_weights.png)
 
 **Consider training example 1**
 
-![[perceptron_example1.png]]
+![](Images/perceptron_example1.png)
 
 **Update weights**
 
-![[perceptron_update_weights.png]]
+![](Images/perceptron_update_weights.png)
 
 **Consider training example 2**
 
-![[perceptron_example2.png]]
+![](Images/perceptron_example2.png)
 
 **Update weights**
 
-![[perceptron-example2-update-weights.png]]
+![](Images/perceptron-example2-update-weights.png)
 
 **Further examples**
 
-![[perceptron-further-examples.png]]
+![](Images/perceptron-further-examples.png)
 
-![[perceptron-further-examples2.png]]
+![](Images/perceptron-further-examples2.png)
 
 # Kernel Perceptron
 _Another example of kernelisable learning algorithm (like the SVM)_
@@ -173,15 +180,21 @@ When classified correctly, weights are unchanged
 $$
 \text{When misclassified: }w^{(k+1)}+=-\eta(\pm x)  
 $$
+
 $$
 (\eta > 0 \text{ is called learning rate})
 $$
+
 _If $y = 1$, but $s < 0$_:
+
 $w_i \leftarrow w_i +\eta x_i$ 
+
 $w_0 \leftarrow w_0 + \eta$ 
 
 _If $y=-1$, but $s \geq 0$_
+
 $w_i \leftarrow w_i - \eta x_i$ 
+
 $w_0 \leftarrow w_0 - \eta$ 
 
 Suppose weights are initially set to 0

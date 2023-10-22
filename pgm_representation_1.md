@@ -5,11 +5,11 @@ _We'll stick with easier discrete case, ideas generalise to continuous_
 
 ## Motivation by Practical Importance
 
-![[motivation_by_practical_importance.png]]
+![](Images/motivation_by_practical_importance.png)
 
 ## Motivation by Way of Comparison
 
-![[motivation_by_way_of_comparison.png]]
+![](Images/motivation_by_way_of_comparison.png)
 
 ## Everything Starts at the Joint Distribution
 - All joint distributions on discrete r.v.'s can be represented as tables
@@ -18,7 +18,7 @@ _We'll stick with easier discrete case, ideas generalise to continuous_
 	- $M$ Boolean r.v.'s require $2^M-1$ rows
 	- Table assigns probability per row
  
-![[Statistical Machine Learning/Images/everything_starts_at_the_joint_distribution.png|inlL]]
+![](Images/everything_starts_at_the_joint_distribution.png)
 
 ### My Explanation
 We have $2^3$ combinations for this joint probability since our values are boolean. We do $2^3-1$ because we omit the last row, this is because if we know all the other combinations, then we will definitely know the last row. This is also so the sum of the column is equal to 1.
@@ -27,7 +27,9 @@ We have $2^3$ combinations for this joint probability since our values are boole
 - **Probabilistic inference** from joint on r.v.'s
 	- Computing any other distributions involving our r.v.'s
 - Pattern: want a distribution, have joint; use:
+
 	$\textcolor{blue}{\text{Bayes rule}} + \textcolor{red}{\text{marginalisation}}$
+ 
 - Example: **naive Bayes classifier**
 	- Predict class $y$ of instance $x$ by maximising
 
@@ -46,7 +48,7 @@ Recall: _integration (over parameters)_ continuous equivalent of sum (both refer
 	- Way too many parameters to fit $\rightarrow$ needs lots of data OR will overfit
 - Antidote: assume independence!
 
-![[tables_are_way_to_large.png]]
+![](Images/tables_are_way_to_large.png)
 
 ## Example: You're Late!
 - Modelling a tardy lecturer. Boolean r.v.'s
@@ -54,7 +56,7 @@ Recall: _integration (over parameters)_ continuous equivalent of sum (both refer
 	- $S$: It is sunny (o.w. bad weather)
 	- $L$: The lecturer arrives late (o.w. on time)
 
-![[umbrella_chair.png]]
+![](Images/umbrella_chair.png)
 
 - Assume: Ben sometimes delayed by bad weather, Ben more likely late than other lecturers
 	- $Pr(S|T) = Pr(S), \ Pr(S) = 0.3, \ Pr(T) = 0.6$
@@ -62,7 +64,7 @@ Recall: _integration (over parameters)_ continuous equivalent of sum (both refer
 	- Need $Pr(L|T=t, S=s)$ for all combinations
 - Need just 6 parameters
 
-![[pov_youre_late.png]]
+![](Images/pov_youre_late.png)
 
 ### My Explanation
 We require 6 parameters since we know that we need a parameter each for $Pr(T)$ and $Pr(S)$, and as shown in the table above, we have $2^2$ combinations for $T$ and $S$ since each can be either true or false. Therefore when we sum this up we get $1 + 1 + 2^2 = 6$. We need to know the first two probabilities so we can choose True or False in the table above. 
@@ -71,7 +73,7 @@ Therefore, because we assume that $P(T)$ and $P(S)$ are independent, we saved on
 
 ## Independence: Not a Dirty Word
 
-![[independence_not_a_dirty_word.png]]
+![](Images/independence_not_a_dirty_word.png)
 
 - Independence assumptions:
 	- Can be reasonable in light of domain expertise
@@ -106,7 +108,7 @@ $$
 
 _Tardy Lecturer Example_
 
-![[tardy_lecture_example.png]]
+![](Images/tardy_lecture_example.png)
 
 ## Example: Nuclear Power Plant
 - Core temperature
@@ -120,15 +122,15 @@ _Tardy Lecturer Example_
 	- AS: alarm sounds
 - PGMs to the rescue!
 
-![[nuclear_power_plant_example.png]]
+![](Images/nuclear_power_plant_example.png)
 
 ## Naive Bayes
 
-![[naive_bayes_diagram.png]]
+![](Images/naive_bayes_diagram.png)
 
 ## Short-Hand for Repeats: Plate Notation
 
-![[short-hand-for-repeats-plate-notation.png]]
+![](Images/short-hand-for-repeats-plate-notation.png)
 
 ### My Explanation
 The above diagram is just showing us that we can simply the Naive Bayes graph into a simple edge and two vertices plot as shown to the right.
@@ -137,4 +139,4 @@ The above diagram is just showing us that we can simply the Naive Bayes graph in
 - PGMs represent joints, which are central to Bayes
 - Catch is that Bayesians add: **node per parameters**, with table being the parameter's priors
 
-![[pgms_bayesian.png]]
+![](Images/pgms_bayesian.png)

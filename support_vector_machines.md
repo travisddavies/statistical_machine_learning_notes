@@ -54,7 +54,7 @@ _A geometric derivation of the (hard-margin) SVM's objective_
 - Point(s) on margin boundaries called **_support vectors_** 
 - We want to maximise the distance to support vectors
 
-![](support_vectors.png)
+![](Images/support_vectors.png)
 
 ## Distance from Point to Hyperplane
 - Consider an arbitrary point $x$ (from either of the classes, and not necessarily the closest one to the boundary), and let $x_p$ denote the **projection** of $x$ onto the separating boundary
@@ -159,7 +159,7 @@ SVMs offer 3 approaches to address this problem:
 2. **Relax** the constraints 
 3. The combination of 1 and 2
 
-![[Statistical Machine Learning/Images/linearly_separable.png]]
+![[Images/linearly_separable.png]]
 
 ## Soft-Margin SVM
 - Relax constraints to allow points to be **inside the margin** or even on the **wrong side** of the boundary
@@ -180,13 +180,15 @@ $$
 
 - Soft-margin SVM loss (**hinge loss**)
 
-![](soft-margin-svm.png)
+![](Images/soft-margin-svm.png)
 
 ## Soft-Margin SVM Objective
 - Soft-margin SVM **objective** 
+
 $$
 \underset{w,b}{\text{argmin}}(\sum_{i=1}^nl_h(x_i,y_i,w,b)+ \lambda \lVert w \rVert^2)
 $$
+
 - Reminiscent of ridge regression
 - Hinge loss $l_h = \max(0,1 - y_i(w'x_i+b))$
 - We are going to re-formulate this objective to make it more amenable to analysis

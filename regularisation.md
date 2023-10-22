@@ -51,8 +51,10 @@ What this basically means is that there is an infinite combination of weights th
 - For linear models, more generally
 	- Feature $X._{j}$ is irrelevant if
 	- $X._{j}$ is a **linear combination** of other columns
+ 
 $$X._{j} = \sum_{l \not = j} \alpha_l X._{l}$$
-		... for some scalars $\alpha_l$. Also called **multicollinearity**. Equivalently: Some eigenvalues of $X'X$ is zero
+
+... for some scalars $\alpha_l$. Also called **multicollinearity**. Equivalently: Some eigenvalues of $X'X$ is zero
 - Even **near-irrelevance**/colinearity can be problematic 
 	- V small eigenvalues of $X'X$
 - Not just a pathological extreme; **easy to happen!**
@@ -70,9 +72,11 @@ $$X._{j} = \sum_{l \not = j} \alpha_l X._{l}$$
 - This means that the problem solution is not defined
 	- In our case $w_1$ and $w_2$ cannot be uniquely identified
 - Remember normal equations solution of linear regression:
+
 $$
 \hat{w} = (X'X)^{-1}X'y
 $$
+
 - With irrelevant/multicolinear features, matrix $X'X$ has **no inverse**
 
 ![](Images/infinite_solutions.png)
@@ -85,13 +89,17 @@ _Ridge regression and the Lasso_
 ## Re-Conditioning the Problem
 - Regularisation: introduce an **additional condition** into the system
 - The original problem is to minimise 
+
 $$
 \lVert y - Xw \rVert ^2_2 + \lambda \lVert w \rVert^2_2 \text{ for } \lambda > 0
 $$
+
 - The solution is now
+
 $$
 \hat{w} = (X'X + \lambda I)^{-1}X'y
 $$
+
 - This formulation is called **ridge regression** 
 	- Turns the ridge into a deep, singular valley
 	- Adds $\lambda$ to eigenvalues of $X'X$: makes invertible
@@ -101,15 +109,18 @@ $$
 This above graph is now strictly convex.
 
 What this all means is that we add a constraint to the objective function so it is now able to find a unique solution, much like the graph above showing only one single minimum point. We do this by adding an identity matrix of set value $\lambda$ to the **sum of least squares equation**.
+
 ## Regulariser as a Prior
 - Without regularisation, parameters found based entirely on the information contained in the training set $X$ 
 	- Regularisation introduces **additional information**
 - Recall our probabilistic model $Y = x'w + \epsilon$ 
 	- Here $Y$ and $\epsilon$ are random variables. where $\epsilon$ denotes noise
 - Now suppose that $w$ is also a random variable (denoted as $W$) with a Normal **prior distribution**
+
 $$
 W \thicksim N(0,1/\lambda)
 $$
+
 - i.e. we expect small weights and that no one feature dominates
 - Is this always appropriate? E.g. data centring and scaling
 - We could encode much more elaborate problem knowledge
@@ -122,11 +133,14 @@ What this means as that we treat $w$ as a prior probability in terms of the Baye
 
 - Instead of maximum likelihood (MLE), take **maximum a posteriori** estimate (MAP)
 - Apply log trick, so that
+
 $$
 \log(posterior) = \log(likelihood) + \log(prior) - \cancel{\log(marg))}
 $$
-	_The last value can be not considered as it doesn't affect optimisation_
+
+_The last value can be not considered as it doesn't affect optimisation_
 - Arrive at the problem of minimising 
+
 $$
 \lVert y - Xw \rVert^2_2 + \lambda \lVert w \rVert^2_2
 $$
@@ -202,23 +216,29 @@ The **right model class** $\varTheta$ will sacrifice some training error, for te
 
 ## Approach: Regularisation 
 - Augment the problem:
+
 $$
 \hat{\theta} \in \underset{\theta \in \varTheta}{\text{argmin}} (L(data, \theta) + \lambda R(\theta))
 $$
+
 - E.g, ridge regression
+
 $$
 \hat{w} \in \underset{w \in W}{\text{argmin}} \lVert y - Xw \rVert^2_2 + \lambda \rVert w \lVert ^2_2
 $$
+
 - Note that regulariser $R(\theta)$ does not depend on data
 - Use held out validation/cross validation to choose $\lambda$ 
 
 ## Example: Polynomial Regression
 - 9th-order polynomial regression
 	- Model of form
+ 
 $$
 \hat{f} = w_0 + w_1x + ... + w_9x^9
 $$
-		regularised with $\lambda \lVert w \rVert ^2_2$ term
+
+regularised with $\lambda \lVert w \rVert ^2_2$ term
   
 ![](Images/train_test_error.png)
 
@@ -245,13 +265,17 @@ _Train error, test error and model complexity in **supervised regression**_
 
 ## (Another) Bias-Variance Decomposition
 - Squared loss for **supervised-regression** predictions
+
 $$
 l(Y,\hat{f}(X_0)) = (Y-\hat{X_0})^2 
 $$
+
 - Lemma: Bias-variance decomposition
+
 $$
 E[l(Y,\hat{X_0})] = (E[Y] - E[\hat{f}])^2 + Var[\hat{f}] + Var[Y]
 $$
+
 
 ![](Images/risk_error.png)
 

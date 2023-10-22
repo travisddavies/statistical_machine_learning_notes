@@ -39,27 +39,27 @@ _A DNN tailored to variable length sequential inputs_
 	- Process each symbol from left to right, to form a sequence of hidden states $h^{(t)}$
 	- Each $h^{(t)}$ encodes all inputs up to $t$
 
-![[rnn_architecture.png]]
+![](Images/rnn_architecture.png)
 
 ## RNN Applications: Seq. Classification
 - Sequence classification: labelling sequence
 	- Use last hidden state as input to linear model (classifier etc.)
 
-![[rnn_classification.png]]
+![](Images/rnn_classification.png)
 
 ## Sequence Tagging RNN
 - Assign each item/token a label in sequence
 	- Given targets per item, can measure loss per item
 
-![[sequence_tagging_rnn.png]]
+![](Images/sequence_tagging_rnn.png)
 
 ## Encoder-Decoder for Sequence Translation
 
-![[encoder-decoder.png]]
+![](Images/encoder-decoder.png)
 
 ## RNN Parameterisation
 
-![[rnn_parameterisation.png]]
+![](Images/rnn_parameterisation.png)
 
 - Parameters are $b, W, U, c, V$
 	- Not specific to timestep $t$, but shared across all positions
@@ -81,7 +81,7 @@ _A DNN tailored to variable length sequential inputs_
 - Gradient magnitude now maintained
 	- Can handled 100+ distance phenomena (vs 5-10 for RNN)
 
-![[lstm.png]]
+![](Images/lstm.png)
 
 # Transformers
 _A method for processing sequence inputs in highly parallelisable manner, using **attention**_
@@ -96,7 +96,7 @@ _A method for processing sequence inputs in highly parallelisable manner, using 
 	- $e_j = f(h^{(j)})$ 
 - E.g., key phrase in review
 
-![[attention.png]]
+![](Images/attention.png)
 
 ## Repeated Attention in Seq2Seq Models
 - Consider multiple sequential outputs
@@ -106,16 +106,16 @@ _A method for processing sequence inputs in highly parallelisable manner, using 
 	- $e_{ij} = a(s^{i-1}, h^{(j)})$ 
 - Avoids bottleneck, and uncovers meaningful structure
 
-![[se2seq.png]]
+![](Images/se2seq.png)
 
 ## Attention in Vision
 - Can attend to other representations, e.g., images
 	- Attention over matrix input
 	- Roves during generation of caption
 
-![[cnn_transformer.png]]
+![](Images/cnn_transformer.png)
 
-![[bird_kernels.png]]
+![](Images/bird_kernels.png)
 
 ## Self-Attention
 - **Transformers** use attention as means of representing sequences directly, instead of RNN
@@ -125,8 +125,8 @@ _A method for processing sequence inputs in highly parallelisable manner, using 
 	- No explicit position information (add to each symbol position index)
 	- Cheap: easily done in parallel
 
-![[self-attention.png]]
+![](Images/self-attention.png)
 
 ## Transformer
 
-![[transformer1.png]]
+![](Images/transformer1.png)

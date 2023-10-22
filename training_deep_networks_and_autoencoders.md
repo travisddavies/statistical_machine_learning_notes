@@ -8,20 +8,24 @@ _Techniques specific to non-convex objectives, largely based on gradient descent
 ## Example: Univariate Regression
 - Consider regression
 - Moreover, we'll use identity output activation function
+
 $$
 z = h(s) = s = \sum^p_{j=0}u_jw_j
 $$
+
 - This will simplify description of backpropagation. In other settings, the training procedure is similar.
 
-![[simple_ann.png]]
+![](Images/simple_ann.png)
 
 ## Loss Function for NNet Training
 - Need **loss** between training example $\{x,y\}$ & prediction $\hat{f}(x, \theta)=z$, where $\theta$ is parameter vector of $v_{ij}$ and $w_j$
 - As regression, can use **squared error**
+
 $$
 L = \frac{1}{2}(\hat{f}(x,\theta)-y)^2=\frac{1}{2}(z-y)^2
 $$
-	(the constant is used for mathematical convenience, see later)
+
+(the constant is used for mathematical convenience, see later)
 - **Decision-theoretic** training: minimise $L$ w.r.t. $\theta$
 	- Fortunately $L(\theta)$ is differentiable
 	- Unfortunately no analytic solution in general
@@ -37,6 +41,7 @@ For $i$ from 1 to $T$ (**epochs**)
 $$
 L = \frac{1}{2}(z_j - y_j)^2
 $$
+
 Need to compute partial derivatives $\frac{\delta L}{\delta v_{ij}}$ and $\frac{\delta L}{\delta w_j}$ 
 
 ## Recap: Gradient Descent vs SGD
@@ -45,7 +50,7 @@ Need to compute partial derivatives $\frac{\delta L}{\delta v_{ij}}$ and $\frac{
 	1. $\theta^{(i+1)} = \theta^{(i)} - \eta\nabla L(\theta^{(i)})$ 
 3. Return $\hat{\theta} \approx \theta^{(T)}$ 
 
-![[gd.png]]
+![](Images/gd.png)
 
 **Stochastic G.D.**
 1. Choose $\theta^{(0)}$ and some $T$, $k=0$
@@ -67,18 +72,18 @@ Need to compute partial derivatives $\frac{\delta L}{\delta v_{ij}}$ and $\frac{
 	- Balances computation and stability
 	- Parallelise over cluster of GPUs (size batch for GPU)
 
-![[mini-batch.png]]
+![](Images/mini-batch.png)
 
 ## (non-)Convex Objective Functions
 - Recall linear regression, convex '**Bowl shaped**' objective
 	- Gradient descent finds a **global** optimum
 
-![[convex_sgd.png]]
+![](Images/convex_sgd.png)
 
 - In contrast, most DNN objectives are **not convex**
 	- Gradient methods get trapped in **local optima** or **saddle points**
 
-![[global_optima.png]]
+![](Images/global_optima.png)
 
 ## Importance of Learning Rate
 - Choice of $\eta$ has big effect on quality of final parameters
@@ -88,7 +93,7 @@ Need to compute partial derivatives $\frac{\delta L}{\delta v_{ij}}$ and $\frac{
 	- Large $\eta$ fluctuate around optima, even diverge
 	- Small $\eta$ barely moves, stuck at local optima
 
-![[learning_steps.png]]
+![](Images/learning_steps.png)
 
 ## Momentum as a Solution
 - Consider a ball with some mass rolling down the objective surface
@@ -100,7 +105,7 @@ Need to compute partial derivatives $\frac{\delta L}{\delta v_{ij}}$ and $\frac{
 	- $\alpha$ decays the velocity, e.g., 0.9
 - Less oscillation, more robust
 
-![[ball_rolling.png]]
+![](Images/ball_rolling.png)
 
 ## Adagrad: Adaptive Learning Rates
 - Why just one learning rate applied to _all_ params?
@@ -134,8 +139,9 @@ Need to compute partial derivatives $\frac{\delta L}{\delta v_{ij}}$ and $\frac{
 	- Adam
 	- ...
  
- ![[optimiser.png]]
-	- Lots of choice, and rapidly changing as deep learning matures
+ ![](Images/optimiser.png)
+ 
+- Lots of choice, and rapidly changing as deep learning matures
 
 # Regularising Deep Nets
 _Best practices in preventing overfitting, a big problem for such high capacity and complex models._
@@ -145,7 +151,8 @@ _Best practices in preventing overfitting, a big problem for such high capacity 
 - Starting weights usually randomly distributed about zero
 - Implicit regularisation: **early stopping**
 	- With some activation functions, this **shrinks** the DNN towards a linear model
-![[tanh_function.png]]
+ 
+![](Images/tanh_function.png)
 
 ## Explicit Regularisation
 - Alternatively, an **explicit regularisation** can be used, much like in ridge regression
@@ -182,13 +189,13 @@ _A DNN training setup that can be used for unsupervised learning, initialisation
 	- Regularise s.t. $u$ is sparse
 	- Regularise to contract inputs
 
-![[autoencoder_topology.png]]
+![](Images/autoencoder_topology.png)
 
 ## Introducing the Bottleneck
 - Suppose you managed to train a network that gives a good **restoration** of the original signal $z(x_i) \approx x_i$
 - This means that the data structure can be effectively described (**encoded**) by a lower dimensional representational $u$
 
-![[bottleneck.png]]
+![](Images/bottleneck.png)
 
 ## Under-/Over-Completeness
 - Manner of bottleneck gives rise to:
@@ -211,13 +218,14 @@ _A DNN training setup that can be used for unsupervised learning, initialisation
 - Given a dataset $x_1, ..., x_n, x_i \in R^m$, PCA aims to find a new coordinate system that most of the **variance is concentrated** along the first coordinate, then most of the remaining variance along the second (**orthogonal**) coordinate, etc.
 - Dimensionality reduction is then based on **discarding coordinates** except the first $l < m$. Coordinates = axes of data = **principal components**
 
-![[pca.png]]
+![](Images/pca.png)
 
 ## PCA: Solving the Optimisation
 - PCA aims to find **principal component** $p_1$ that maximises variance of data projected onto the PC, $p_1'\sum_X p_1$
 	- Subject to $\lVert p_1 \rVert = p_1'p_1 = 1$ 
 	- Have to first subtract the centre of the data from the data
-	![[pca_unexamined.png]]
+ 
+	![](Images/pca_unexamined.png)
 
 - $\sum_Xp_1 = \lambda_1 p_1$
 - Precisely defines $p_1$ as an **eigenvector** of covariance $\sum_X$ with $\lambda_1$ being the corresponding **eigenvalue**

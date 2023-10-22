@@ -85,7 +85,9 @@ $$p_{\theta}(x) = \begin{cases}
 $$
 
 (note: $p_{\theta}(x) = 0$ for all other $x$)
+
 $$p_{\theta}(x) = \theta^x(1-\theta)^{1-x}$$
+
 Maximising likelihood yields 
 
 $$\hat{\theta} = \frac{1}{n}\sum^n_{i=1}X_i$$
@@ -146,18 +148,23 @@ $$
 $$
 \prod^n_{i=1}p_{\theta}(x) = \prod^n_{i=1}\frac{1}{\sqrt{2\pi \sigma^2}}\exp(-\frac{1}{2\sigma^2}(x-\mu)^2)
 $$
+
 $$
 \log(L) = \sum^n_{i=1}[-\frac{1}{2}\log(2\pi\sigma^2)-\frac{(x_i-\mu)}{\sigma^2}]
 $$
+
 $$
 	\frac{dL}{d\sigma^2} = \sum^n_{i=1}[-\frac{1}{2\sigma^2}+\frac{(x_i-\mu)^2}{2(\sigma^2)^2}]=0 
 $$
+
 $$
 -\frac{n}{2\sigma^2}+\frac{\sum^n_{i=1}(x_i-\mu)^2}{2(\sigma^2)^2}=0
 $$
+
 $$
 \frac{\sum^n_{i=1}(x_i-\mu)^2}{\sigma^2}=n
 $$
+
 $$
 \sigma^2=\frac{1}{n}\sum^n_{i=1}(x_i-\mu)^2
 $$
@@ -328,15 +335,20 @@ $P(\theta|X=1) \propto N(0.5,0.5)$
 	- Posterior mode $\underset{\theta}{\text{argmax}}P(\theta|X)$ (max a posteriori or MAP)
 	- There're Bayesian decision-theoretic interpretations of these
  
-![[MAP.png]]
+![](Images/MAP.png)
 
 ## MLE in Bayesian Context
 - MLE formulation: find parameters that best fit data
+
 $$\hat{\theta} \in \underset{\theta}{\text{argmax}}P(X=x| \theta)$$
+
 - Consider the MAP under a Bayesian formulation
 $\hat{\theta} \in \underset{\theta}{\text{argmax}} P(\theta|X=x)$  
+
 $\ \ = \underset{\theta}{\text{argmax}}\frac{P(X=x|\theta)P(\theta)}{P(X=x)}$ 
+
 $\ \ = \underset{\theta}{\text{argmax}} P(X=x|\theta)P(\theta)$ 
+
 - Prior $P(\theta)$ weights; MLE like uniform $P(\theta) \propto 1$ 
 - What the above dot point means is that the prior acts as a weight for the posterior probability, and if the value is uniform across all parameters, then it is basically a constant
 - Extremum estimator: Max $\log P(X=x|\theta) + \log P(\theta)$ 
@@ -346,4 +358,5 @@ $\ \ = \underset{\theta}{\text{argmax}} P(X=x|\theta)P(\theta)$
 	- Decision theory complements both
 - Past: controversy; animosity; almost a 'religious' choice
 - Nowadays: deeply connected
-![[bayesians_v_frequentists.png]]
+
+![](Images/bayesians_v_frequentists.png)

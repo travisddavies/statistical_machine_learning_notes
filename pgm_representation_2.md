@@ -27,7 +27,7 @@ _A.K.A Markov Random Field_
 	- **Clique**: a set of _fully connected nodes_ (e.g., A-D, C-D, C-D-F)
 	- **Maximal clique**: _largest cliques in graph (not C-D, due to C-D-F_)
 
-![[undirected_pgm_formulation.png]]
+![](Images/undirected_pgm_formulation.png)
 
 - Joint probability defined as
 
@@ -47,6 +47,7 @@ $$
 $$
 P(X_1, X_2, ..., X_k) = \prod^k_{i=1}Pr(X_i|X_{\pi_i})
 $$
+
 where $\pi$ indexes parents
 
 - Equivalent to U-PGM with
@@ -54,7 +55,7 @@ where $\pi$ indexes parents
 	- Clique structure links **_groups of variables_**, i.e., $\{\{X_i\} \cup X_{\pi_i}, \forall i\}$ 
 	- Normalisation term trivial, $Z=1$
 
-![[undirected_to_directed.png]]
+![](Images/undirected_to_directed.png)
 
 ## Why U-PGM
 - Pros
@@ -73,12 +74,12 @@ _Conditional random field (CRF);_
 ## The HMM (and Kalman Filter)
 - Sequential observed **outputs** from hidden state
 
-![[the_hmm.png]]
+![](Images/the_hmm.png)
 
 - The **Kalman filter** same with continuous Gaussian r.v.'s
 - A **CRF** is the undirected analogue
 
-![[kalman_filter.png]]
+![](Images/kalman_filter.png)
 
 ## HMM Applications
 - NLP - **part of speech tagging**: given words in sentence, infer hidden parts of speech
@@ -87,18 +88,18 @@ _Conditional random field (CRF);_
 
 - **Speech recognition**: given waveform, determine phonemes
 
-![[hmm_applications.png]]
+![](Images/hmm_applications.png)
 
 - Biological sequences: classification, search, **alignment**
 - Computer vision: identify who's walking in video, **tracking**
 
 ## Fundamental HMM Tasks
 
-![[fundamental_hmm_tasks.png]]
+![](Images/fundamental_hmm_tasks.png)
 
 ## Pixel Labelling Tasks in Computer Vision
 
-![[pixel_labelling_in_compute_vision.png]]
+![](Images/pixel_labelling_in_compute_vision.png)
 
 ## What These Tasks Have in Common
 - Hidden state representation semantics of image
@@ -109,11 +110,11 @@ _Conditional random field (CRF);_
 	- What we observe of hidden state
 - Remind you of HMMs?
 
-![[what-these-tasks-have-in-common.png]]
+![](Images/what-these-tasks-have-in-common.png)
 
 ## A Hidden Square-Lattice Markov Random Field
 
-![[a-hidden-square-lattice.png]]
+![](Images/a-hidden-square-lattice.png)
 
 ## Application to Sequences: CRFs
 - **Conditional Random Field: Same model applied to sequences**
@@ -123,4 +124,4 @@ _Conditional random field (CRF);_
 	- Versus HMM's which are generative, $P(Q|O)$
 	- Undirected PGM more general and expressive
 
-![[application-to-sequences.png]]
+![](Images/application-to-sequences.png)
