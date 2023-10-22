@@ -203,29 +203,38 @@ $$\nabla L=\sum^n_{i=1}((y_i-1)x_i'w-\log(1+\exp(-x_i'w)))$$
 ## Background: Cross Entropy
 - Cross entropy is an information-theoretic method for comparing two distributions
 - Cross entropy is a measure of a divergence between reference distribution $g_{ref}(a)$ and estimated distribution $g_{est}(a)$. For discrete distributions:
+
 $$
 H(g_{ref},g_{est}) = -\sum_{a \in A} g_{ref}(a)\log g_{est}(a)
 $$
+
 $A$ is support of the distributions, e.g., $A=\{0,1\}$ 
 
 ## Training as Cross-Entropy Minimisation
 - Consider log-likelihood for a single point
+
 $$
 \log p(y_i|x_i) = y_i\log(\theta(x_i)) +(1-y_i)\log(1-\theta(x_i))
 $$
+
 - Cross entropy $H(g_{ref}, g_{ref}) = -\sum_a g_{ref}(a) \log g_{est}(a)$ 
 - If reference (true) distribution is
+
 $$
 g_{ref}(1) = y_i \text{ and } g_{ref}(0) = 1-y_i
 $$
+
 - With logistic regression estimating this distribution as
+
 $$
 g_{est}(1) = \theta(x_i) \text{ and } g_{est}(0) = 1 - \theta(x_i)
 $$
 
+
 - It finds $w$ that minimises sum of cross entropies per training point
 
 To further explain on this, we will do an example. Say we have the following output from a logit function, $\theta (x_i) = 0.7$. If we plug this into the cross entropy function, it will look like this:
+
 $$
 L = 0.7\log(1) + 0.3\log(0)
 $$
@@ -240,7 +249,9 @@ This is basically like saying compare the level of _surprise_ for both binary op
 ## Gradient Descent for Logistic Regression
 
 $$u(z) = \frac{1}{1+\exp(-z)}$$
+
 $$\frac{\delta \mu}{\delta z} = \mu(z)(1-\mu(z))$$
+
 $$
 L(w) = \log p(y_i|x_i) = y_i \log(\mu(x_i)) + (1-y_i) \log(1-\mu(x_i))
 $$
