@@ -4,7 +4,7 @@ CNNs, as you've seen are
 3. Expressive
 4. Give great results
 
-![][Images/cnn_chess.png]
+![](Images/cnn_chess.png)
 
 ## The Dark Side of CNNS
 But what is assumed when you use a CNN?
@@ -21,13 +21,13 @@ You can always try to map data into a more regular structure, or downsample your
 
 Imputation is another option too, where we try and fill in missing data to make a regular structure
 
-![][Images/cnn_data_organisation.png]
+![](Images/cnn_data_organisation.png)
 
 **And even if the assumptions hold, it doesn't mean that there's not a better way**
 
 ## Motivating Question
 
-![][Images/unstructured_cnn.png]
+![](Images/unstructured_cnn.png)
 
 What happens if the data isn't nicely structured and suitable for a CNN? How do we manage real world data sets?
 
@@ -42,17 +42,17 @@ We need a general language to describe the relationships between entities
 
 One potential solution is to use _graphs_
 
-![][Images/graph_cnn.png]
+![](Images/graph_cnn.png)
 
 This above diagram shows how graph neural networks are able to learn from complex learning spaces such as elements interacting with one another in drugs.
 
-![][Images/graph_network.png]
+![](Images/graph_network.png)
 
 It is possible to represent this as a matrix - specifically an adjacency matrix corresponding to all the links. But the matrix would inherently be incredibly sparse, which would make it inappropriate for CNNs.
 
 ## Graphs
 
-![][Images/unstructured_cnn.png]
+![](Images/unstructured_cnn.png)
 
 - Graphs are a collection of Vertices (or Nodes) $V$ and Edges $E$. For deep learning, we presume that the Graph Nodes have attributes $X \in R^{n \times d}$.
 - It is also possible that the edges have attributes $X^e \in R^{m \times c}$. These properties can be constant or vary with time.
@@ -70,7 +70,7 @@ Rather than abstracting them to make the data fit modelling frameworks (like CNN
 ## Graph Neural Networks
 With a graph neural network, we want to learn how to aggregate and propagate information across the graph, in a way that helps us extra **local** (node specific) of **global** (graph specific) features.
 
-![][Images/graph_neural_networks.png]
+![](Images/graph_neural_networks.png)
 
 ## What Exactly is Convolutional Again?
 
@@ -83,7 +83,7 @@ $$
 
 ## CNN Networks
 
-![][Images/cnn_graph.png]
+![](Images/cnn_graph.png)
 
 $h_i \in R^F$ are the hidden layer activations of each pixel. 
 Update the hidden layer by 
@@ -94,7 +94,7 @@ $$
 
 ## Graph Convolutional Networks
 
-![][Images/unstructured_cnn.png]
+![](Images/unstructured_cnn.png)
 
 To update:
 
@@ -172,7 +172,7 @@ The above is saying that we can basically apply a Laplacian step to the adjacenc
 ## Graph Edge Networks
 But real data of interest might exist on the nodes and the edges.
 
-![][Images/graph_cnn_embedding.png]
+![](Images/graph_cnn_embedding.png)
 
 Edge hidden weights can be assigned as
 
@@ -197,7 +197,7 @@ The above is basically saying that we can encode edges and learn information abo
 
 ## The Final Layer
 
-![][Images/graph_cnn_final_layer.png]
+![](Images/graph_cnn_final_layer.png)
 
 The final layer can be processed in a number of ways. $\text{softmax}(z_i)$ can be used for node classification, and $\text{softmax}(\sum z_i)$ for graph classification. The importance of links can be predicted by $\sigma(x_j^T z_j)$. Other activation functions can be used for regression.
 
@@ -208,27 +208,27 @@ The final layer can be processed in a number of ways. $\text{softmax}(z_i)$ can 
 
 ## Case Study: Google Maps
 
-![][Images/google_map_graph.png]
+![](Images/google_map_graph.png)
 
 Create the graph network, and then at each node enter a sequence of time series data.
 
-![][Images/lstm_google_map_graph.png]
+![](Images/lstm_google_map_graph.png)
 
 Behaviour across the whole network can be described by a Graph Convolution Network, embedded within a LSTM-like structure.
 
-![][Images/google_maps_performances.png]
+![](Images/google_maps_performances.png)
 
-![][Images/random_google_maps_diagram.png]
+![](Images/random_google_maps_diagram.png)
 
 ## Case Study: Point Clouds
 
-![][point_clouds.png]
+![](Images/point_clouds.png)
 
 These can be represented as a density matrix, but this approach may fail in the case of complex geometries, noisy data, or areas with holes. Would require significant preprocessing, as point clouds are irregular and unordered.
 
-![][Images/point_cloud_process.png]
+![](Images/point_cloud_process.png)
 
-![][Images/point_cloud_performances.png]
+![](Images/point_cloud_performances.png)
 
 While GNNs are less efficient than CNNs, as a relatively new and emerging architecture there's still plenty of scope for improvements.
 
