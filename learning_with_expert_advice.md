@@ -5,16 +5,13 @@ _Warming up example_
 - **Experts** $E_1,...,E_n$ predict the stock market daily 
 	- Each expert prediction is binary: stocks will go up/down
 
-![[stock_market.png]]
+![][Images/stock_market.png] 
 
-- Learner's game, daily:
-	- Observe predictions of all experts
-	- Make a prediction of its own
-	- Observe outcome (could be anything!)
-	- Goal: minimise number total mistakes
-- **Infallible expert** assumption:
-	- 1 or more experts make no mistakes
-
+- Learner's game, daily: 
+	- Observe predictions of all experts 
+	- Make a prediction of its own - Observe outcome (could be anything!) - Goal: minimise number total mistakes - **Infallible expert** assumption:
+		- 1 or more experts make no mistakes
+	
 ## Infallible Expert Algorithm: Majority Vote
 1. Initialise set of experts who haven't made mistakes $E = \{1, ..., n\}$ 
 2. Repeat per round
@@ -23,11 +20,11 @@ _Warming up example_
 	3. Observe correct outcome
 	4. **Remove mistaken experts** from E
 
-![[expert_voters.png]]
+![][Images/expert_voters.png]
 
 ## Mistake Bound for Majority Vote
 
-![[mistake_bound_majoruty_vote.png]]
+![][Images/mistake_bound_majoruty_vote.png]
 
 **Proof**
 - Loop invariant: If algorithm makes a mistake, then at least $|E|/2$ experts must have been wrong
@@ -46,7 +43,7 @@ _Warming up example_
 **Online**
 - A **repeated game**
 
-![[prediction_learning_games.png]]
+![][Images/prediction_learning_games.png]
 
 # Imperfect Experts and the Halving Algorithm
 _Similar proof techniques; similar algorithm; much more interesting setting_
@@ -70,11 +67,11 @@ _Similar proof techniques; similar algorithm; much more interesting setting_
 	4. **Downweigh each mistaken expert** $E_i$
 		  $w_i \leftarrow w_i/2$ 
 
-![[biggest_expert.png]]
+![][Images/biggest_expert.png]
 
 ## Mistake Bound for Halving
 
-![[mistake_bound_for_halving.png]]
+![][Images/mistake_bound_for_halving.png]
 
 Proof
 - Invariant: If algorithm makes a mistake, then weight of wrong expert is at least half the total weight $W = \sum_{i=1}^n w_i$ 
@@ -90,14 +87,14 @@ Proof
 - Scaling to many experts is no problem
 - Online learning vs. PAC frameworks
 
-![[pac_v_online.png]]
+![][Images/pac_v_online.png]
 
 # From Halving to Multiplying to Multiplying Weights by 1 - $\epsilon$ 
 _Generalising weighted majority_
 
 ## Useful (but Otherwise Boring) Inequalities
 
-![[useful_but_boring_inequalities.png]]
+![][Images/useful_but_boring_inequalities.png]
 
 ## Weighted Majority Vote Algorithm
 1. Initialise $w_i = 1$ weight of expert $E_i$
@@ -107,11 +104,11 @@ _Generalising weighted majority_
 	3. Observe correct outcome
 	4. Downweigh each mistaken expert $E_i$ $w_i \leftarrow \textcolor{red}{(1-\epsilon)}w_i$ 
 
-![[weighted_majority.png]]
+![][Images/weighted_majority.png]]
 
 ## Mistake Bound
 
-![[mistake_bound_prop.png]]
+![][Images/mistake_bound_prop.png]
 
 **Proof**
 - Whenever learner mistakes, at least half of total weight reduced by factor of $1 - \epsilon$. So after $M$ mistakes, $W \leq n(1 - \epsilon/2)^M$ 
@@ -145,23 +142,26 @@ _Wherein randomisation helps us do better!_
 
 ## Probabilistic Experts: Expected Loss Bound
 
-![[probabilistic_experts_bound.png]]
+![][Images/probabilistic_experts_bound.png]
 
 - Proof: next, follows similar "potential" pattern
 - Beats deterministic! **Shaves off optimal constant 2**
 - Generalises in many directions. Active area of research in ML, control, economics, in top labs
 
-![[prediction_learning_games.png]]
+![][Images/prediction_learning_games.png]
 
 ## Proof: Upper Bounding Potential Function
 - Learner's round $t$ expected loss: $L_t = \frac{\sum_{i=1}^nw_i^{(t)}l_i^{(t)}}{W(t)}$ 
 - By Lemma 2, since losses are $[0,1]$:
 	updated $w_i^{(t+1)} \leftarrow (1 -  \epsilon)^{l_i^{(t)}}w_i^{(t)} \leq (1 - \epsilon l_i^{(t)})w_i^{(t)}$ 
 - Rearrange to obtain recurrence relation:
+
 $$
 W(t+1) \leq \sum_{i=1}^n(1-\epsilon l_i^{(t)})w_i^{(t)} = \sum^n_{i=1}w_i^{(t)}\Bigg(1 - \epsilon \frac{\sum^n_{i=1}w_i^{(t)}l_i^{(t)}}{\sum^n_{i=1}w_i^{(t)}} \Bigg)
 $$
+
 - Initialisation gave $W(0)=n$, so telescoping we get:
+
 $$
 W(T) \leq n \prod^T_{t=1}(1-\epsilon L_t)
 $$
@@ -169,16 +169,20 @@ $$
 ## Proof: Lower Bounding Potential, Wrap Up
 - Proved upper bound: $W(T) \leq n \prod^T_{t=1}(1- \epsilon L_t)$
 - Lower bound from best expert total loss $L^*$:
+
 $$
 W(T) \geq (1 - \epsilon)^{L^*}
 $$
+
 - Combining bounds and taking log's:
+
 $$
 L^*(1-\epsilon) \leq log_e n + \sum^T_{t=1} \log_e (1 - \epsilon L_t)
 $$
 
 - By Lemma 1: $-L^*(\epsilon + \epsilon^2) \leq \log_e n - \epsilon \sum^T_{t=1}L_t$
 - Linearity of expectation $L = \sum^T_{t=1}L_t$, rearranging:
+
 $$
 L \leq \frac{\log_e n}{\epsilon} + (1 + \epsilon)L^*
 $$

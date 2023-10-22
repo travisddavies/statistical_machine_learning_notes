@@ -98,13 +98,17 @@ $$
 - Take note of the squared error in the numerator inside the exponential power!
 
 ## Derivation of Sum of Squared Errors
+
 $$
 p_{w,\sigma^2(y|x)} = \frac{1}{\sqrt{2\pi\sigma^2}}\exp(-\frac{(y-x'w)^2}{2\sigma^2})
 $$
+
 1. To simplify the calculations, we will take the negative log likelihood as the loss function.
+
 $$
 L = -\log(p_{w,\sigma^2(y|x)} )
 $$
+
 $$
 L = \log(\frac{1}{\sqrt{2\pi\sigma^2}}) + \frac{1}{2\sigma^2}(y-x'w)^2
 $$
@@ -188,9 +192,11 @@ and here you have quadratic regression - More generally, obtain **polynomial reg
 ## Example: Linear Classification
 - Example binary problem: Dataset not linearly separable
 - Define transformation as
+
 $$
 \varphi_i(x) = \lVert x - z_i \rVert
 $$
+
 Where $z_i$ some pre-defined constants
 - Choose $z_1 = [0,0]' , z_2 = [0, 1]', z_3 = [1,0]', z_4 = [1,1]'$ 
 ![](Images/linear_classification.png)
