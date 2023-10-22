@@ -95,6 +95,7 @@ Here $w_0, ..., w_m \in \mathbb{R}$ denote weights (models parameters)
 $$
 p_{w,\sigma^2(y|x)} = \frac{1}{\sqrt{2\pi\sigma^2}}\exp(-\frac{(y-x'w)^2}{2\sigma^2})
 $$
+
 - Take note of the squared error in the numerator inside the exponential power!
 
 ## Derivation of Sum of Squared Errors
@@ -114,9 +115,11 @@ L = \log(\frac{1}{\sqrt{2\pi\sigma^2}}) + \frac{1}{2\sigma^2}(y-x'w)^2
 $$
 
 2. We can now remove the constants, and what we're left with is the sum of squared errors loss function!
+
 $$
 L = (y-x'w)^2
 $$
+
 **Note**: Below has a more thorough derivation of this for the _sum_ part of this loss function
 ## Parametric Probabilistic Model
 - Using simplified notation, discriminative model is:
