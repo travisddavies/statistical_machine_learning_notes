@@ -134,11 +134,11 @@ $$
 
 - UCB quickly overtakes the $\epsilon$-greedy approaches
 
-![](kicking_the_tyre_how_does_ucb_compare2.png)
+![](Images/kicking_the_tyre_how_does_ucb_compare2.png)
 
 - Continues to overtake on per round rewards for some time
 
-![](kickingthe_tyre_down_the_road_3.png)
+![](Images/kickingthe_tyre_down_the_road_3.png)
 
 - More striking when viewed as mean cumulative rewards
 
@@ -175,7 +175,7 @@ _State transitions/dynamics with reinforcement learning._
 	- **Now conditional**: $E[R_i(t)|X_i(t)]$
 - A **regression problem**!!
 
-![](but_wait_theres_more.png)
+![](Images/but_wait_theres_more.png)
 
 ## MABs vs. Reinforcement Learning
 - Contextual bandits introduce state

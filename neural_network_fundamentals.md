@@ -3,7 +3,7 @@ _Modelling non-linearity via function composition_
 
 ## Recap: Perceptron Model
 
-![[perceptron_recap.png]]
+![](Images/perceptron_recap.png)
 
 - A linear classifier
 - $x_1, x_2$ - inputs
@@ -16,7 +16,7 @@ Some problems are linearly separable, but many are not
 - In/out value 1
 - In/out value 0
 
-![[problem_with_perceptron.png]]
+![](Images/problem_with_perceptron.png)
 
 Possible solution: **composition**
 $x_1 \text{ XOR } x_2 = (x_1 \text{ OR } x_2) \text{ AND } \text{ not} (x_1 \text{ AND } x_2)$ 
@@ -27,17 +27,17 @@ We are going to compose perceptrons...
 - ANNs are not restricted to binary classification
 - Nodes in ANN can have various **activation functions**
 
-![[ann_build_block.png]]
+![](Images/ann_build_block.png)
 
 _...many others, many variations_
 
 ## Feed-Forward Artificial Neural Network
 
-![[feed-forward.png]]
+![](Images/feed-forward.png)
 
 ## ANN as Function Composition
 
-![[ann_function_composition.png]]
+![](Images/ann_function_composition.png)
 
 ## ANN in Supervised Learning
 - ANNs can be naturally adapted to various supervised learning setups. Requires setting: output layer dimension, output layer activations, appropriate loss
@@ -54,13 +54,14 @@ _...many others, many variations_
 - ANNs are capable of approximating plethora non-linear functions, e.g., $z(x) = x^2$ and $z(x) = \sin(x)$ 
 - For example, consider the following network. In this example, hidden unit activation functions are $\tanh$ 
 
-![[ann_example.png]]
+![](Images/ann_example.png)
 
-![[tanh.png]]
+![](tanh.png)
 
 Blue points are the function values evaluated at different $x$. Red lines are the predictions from the ANN. Dashed lines are outputs of the hidden units
 
-![[fitting_in.png]]
+![](fitting_in.png)
+
 
 - **Universal approximation theorem** (_Cybenko 1989_): An ANN with a hidden layer with a finite numbers of units, and mild assumptions on the activation function, can approximate continuous functions on compact subsets of $R^n$ arbitrarily well
 
@@ -71,7 +72,7 @@ _Hidden layers viewed as feature space transformation_
 - ANNs with a single hidden layer are **universal approximators**
 - For example, such as ANNs can represent any Boolean function
 
-![[representational_capacity.png]]
+![](representational_capacity.png)
 
 - Any Boolean function over $m$ variables can be implemented using a hidden layer with up to $2^m$ elements
 - More **efficient to stack** several hidden layers
@@ -79,26 +80,28 @@ _Hidden layers viewed as feature space transformation_
 ## Deep Networks
 "Depth" refers to number of hidden layers
 
-![[dnn.png]]
+![](dnn.png)
 
 ## Deep ANNs as Representational Learning
 - Consecutive layers form **representations** of the input of increasing complexity
 - An ANN can be have a simple _linear_ output layer, but using complex _non-linear_ representation
+
 $$
 z = \tanh(D'(\tanh(C'(\tanh(B')(\tanh(A'x))))))
 $$
+
 - Equivalently, a hidden layer can be thought of as the transformed feature space, e.g. $u = \varphi(x)$ compare to **basis** / **kernel learning** 
 - Parameters of such a  transformation are learned from data
 
 ## ANN Layers as Data Transformation
 
-![[data_transformation 1.png]]
+![](Images/data_transformation_1.png)
 
-![[preprocessing_data_transformation.png]]
+![](Images/preprocessing_data_transformation.png)
 
-![[preprocessed_data_transformation2.png]]
+![](Images/preprocessed_data_transformation2.png)
 
-![[preprocessed_data_transformation3.png]]
+![](Images/preprocessed_data_transformation3.png)
 
 ## Depth vs. Width
 - A single arbitrarily wide layer in theory gives a universal approximator
@@ -116,9 +119,9 @@ $$
 - Deep learning automates feature engineering
 	- No need for expert analysis
 	
-![[bird_data.png]]
+![](Images/bird_data.png)
 
-![[bird_type_images.png]]
+![](Images/bird_type_images.png)
 
 ## Backpropagation
 ##### = "backward propagation of errors"
@@ -132,16 +135,16 @@ _Calculating the gradient of loss of a composition_
 - $\frac{\delta L}{\delta w_j}=\frac{\delta L}{\delta z}\frac{\delta z}{\delta s}\frac{\delta s}{\delta w_j}$ 
 - $\frac{\delta L}{\delta v_{ij}}=\frac{\delta L}{\delta z}\frac{\delta z}{\delta s}\frac{\delta s}{\delta u_j}\frac{\delta u_j}{\delta r_j}\frac{\delta r_j}{\delta v_{ij}}$ 
 
-![[backprop_ann.png]]
+![](Images/backprop_ann.png)
 
 ## Backpropagation Equations
 
-![[backpropagation_equations.png]]
+![](Images/backpropagation_equations.png)
 
 ## Forward Propagation
 
-![[foward_propagation.png]]
+![](Images/foward_propagation.png)
 
 ## Backward Propagation of Errors
 
-![[backprop_of_errors.png]]
+![](Images/backprop_of_errors.png)
