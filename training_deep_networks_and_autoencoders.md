@@ -116,6 +116,11 @@ Need to compute partial derivatives $\frac{\delta L}{\delta v_{ij}}$ and $\frac{
 		- Typically $\epsilon=10^{-8}$ $n=0.01$ 
 - No need to tune learning rate! But can be conservative
 
+### My Explanation
+Adagrad basically doesn't go down the steepest point which may be a longer path to the optimal value, rather what it does is find a shorter path by scaling down the gradient vector with the steepest dimensions.
+
+It employs an adaptive learning rate, meaning that the learning rate decays more for steeper gradient dimensions than for more gradual ones. This is important as to reach the global optimum more quickly than following the steepest dimensions, which often takes longer to reach the optimal.
+
 ## Adam
 - Combining elements of momentum and adaptive learning rates
 	1. $m^{(t)}=\beta_1 m^{(t-1)}+(1-\beta_1)\nabla L (\theta^{(t)})$ 

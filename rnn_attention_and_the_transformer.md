@@ -83,6 +83,11 @@ _A DNN tailored to variable length sequential inputs_
 
 ![](Images/lstm.png)
 
+### My Explanation
+Due to the transformation that the data goes through when traversing an RNN, some information is lost at each time step. After a while, the RNN's state contains virtually no trace of the first inputs. This can be a showstopper. Imagine Dory the fish trying to translate a long sentence; by the time she's finished reading it, she has no clue how it started. To tackle this problem, various types of cells with long-term memory have been introduced. They have been proven to be so effective that the basic cells are not used much anymore. Let's first look at the most popular of these long-term memory cells: the LSTM cell.
+
+Essentially the utilises a system where a state traverses through the network from left to right and passes through a _forget gate_. This forget gate drops some information from the state. This output is then added with the input state to add new memories via the addition operator. This output then undergoes no more transformations and is added to the output from the output gate. This is how we add long term memory to the model.
+
 # Transformers
 _A method for processing sequence inputs in highly parallelisable manner, using **attention**_
 
