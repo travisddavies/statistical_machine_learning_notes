@@ -103,6 +103,9 @@ _A method for processing sequence inputs in highly parallelisable manner, using 
 
 ![](Images/attention.png)
 
+### My Explanation
+Attention mechanisms allow a decoder to focus on the appropriate words (as encoded by the encoder) at each time step. For example, we want our decoder to focus more on the word "le football" at each time step if we output the word "soccer". It does this by taking the output of each sequence and performing a weighted sum over the outputs, allowing us to put more focus on certain words in the sequence. For the word "I like soccer", it is appropriate to expect that the verb "like" is very fitting with the noun "soccer". This solves the bottleneck formed when just looking at the output for the last part of the sequence.
+
 ## Repeated Attention in Seq2Seq Models
 - Consider multiple sequential outputs
 	- $s_i = f(s^{(i-1)}, y^{(i-1)}, c_i)$ 

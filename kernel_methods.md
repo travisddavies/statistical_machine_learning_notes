@@ -196,6 +196,8 @@ If you pay attention to the $\sum^n_{i=1}\sum^n_{j=1}y_iy_jx'_ix_j$ part of the 
 
 Because the hard-margin SVM has a strong convex property, we can say that it has a strong duality, and therefore if we solve the dual then we also solve the primal.
 
+Also note that we can say that primal and dual optima are always equal because they are both derived from the Lagrangian of the primal problem (as shown above)
+
 ## Making Predictions with Dual Solution
 Recovering Primal Variables
 - Recall from stationarity: $\textcolor{red}{w_j^*} - \sum^n_{i=1}\lambda_iy_i(x_i)_j=0$ 
