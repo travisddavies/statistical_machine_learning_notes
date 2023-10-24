@@ -1,4 +1,4 @@
-# Multilayer Perceptron
+a Multilayer Perceptron
 _Modelling non-linearity via function composition_
 
 ## Recap: Perceptron Model

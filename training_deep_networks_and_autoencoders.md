@@ -121,6 +121,8 @@ Adagrad basically doesn't go down the steepest point which may be a longer path 
 
 It employs an adaptive learning rate, meaning that the learning rate decays more for steeper gradient dimensions than for more gradual ones. This is important as to reach the global optimum more quickly than following the steepest dimensions, which often takes longer to reach the optimal.
 
+However, one downfall of AdaGrad is that it accumulates the gradients over the entire training process, which means that it can often never reach the global optimum because it slows down too early. RMSProp on the other hand only considers the most recent gradients, solving this problem
+
 ## Adam
 - Combining elements of momentum and adaptive learning rates
 	1. $m^{(t)}=\beta_1 m^{(t-1)}+(1-\beta_1)\nabla L (\theta^{(t)})$ 
