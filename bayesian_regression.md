@@ -137,6 +137,9 @@ _Application of Bayesian inference to linear regression, using Normal prior over
 - Can we compute the denominator (**marginal likelihood** or **evidence**)?
 	- If so, we can use the full posterior, not just its mode
 
+### My Explanation
+The denominator in the second derivation is actually known as the **evidence**, and we can actually consider this as a constant with respect to $w$. Therefore, we can say that the probability function is proportional to the numerator and we can ignore the denominator when finding the MAP.
+
 ## Bayesian Linear Regression (cont)
 - We have two Normal distributions
 	- Normal likelihood $x$ prior

@@ -101,7 +101,7 @@ $$R[f_m] \leq \hat{R}[f_m] + \epsilon(m, F)$$
 	- $F$ called **PAC learnable** if $m = O(poly(1/\epsilon, 1/\delta))$ to learn $f_m$ for any $\epsilon$, $\delta$
 	- This means that we don't require exponential growth in training size $m$ 
 
-What this all means is that we can conclude that the **true risk** will be **no more** than the **measured risk plus some confidence value of $\epsilon$**. However, this is not always the case depending on the situation, so what we can say is, as the epsilon of the dataset reduces, the probability of this claim increases. What's more, we can say that **the more data $m$ that we have**, the **lower the $\epsilon$** will be, and therefore the more confident we will be in our claims.     
+What this all means is that we can conclude that the **true risk** will be **no more** than the **measured risk plus some confidence value of $\epsilon$**. However, this is not always the case depending on the situation, so what we can say is, as the epsilon of the dataset reduces, the size of epsilon increases. What's more, we can say that **the more data $m$ that we have**, the **lower the $\epsilon$** will be, and therefore the more confident we will be in our claims.     
 
 # Bounding True Risk of One Function
 _One step at a time_
@@ -119,6 +119,7 @@ _One step at a time_
 ## Hoeffding's Inequality
 - Many such concentration inequalities; a simplest one...
 - **Theorem**: Let $Z_1, ... Z_m, Z$ be i.i.d random variables and $h(z) \in [a,b]$ be a bounded function. For all $\epsilon > 0$ 
+
 $$
 	Pr(|E[h(Z)] - \frac{1}{m}\sum^m_{i=1}h(Z_i)| \geq \epsilon) \leq 2\exp(-\frac{2m\epsilon^2}{(b-a)^2})
 $$
@@ -194,9 +195,11 @@ R[f_m] - R^* = (R[f_m] - R[f^*])+(R[f^*]-R^*)
 $$
 
 - The estimation error part is:
+
 $$
 R[f_m] - R[f^*]
 $$
+
 **Theorem**: ERM's estimation error is at most twice the uniform divergence
 - Proof:
 

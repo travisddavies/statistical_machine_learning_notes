@@ -224,6 +224,7 @@ $$
 
 ### My Explanation
 The dual program for the soft-margin is basically the same as the hard-margin, except we also use the new constraint for $\lambda_i$ 
+
 ## Finally... Training the SVM
 - The SVM dual problems are quadratic programs, solved in $O(n^3)$, or $O(d^3)$ for the primal.
 - This can be inefficient; specialised solutions exist

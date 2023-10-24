@@ -86,7 +86,7 @@ $$
 What this basically means is that $y_i$ will be either +1 or -1, therefore we can simply multiply $y_i$ by the original $\lVert r_i \rVert$ to classify the $x_i$ instance as either on one side of the decision boundary or on the other side (i.e., the negative side of the line or the positive side of the line). 
 
 ## Maximum Margin Objective
-- The distance from the $i$-th point to a perfect boundary can be encoded as $\lvert r_i \rVert = \frac{y_i(w'x_i+b)}{\lVert w \rVert}$ 
+- The distance from the $i$-th point to a perfect boundary can be encoded as $\lVert r_i \rVert = \frac{y_i(w'x_i+b)}{\lVert w \rVert}$ 
 - The margin width is the distance to the closest point
 - Thus SVMs aim to maximise $(\underset{i=1,...n}{\min}\frac{y_i(w'x+b)}{\lVert w \rVert})$ as a function of $w$ and $b$ 
 	- Do you see any problems with this objective?

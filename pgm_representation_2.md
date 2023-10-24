@@ -8,7 +8,7 @@ _A.K.A Markov Random Field_
 - Graph
 	- Edges undirected
 - Probability
-	- Each note a r.v.
+	- Each node a r.v.
 	- Each clique $C$ has "factor" $\psi_c(X_j:j \in C) \geq 0$ 
 	- Joint $\propto$ product of factors
  

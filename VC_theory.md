@@ -1,14 +1,14 @@
 ## Countably Infinite $F$?
 
 $$
-Pr(R[f] - \hat{R}[f] \geq \sqrt{\frac{\log(\frac{1}{\delta(f)})}{2m}}) \leq \delta(f)
+Pr\Bigg(R[f] - \hat{R}[f] \geq \sqrt{\frac{\log(\frac{1}{\delta(f)})}{2m}}\Bigg) \leq \delta(f)
 $$
 
 ... where we're free to choose (varying) $\delta(f)$ in $[0,1]$ 
 - Union bound "works" (sort of) for this case
 
 $$
-Pr(\exists f \in F, R[f] - \hat{R}[f] \geq \sqrt{\frac{\log(\frac{1}{\delta(f)})}{2m}}) \leq \sum_{f \in F} \delta(f)
+Pr\Bigg(\exists f \in F, R[f] - \hat{R}[f] \geq \sqrt{\frac{\log(\frac{1}{\delta(f)})}{2m}}\Bigg) \leq \sum_{f \in F} \delta(f)
 $$
 
 - Choose confidences to sum to constant $\delta$, then this works
@@ -74,11 +74,9 @@ VC theory focuses on the pattern of labels any $f \in F$ could make
 ## $S_F(3)$ for $F$ linear classifiers in 2D
 
 ![](Images/sf_3.png)
-sf_3.png
-$|F(x)| = 6$
-but still have
-$S_F(3) = 8$ 
-because as proven in the previous example, we can have an example with 3 samples that has a **dichotomy** of 8.
+
+$|F(x)| = 6$ but still have $S_F(3) = 8$ because as proven in the previous example, we can have an example with 3 samples that has a **dichotomy** of 8.
+
 ![[f6-sf-8.png]]
 
 ## $S_F(4)$ for $F$ Linear Classifiers in 2D
@@ -130,7 +128,7 @@ This example:
 
 ![](Images/shatter_example2.png)
 
-What this means is that this function $F$ for 4 samples only has a dichotomy of 10, which is less than $2^4$ and thus cannot shatter $m=4$, so what we do instead is we then check if it can shatter $m=3$, which turns out has $2^8$ dichotomies once the duplicate rows were removed. We can therefore say that for this function, $VC(F)=3$, which means that this function can shatter up to $m=3$. 
+What this means is that this function $F$ for 4 samples only has a dichotomy of 10, which is less than $2^4$ and thus cannot shatter $m=4$, so what we do instead is we then check if it can shatter $m=3$, which turns out has $2^3$ dichotomies once the duplicate rows were removed. We can therefore say that for this function, $VC(F)=3$, which means that this function can shatter up to $m=3$. 
 ## Sauer-Shelah Lemma
 
 ![](Images/sauer_shela_lemma.png)
