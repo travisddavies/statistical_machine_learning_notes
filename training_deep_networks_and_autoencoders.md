@@ -56,9 +56,12 @@ Need to compute partial derivatives $\frac{\delta L}{\delta v_{ij}}$ and $\frac{
 1. Choose $\theta^{(0)}$ and some $T$, $k=0$
 2. For $i$ from 1 to $T$
 	1. For $j$ from 1 to $N$ (in random order)
-		1. For $j$ from 1 to $N$ (in random order)
+		1.  $θ^{(k+1)} = θ(k) − η∇L(y_j , x _j ; θ^ {(k)})$
 		2. $k++$
 3. Return $\hat{\theta} \approx \theta^{k}$ 
+
+### My Explanation
+What the above is saying is that gradient descent uses the whole dataset for weight updates, while stochastic gradient descent will either go by batch or by sample to update weights, choosing samples randomly.
 
 ## Mini-Batch SGD
 - SGD works on single instances
@@ -250,3 +253,6 @@ _A DNN training setup that can be used for unsupervised learning, initialisation
 - Pre-training of deep models
 	- Warm-starting training by initialising model weights with encoder parameters
 	- In some fields of vision, mostly replaced with supervised pre-training on very large datasets
+
+### My Explanation
+Autoencoders simply learn to copy the input to the output, however the bottleneck in the middle of the network forces the network to compress the input into a lower dimensional latent representation of the input given the constraint of having less dimensions to represent the data.

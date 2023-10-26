@@ -67,7 +67,9 @@ Recall: _integration (over parameters)_ continuous equivalent of sum (both refer
 ![](Images/pov_youre_late.png)
 
 ### My Explanation
-We require 6 parameters since we know that we need a parameter each for $Pr(T)$ and $Pr(S)$, and as shown in the table above, we have $2^2$ combinations for $T$ and $S$ since each can be either true or false. Therefore when we sum this up we get $1 + 1 + 2^2 = 6$. We need to know the first two probabilities so we can choose True or False in the table above. 
+We require 6 parameters since we know that we need a parameter each for $Pr(T)$ and $Pr(S)$, and for $Pr(L=true|T,S)$ as shown in the table above, we have $2^2$ combinations for $T$ and $S$ since each can be either true or false. Therefore when we sum this up we get $1 + 1 + 2^2 = 6$. We need to know the first two probabilities so we can choose True or False in the table above. 
+
+
 
 Therefore, because we assume that $P(T)$ and $P(S)$ are independent, we saved on the number of parameters required for the model. If we didn't assume this independence, we would have $2^3 - 1$ parameters to consider, therefore this is much more efficient.
 

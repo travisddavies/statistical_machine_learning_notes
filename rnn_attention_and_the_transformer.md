@@ -73,6 +73,9 @@ _A DNN tailored to variable length sequential inputs_
 	- Consider linear RNN, gradients of $\frac{\delta g^{(T)}}{\delta h^{(1)}} = W^{T-1}$, thus can explode or vanish with large $T$, depending on largest eigenvalue of $W$ (i.e., greater than / less than one).
 	- Can't _learn_ long distance phenomena (over 10+ steps)
 
+### My Explanation
+We require BPTT because we have sequential data, and therefore the typical feedforward network methods of training can't be applied. Each time step in the network has dependencies on the time step before it, and therefore these gradients need to be accumulated and propagated to the start of the network to learn these dependencies.
+
 ## Long Short-Term Memory (LSTM)
 - In RNN, previous state is provided as an input
 	- Multiplied by weight matrix, and non-linearity applied
