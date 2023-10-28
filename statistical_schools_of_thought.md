@@ -386,34 +386,26 @@ $\ \ = \underset{\theta}{\text{argmax}} P(X=x|\theta)P(\theta)$
 # Exercises
 ## Exercise 1
 Why must the _evidence_ be computed when evaluating a _Bayesian posterior_, but when maximising the same posterior to find the _max a posteriori (MAP)_ estimate, the _evidence_ can be ignored/cancelled? 
-- When finding the MAP we are interested in the parameters given the data that gives the highest probability. In this case we can write it as:
+
+- When finding the posterior, we write the following formula:
 $$
-MAP = \arg \max_{\theta} \frac{p(\theta|y)p(\theta)}{p(y|X, \theta)}
+P(\theta|X,y) = \frac{p(y|X, \theta)p(\theta)}{p(y|X)}
 $$
+For MAP, we are interested in the parameters given the data that gives the highest probability. In this case we can write it as:
+$$
+MAP = \arg \max_{\theta} \frac{p(y|X, \theta)p(\theta)}{p(y|X)}
+$$
+
 Where the denominator is the evidence. In this case, the evidence is actually a constant with respect to $\theta$, so we can say that:
 
 $$
-MAP \propto \arg \max_{\theta} p(\theta|y) p(\theta)
+MAP \propto \arg \max_{\theta} {p(y|X, \theta)p(\theta)}
 $$
-
-## Exercise 2
-With respect to training machine learning models, how does the _maximum a posteriori_ estimate for weights relate to the _Bayesian posterior distribution_ over the weights? 
-
-- Bayesian posterior distribution over the weights:
-	$P(\theta | D) = \frac{P(D|\theta) P(\theta)}{P(D)}$
-
-- Maximum a posteriori:
-	$MAP(\theta) = \arg \max_{\theta} P(D|\theta)P(\theta)$
-
-- Given that $P(D)$ is a constant with respect to $\theta$, we can say that $P(\theta|D) \propto P(D|\theta)P(\theta)$ 
-
-- Therefore, MAP is just finding the max of the bottom equation.
 
 ## Exercise 3
 Why are both maximum-likelihood estimators and maximum a posteriori estimators both asymptotically efficient? 
 
-This is because both are considered consistent, meaning that both will converge to the true Gaussian mean if given infinite data.
-
+Because if given infinite data, their variance would converge to 0 of estimator $\theta$
 ## Exercise 4
 Let $E$ be the set of all extremum estimators, $L$ be the set of all maximum-likelihood estimators, and $M$ be the set of all $M$ -estimators. Fill in the blanks in your answers with $E$, $L$, $M$ to make the following expression correct:  $\_\_\_⊂\_\_\_⊂\_\_\_$. 
 
