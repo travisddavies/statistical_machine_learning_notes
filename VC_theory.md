@@ -258,3 +258,25 @@ m1 =
 m2 =
 
 m3 = [x1, x3, x4], [x1, x3, x6]
+
+## Question 8
+(a) Consider an input domain of five points $x_1, . . . , x_5$, and binary classifier family $F$ defined by the table of dichotomies given below. Calculate $VC(F)$ and show a corresponding shattered set of points. 
+
+![[2020-q7.png]]
+
+$m_3 = [x_2, x_4, x_5]$
+$m_2 = [x_1, x_2], [x_1, x_3], [x_2, x_3], [x_2, x_4], [x_2, x_5], [x_3, x_5], [x_4, x_5]$
+$m_1 = [x_1], [x_2], [x_3], [x_4], [x_5]$
+
+(b) Consider a family $F$ of _classifiers_ mapping a finite domain of $n$ instances $\{x_1, ..., x_n\}$ into _binary labels_ $\{-1,+1\}$; and a second family $G$ of classifiers acting on a _distinct_ domain of $m$ instances $\{x_{n+1}, ..., x_{n+m}\}$. Now define a new _product family_ $H$ that can act on the _combined domain_ $\{x_1, ..., x_{n_m}\}$, where for every pair $f \in F$, $g \in G$, we define an $h \in H$ such that, for each instance $x_i \in \{x_1, x_{n_m}\}$, it outputs classification
+
+![[2020-q7-b.png]]
+
+What is $VC(H)$ in terms of $VC(F)$, $VC(G)$? (Hint: it may be helpful to think of families $F$, $G$ as becoming tables of unique dichotomies in rows, with columns being instances $x_1, ..., x_n$ and $x_{n+1}, ..., x_{n+m}$ respectively. Then $H$ is a table with columns $x_1, ..., x_{n+m}$)
+
+$VC(H) = VC(F) + VC(G)$
+
+## Question 9
+A model family $F$’s growth function $SF (m)$ could potentially be $2^m$ , growing exponentially larger with increasing sample size $m$. Why would this be bad news for the PAC bound with growth function for F? 
+
+Because it means that our confidence value is so large that it renders our bound for the true risk and measured risk useless

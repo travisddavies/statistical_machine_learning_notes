@@ -311,3 +311,13 @@ and $\mu_t(x) = [1+\exp(-w_t'x)]^{-1}$
 Explain why only one iteration of Newton-Raphson is required to train linear regression. 
 
 Because the squared error is a closed form solution, and the derivative of the squared error loss is a linear value, it is able to reach the global minimum in one step.
+
+## Exercise 2
+![[2020-q3.png]]
+
+$L(\theta)=\frac{1}{2}\lVert X\theta - y\rVert^2_2$ 
+$\nabla L(\theta) = X'\lVert X \theta - y \rVert$ 
+$\nabla_2 L(\theta) = X'X$
+$\nabla L(\theta) / \nabla_2 L (\theta) = X^{-1} \lVert X \theta - y \rVert$ 
+$\theta^{(t+1)} = \theta^{(t)} - \nabla L(\theta) / \nabla_2 L (\theta)$
+$\theta^{(t+1)} =\theta^{(t)} -  X^{-1} \lVert X \theta - y \rVert$

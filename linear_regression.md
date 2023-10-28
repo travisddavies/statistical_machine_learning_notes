@@ -276,3 +276,8 @@ We now have a new dimension that separates the four data points by class
 Consider as an alternate to the popular square loss in supervised regression, the function $(y, \hat{y}) = (\hat{y} − y)^3$ measuring loss between label y and prediction ŷ. Is this loss a good idea or a bad idea? Why? 
 
 This would not be a good loss function because the derivative has no global optimum
+
+## Exercise 4
+Consider as an alternate to the popular square loss in supervised regression, the function $l(y; ŷ) = (ŷ − y)^5$ measuring loss between label $y ∈ R$ and prediction $ŷ ∈ R$. Is this loss a good idea or a bad idea? Why? 
+
+It is a bad idea, because the loss function is not parabolic and will not have a global optimum 

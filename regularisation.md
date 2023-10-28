@@ -329,3 +329,8 @@ Write an expression relating expected squared loss, bias, and variance.
 ![](Images/risk_error.png)
 
 $L = (E[Y] - E[\hat{f}])^2 + Var[\hat{f}] + Var[Y]$
+
+## Exercise 4
+We saw two bias-variance decompositions in the subject: (i) for parameter estimation and (ii) for supervised regression. Why was there a third irreducible error term in case (ii) but not in case (i)? 
+
+Because the parameter estimation is independent of the data, therefore there is no irreducible noise to be generated.

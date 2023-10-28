@@ -340,3 +340,30 @@ The last layer can be tuned, or the last two layers. To ensure that overfitting 
 
 (c) How can you obtain an unbiased assessment of the accuracy of your DNN model? Describe the steps needed. 
 We will compare recall, precision and F1 score for a held out validation set, ratio of about 85:15. This will give us an accurate measure for accuracy.
+
+## Exercise 12
+To balance economic recovery with public health safety, the City of Melbourne has decided to have an automatic system to count the number of _customers in Melbourne restaurants_. They have installed surveillance cameras in some cafes and now they wish to have an algorithm to count the number of people who are in these businesses, measure when they are using the facilities, and to categorise users by age, gender and other demographic variables. The City also has access to other real-time data sources, such as the parking meters, and traffic detectors on nearby main roads.
+
+(a) Based on what you learned in this subject, which techniques would you suggest that could be useful in the implementation of this system and why? 
+
+Convolutional neural networks that use a binary cross entropy as loss for one classifying head. This classifying head will classify if a person is present in the image. Another head to determine the coordinates of the people in the images, which will use linear regression to train the model to fit the box around the person. Within the box, we will extract an embedding using another CNN trained on extracting features such as race, gender, age and other demographic variables. We can then use a Gaussian mixture model to cluster these embeddings together where we set a certain number of cluster centers.
+
+(b) Describe the steps in the design and implementation of your method focusing on:
+
+(i) What features you would use? How you construct them from the data? 
+
+Still images, where each RBG array for a pixel will be treated as features. Embeddings of these images will also be used as features
+
+(ii) What are the different sections in your system? 
+
+One section is for classifying if a person is in the image, another is for box bounding, another is for extracting embeddings, and another is for clustering the embeddings
+
+(iii) Any model hyperparameters that you need to tune in your system development. 
+
+Learning rate, momentum, patience for early stopping, dropout rate, kernel sizes, number of clusters, output size of embedding, number of kernels, stride length
+
+(iv) What challenges you expect to face and how you would overcome them 
+
+Exploding/vanishing gradients problem - can add batch normalisation or add output from previous layers for training to allow model to remember previous knowlege.
+
+Overfitting - Can get more data, use more regularisation, use more dropout, reduce the patience for early stopping, data augmentation

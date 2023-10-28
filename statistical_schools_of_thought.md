@@ -446,3 +446,20 @@ In words or a mathematical expression, what is the _marginal likelihood_ for a _
 $P(x|\theta) = \int P(\theta|x)P(\theta)\delta \theta$
 
 Where $\theta$ is the parameters, $x$ is the data
+
+## Exercise 9
+Explain why maximum likelihood estimation, max a posteriori and empirical risk minimisation are all instances of extremum estimators. 
+
+Because they all involve finding the maximum or minimum of certain objective functions to estimate parameters in statistical and machine learning models.
+
+## Exercise 10
+Describe how the frequentist and Bayesian approaches differ in their modelling of unknown parameters. 
+
+Frequentist statistics will not consider prior knowledge to form its prediction, it will will form a model and do an arbitrary number of experiments to measure its model against the reality.
+
+Bayesian statistics uses prior knowledge and historic data to make its estimations, and will iteratively update its model as it gets information that goes against its model's estimations.
+
+## Exercise 11
+Why doesn’t max a posteriori estimation require computation of the evidence through costly marginalisation, while computing the posterior distributions does? 
+
+Because it the evidence is a constant with respect to $\theta$, therefore can be can be ignored.

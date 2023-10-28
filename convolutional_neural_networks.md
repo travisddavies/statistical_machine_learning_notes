@@ -238,3 +238,75 @@ How many _parameters_ does the following _convolutional neural network_ have (ex
 Explain in words how a convolutional neural network (CNN) image classifier makes translation invariant classifications 
 
 Because stacks of kernel filters are each learning patterns that exist throughout the image by scanning a window over the image, rather than each neuron learning one pixel. This allows for translation invariance by learning patterns existing throughout the image 
+
+## Exercise 8
+Assume that you train a convolutional neural network (CNN) on a GPU. The size of each input image is 64x64x3 (3 channels). The following figure shows the settings of the layers in the CNN. As shown, there are four layers (blue blocks) in the CNN. Specifically, there are two convolutional layers (conv1 and conv2). Between them there is a max-pooling layer . The output feature map of conv2 is flattened into a vector, which is then fed to a fully-connected layer (FC). The FC layer contains 10 output units.
+
+Note: The padding size is the number of rows/columns on each size of the input. For example, if the size of an input is 5 × 5 and the padding size is 1, then after padding, each dimension of the input becomes 5 + 2 × 1 = 7, so the input becomes 7 × 7.
+
+![[2020-q5-cnn.png]]
+
+(a) Write the sizes of output feature maps of the Layer 1, Layer 2 and Layer 3 (write in the form ‘width × height × channels’) 
+
+Layer 1:
+
+$w_{out} = \frac{w_{in} - w_k}{s} + 1$
+$w_{out} = \frac{61 - 11}{2}+1$
+$w_{out} = 27$
+$output = 27 \times 27 \times 64$
+
+Layer 2
+
+$w_{out} = \frac{27 - 2}{2} + 1$
+$w_{out} = 13$
+$output = 13 \times 13 \times 64$
+
+Layer 3
+
+$w_{out} = \frac{13 + 8 - 9}{1}+1$
+$w_{out} = 13$
+$output = 13 \times 13 \times 64$
+
+(b) How many parameters in each of the four layers (exclude the bias) in the CNN? Show your working. 
+
+Layer 1:
+
+$params = 11 \times 11 \times 3 \times 64$
+$params = 23,232$
+
+Layer 2:
+$params = 0$
+
+Layer 3:
+$params = 9 \times 9 \times 64 \times 64$
+$params = 331,776$
+
+Layer 4:
+$params = 13 \times 13 \times 64 \times 10$
+$params = 108,160$
+
+Total:
+$params = 23,232 + 0 + 331,776 + 108,160$
+$params = 463,163$
+
+(c) How to replace conv2 to keep the same size of receptive field of conv2 with fewer parameters? Write three different replacements. 
+
+5 - 1 + 3 - 1 + 3 = 9, therefore 5 x 5 and 3 x 3 and 3 x 3
+5  - 1 + 5 = 9, therefore 5 x 5 and 5 x 5
+3 x 3 and 3 x 3 and 3 x 3 and 3 x 3 also works
+
+## Exercise 9
+(a) Assume that in the following figure (a) is an image patch and (b) is a kernel that is used to perform convolution (stride = 2, no padding) on the patch. Show the output feature map after convolution. [4 marks]
+
+![[convolutional_operation.png]]
+
+$Pixel1 = 1\times 1 + 0 \times 0 + 0 \times 0 + 1 \times 1 = 2$
+$Pixel2 = 1 \times 1 + 0 \times 0 + 1 \times 0 + 0 \times 1 = 1$
+$Pixel3 = 1 \times 0 + 0 \times 0 + 0 \times 0 + 1 \times 0 = 0$
+$Pixel4 = 1 \times 0 + 1 \times 0 + 0 \times 0 + 0 \times 1 = 0$
+
+(b) Assume that (a) and (b) in the following figure are two image patches. Now consider a 3 × 3 binary weight matrix (each element of the matrix is either 0 or 1) that is used as the kernel to perform convolution (stride = 1, no padding) on the two image patches. Assume that after convolution, the output feature maps are $K_a$ and $K_b$ . What kernel can make the difference between $K_a$ and $K_b$ most significant (sum of all elements of $|K_a − K_b |$ is maximum)? List two such kernels. [6 marks]
+
+![[2020-q4-convolutional.png]]
+
+![[signal-2023-10-27-162240.jpeg]]

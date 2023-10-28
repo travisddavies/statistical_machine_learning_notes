@@ -516,3 +516,8 @@ Given that both $k_1$ and $k_2$ are valid kernels, they are both positive semi-d
 Consider a polynomial kernel of degree $p = 12$ (you may refer to the formula sheet). Explain a benefit of using the kernel trick when using this kernel in the SVM vs explicit basis expansion. 
 
 Using the kernel trick can allow you to save on time complexity and computation by using a factorised version for matrix multiplication, rather than performing a matrix multiplication 12 times. This is an advantage over something like explicit basis expansion
+
+## Exercise 9
+Suppose you have trained a soft-margin SVM with a RBF kernel , but the performance is poor on both training and validation sets. How will you change the hyperparameters of the SVM to improve the performance? List two strategies. 
+
+Change gamma and the C-value to have a smaller margin and make tighter bends to fit the data.
