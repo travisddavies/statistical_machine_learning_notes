@@ -238,3 +238,10 @@ $$
 $$
 
 - In the second case, the constraints are **relaxed ("softened")** by allowing violations by $\xi_i$. Hence the name "soft margin" 
+
+# Exercises
+## Exercise 1
+How does SVM handle data that is not linearly separable? List two possible strategies 
+
+1. Soft-margin SVM
+2. RBF kernel for SVM

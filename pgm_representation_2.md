@@ -125,3 +125,9 @@ _Conditional random field (CRF);_
 	- Undirected PGM more general and expressive
 
 ![](Images/application-to-sequences.png)
+
+## Exercises
+
+### Exercise 1
+Can the joint probability distribution described by any _undirected probabilistic graphical model_ be expressed as a _directed probabilistic graphical model_? Explain why or why not
+- No, because we have no information about which is parent or child node

@@ -305,3 +305,9 @@ and $\mu_t(x) = [1+\exp(-w_t'x)]^{-1}$
 - In linear regression, each $y_i$ has equal variance $\sigma^2$ 
 - Our $y_i$ are Bernoulli, variance: $\mu_t(x_i)[1-\mu_t(x_i)]$ 
 - Our reweighted standardises, dividing by variances!!
+
+# Exercises
+## Exercise 1
+Explain why only one iteration of Newton-Raphson is required to train linear regression. 
+
+Because the squared error is a closed form solution, and the derivative of the squared error loss is a linear value, it is able to reach the global minimum in one step.

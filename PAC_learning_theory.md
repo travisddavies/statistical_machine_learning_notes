@@ -101,7 +101,7 @@ $$R[f_m] \leq \hat{R}[f_m] + \epsilon(m, F)$$
 	- $F$ called **PAC learnable** if $m = O(poly(1/\epsilon, 1/\delta))$ to learn $f_m$ for any $\epsilon$, $\delta$
 	- This means that we don't require exponential growth in training size $m$ 
 
-What this all means is that we can conclude that the **true risk** will be **no more** than the **measured risk plus some confidence value of $\epsilon$**. However, this is not always the case depending on the situation, so what we can say is, as the epsilon of the dataset reduces, the size of epsilon increases. What's more, we can say that **the more data $m$ that we have**, the **lower the $\epsilon$** will be, and therefore the more confident we will be in our claims.     
+What this all means is that we can conclude that the **true risk** will be **no more** than the **measured risk plus some confidence value of $\epsilon$**. However, this is not always the case depending on the situation, so what we can say is, as the size of the dataset reduces, the size of epsilon increases. What's more, we can say that **the more data $m$ that we have**, the **lower the $\epsilon$** will be, and therefore the more confident we will be in our claims.     
 
 # Bounding True Risk of One Function
 _One step at a time_

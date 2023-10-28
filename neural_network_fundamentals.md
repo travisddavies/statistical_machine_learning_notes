@@ -148,3 +148,14 @@ _Calculating the gradient of loss of a composition_
 ## Backward Propagation of Errors
 
 ![](Images/backprop_of_errors.png)
+
+# Exercises
+## Exercise 1
+Explain how artificial neural networks can be considered to be a form of non-linear basis function when learning a linear model. 
+
+Because it goes through several layers of linear functions, applied with a non-linear activation function through each layer.
+
+## Exercise 2
+Consider networks with hundreds of layers of perceptrons - neurons with linear activation functions that output a constant times the weighted sum of their inputs. Are these deep networks? Explain why. 
+
+No. Because the activation functions are linear, this model essentially acts as a linear model and is unable to model complex relationships like a deep neural network.

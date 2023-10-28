@@ -18,6 +18,7 @@ Notes \*:
 - i.i.d means **independent and identically distributed**
 - The hat in $\hat{\theta}$ means that it is an estimate or estimator
 
+### My Explanation
 What this basically means is that frequentist statistics will not consider prior knowledge to form its prediction, it will will rather form a model and do an arbitrary number of experiments to measure its model against the reality.
 
 Take for example a coin being flipped, the frequentist will say that there is no point saying that there's X% probability that it is heads or tails since at this point in time it doesn't have the results to come to a conclusion of the probability. A frequentist will perform $n$ flips and then conclude that if heads occurred 50% of the time, then the probability of heads or tails occurring is 50%.
@@ -35,6 +36,7 @@ Frequentists seek good behaviour, in ideal conditions
 
 ![](bias_estimator.png)
 
+### My Explanation
 What this example means is that a frequentist has essentially tried to predict the true $\theta$ value in the above probability distribution by sampling 20 instances, 40 times and taken the mean of the instances each time and recorded it with a blue dot on the above plot. The black triangle shows the true $\theta$ and the red triangle shows the mean from the estimator. The gap between the two triangle is the **bias** of the estimator.
 
 As you can see by the gap, the bias of this mode is quiet low. If the model's probability distribution was more skewed away from the true mean, as shown below, then we would say that the bias is much higher. This would be considered a **bias** estimator.
@@ -50,6 +52,7 @@ Frequentists seek good behaviour, in ideal conditions
 
 ![](Images/variance_estimator.png)
 
+### My Explanation
 What the above is essentially saying is how much does the **estimator's** predictions vary from the mean predicted value, which basically means how stable is our estimator at predicting. This should not be mistaken with the variance of the data itself, this variance is focused on the estimator.
 
 The example above follows the same method as the previous example, except this time it is measuring the average variance of the estimator's predictions and plotting it, then comparing the average variance of all the measurements with the variance of the data itself. As can be seen in the figure above, the variance of the estimator is similar to the true variance.
@@ -64,6 +67,7 @@ Asymptotic properties often hold! :)
 **Note** *:
 - The $\rightarrow \theta$ in this case means that bias closer and closer to zero 
 
+### My Explanation
 What the above is basically saying is that despite some estimators performing poorly on given data, there are some asymptotic guarantees. These guarantees are that the **bias** and **variance** will converge to their minimum are the data approaches **infinity**. 
 
 ## Maximum-Likelihood Estimation
@@ -72,6 +76,7 @@ What the above is basically saying is that despite some estimators performing po
 - $\hat{\theta}(x_1, ..., x_n) \in \underset{\theta \in \varTheta}{\text{argmax}} \prod^n_{i=1} p_{\theta}(x_i)$ 
 - "_The best estimator is one under which observed data is most likely_" - Fischer
 
+### My Explanation
 What this is basically saying is that for the frequentist approach of designing estimators, they use the **maximum-likelihood estimation** approach. This basically is a general principle where the estimator which maximises the probability of predicting observed data. The rule above shows that the product of the probabilities for each parameter is calculated for each model, and the one with the highest probability is chosen as the estimator.
 
 ### Example I: Bernoulli
@@ -150,7 +155,7 @@ $$
 $$
 
 $$
-\log(L) = \sum^n_{i=1}[-\frac{1}{2}\log(2\pi\sigma^2)-\frac{(x_i-\mu)}{\sigma^2}]
+\log(L) = \sum^n_{i=1}[-\frac{1}{2}\log(2\pi) -\frac{1}{2}\log(\sigma^2)-\frac{(x_i-\mu)^2}{2\sigma^2}]
 $$
 
 $$
@@ -169,6 +174,17 @@ $$
 \sigma^2=\frac{1}{n}\sum^n_{i=1}(x_i-\mu)^2
 $$
 
+$$
+\frac{dL}{d\mu} = \sum^n_{i=1}[\frac{x_i - \mu}{\sigma^2}] = 0
+$$
+
+$$
+\sum^n_{i=1}{x_i} - n\mu = 0
+$$
+
+$$
+\mu = \frac{1}{n}\sum^n_{i=1}x_i
+$$
 ## MLE 'Algorithm'
 1. Given data $X_1, ..., X_2$ **define** probability distribution, $p_{\theta}$, assumed to have **generated the data**
 2. Express likelihood of data, $\prod^n_{i=1}p_{\theta}(X_i)$ 
@@ -188,6 +204,7 @@ $$
 	- E.g. square loss of estimate $(\hat{\theta}-\theta)^2$ 
 	- E.g. 0-1 loss of classifier predictions $1[y \not = \hat{y}]$ 
 
+### My Explanation
 What this basically means is that **decision theory** is about choosing **actions** that are within an **action space** given the provided **data**. The goal is to maximise the **utility** of the decision, which is basically like a **score** for the outcome of the decision.
 
 Take for example the table below, this is an example of utilities from decision theory. If the doctor performs surgery on a patient and the estimation is **correct** that the patient has cancer, then the score is 100%. However, if the doctor is **incorrect** in its prediction and the cancer is absent, then the utility is only 40%. Much like for if the surgery is not performed, the misclassified case has a utility of 0%, and the correct estimation is 85%. The goal of the estimator would be to **minimise** the loss of its estimations as much as possible.  
@@ -208,6 +225,7 @@ Take for example the table below, this is an example of utilities from decision 
  - **ERM**: Use training set $X$ to approximate $R_{\theta}$ 
 	 - Minimise **empirical risk**:  $\hat{R}_{\theta} [\delta] = \frac{1}{n}\sum^n_{i=1}l(\delta(X_i), \theta)$ 
 
+### My Explanation
 What this basically means is that we really want a very low loss if we were to pick out a random sample and make a prediction with it, so what we do is use the **expected** loss, a.k.a the **risk**, as a measurement for the loss if were to predict a random sample. This is much like how we would measure the average loss from a test dataset and use that as our expectation of the model's loss out in the wild. Therefore, the aim is to minimise the **risk** of our model. 
 
 Much like for other methods of calculating the expected value, the **risk** in this case is measured by calculating the average loss of the model over a finite number of samples
@@ -225,7 +243,10 @@ $$
 E_{\theta}[(\theta - \hat{\theta})^2] = [B(\hat{\theta})]^2 + Var_{\theta}(\hat{\theta})
 $$ 
 
+### My Explanation
 What this basically means is that there is this tension between the **bias** and **variance** for the **loss** of a model. If the bias is high in a model, then the variance will likely be low, and vice-versa. So to **minimise** the loss of the function, both the bias and the variance need to be **reduced**.
+
+It also means that Decision theory's concept of **risk** and the frequentist's concept of **bias** and **variance** are much of a muchness, just a different way of looking at the problem
 
 # Extremum Estimators
 Very general framework that covers elements of major statistical learning frameworks; enjoy good asymptotic behaviour in general!!
@@ -236,7 +257,7 @@ Very general framework that covers elements of major statistical learning framew
 	- MLE and ERM seen earlier this lecture; and
 	- MAP seen later in this lecture.
 	- These are all $M$-estimators, with $Q$ as a sum over data (i.e. of log-likelihood, loss, log-likelihood plus log prior)
- - And it generalises other frameworks too!
+- And it generalises other frameworks too!
 
 ## Consistency of Extremum Estimators
 - Recall consistency: stochastic convergence to 0 bias
@@ -264,6 +285,7 @@ Wherein unknown model parameters have associated distributions reflecting prior 
 		- Thus: data likelihood $P_{\theta}(X)$ written as conditional $P(X|\theta)$
 	- Rather than point estimate $\hat{\theta}$,  Bayesians update belief $P(\theta)$ with observed data to $P(\theta|X)$ the **posterior distribution**)
 
+### My Explanation
  What this basically means is that as opposed to the frequentist approach, Bayesian statistics uses prior knowledge and historic data to make its estimations, and will iteratively update its model as it gets information that goes against its model's estimations.
 
 The model will like a little something like this:
@@ -360,3 +382,74 @@ $\ \ = \underset{\theta}{\text{argmax}} P(X=x|\theta)P(\theta)$
 - Nowadays: deeply connected
 
 ![](Images/bayesians_v_frequentists.png)
+
+# Exercises
+## Exercise 1
+Why must the _evidence_ be computed when evaluating a _Bayesian posterior_, but when maximising the same posterior to find the _max a posteriori (MAP)_ estimate, the _evidence_ can be ignored/cancelled? 
+- When finding the MAP we are interested in the parameters given the data that gives the highest probability. In this case we can write it as:
+$$
+MAP = \arg \max_{\theta} \frac{p(\theta|y)p(\theta)}{p(y|X, \theta)}
+$$
+Where the denominator is the evidence. In this case, the evidence is actually a constant with respect to $\theta$, so we can say that:
+
+$$
+MAP \propto \arg \max_{\theta} p(\theta|y) p(\theta)
+$$
+
+## Exercise 2
+With respect to training machine learning models, how does the _maximum a posteriori_ estimate for weights relate to the _Bayesian posterior distribution_ over the weights? 
+
+- Bayesian posterior distribution over the weights:
+	$P(\theta | D) = \frac{P(D|\theta) P(\theta)}{P(D)}$
+
+- Maximum a posteriori:
+	$MAP(\theta) = \arg \max_{\theta} P(D|\theta)P(\theta)$
+
+- Given that $P(D)$ is a constant with respect to $\theta$, we can say that $P(\theta|D) \propto P(D|\theta)P(\theta)$ 
+
+- Therefore, MAP is just finding the max of the bottom equation.
+
+## Exercise 3
+Why are both maximum-likelihood estimators and maximum a posteriori estimators both asymptotically efficient? 
+
+This is because both are considered consistent, meaning that both will converge to the true Gaussian mean if given infinite data.
+
+## Exercise 4
+Let $E$ be the set of all extremum estimators, $L$ be the set of all maximum-likelihood estimators, and $M$ be the set of all $M$ -estimators. Fill in the blanks in your answers with $E$, $L$, $M$ to make the following expression correct:  $\_\_\_⊂\_\_\_⊂\_\_\_$. 
+
+$\text{MLE} \subset M\text{-estimators} \subset \text{extremum estimators}$
+
+## Exercise 5
+(a) Consider an i.i.d. sequence of random variables $X_1 , X_2 , . . .$ coming from some distribution with mean $θ$. Consider a simple estimator $\hat{θ̂}_n = \hat{\theta}(X_1 , . . . , X_n ) = X_1$ of the mean. That is, use the first observation $X_1$ as the estimate and ignore the rest.
+
+$E(\hat{\theta}_n) = E(X_1) = \theta$
+
+(b) Is the estimator $\hat{\theta}_n$ _consistent_? 
+
+No
+
+(c) Explain why your answer to the previous part is correct 
+
+Because variance is not zero, for variance to approach zero the sample size has to approach infinity
+
+## Exercise 6
+Consider a setting with high uncertainty over model parameters. Describe what effect, if any, this will have for the maximum likelihood estimate. 
+
+High variance in the parameters of the model
+
+## Exercise 7
+Explain why using the training likelihood, $p(y|X, θ)$, for model selection can be problematic when choosing between models from different families. 
+
+Choosing based on training likelihood may lead to choosing a model that is overfitting the training data, not accurately predicting the data to unseen data.
+
+
+## Exercise 8
+In words or a mathematical expression, what quantity is minimised by _linear regression_? 
+
+The squared error between the true label and the predicted label
+
+(b) In words or a mathematical expression, what is the _marginal likelihood_ for a _Bayesian probabilistic model_? 
+
+$P(x|\theta) = \int P(\theta|x)P(\theta)\delta \theta$
+
+Where $\theta$ is the parameters, $x$ is the data

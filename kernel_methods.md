@@ -439,3 +439,80 @@ $=f(u)(\sum^{\infty}_{d=0}r_d(u'v)^d)f(v)$
 - Could define similarity function on variable length strings $K(\text{"science is organised knowledge"}, \text{"wisdom is organised life"})$ 
 - However, not every function on two objects is a valid kernel
 - Remember that we need that function $K(u,v)$ to imply a dot product in some feature space
+
+# Exercises
+## Exercise 1
+List two general strategies for proving that a _learning algorithm can be kernelised_. 
+1. The mercer's theorem, where we map features into a higher dimensional space and then prove that in that space it can be represented by a positive semi-definite kernel function.
+2. Representers theorem, which says that the addition of a valid kernel with another valid kernel regardless of factor, is also a kernel
+
+## Exercise 2
+Suppose both $k(u, v)$ and $k^′(u, v)$ are valid kernels on some input space $X$ , with inputs $u, v \in X$. You may assume for simplicity, that these kernels have corresponding feature mappings $φ$, $φ′$ that map inputs $d d′$ from $X$ to $R$ and $R$ respectively. In other words, $k(u, v)$ equals $φ(u)$ dot product with $φ(v)$ (and similarly for the primed kernel and feature map); and the feature maps are finite dimensional . Prove that new function $g(u, v) = k(u, v) × k ^′ (u, v)$ is a valid kernel. 
+
+$g(u,v) = k(u,v)  k'(u,v)$
+$g(u, v) = \phi(u) \cdot \phi(v) \times \phi '(u) \cdot \phi '(v)$
+$g(u,v) = \sum_{i,j} \phi(u_i) \phi '(u_j) \phi(v_i) \phi '(v_j)$ 
+let $\sum_{i,j} \phi(u_i) \phi '(u_j) = \phi_k(u)$, and then apply the same for the other
+$g(u,v) = \phi_k(u)\phi_k(v)$ 
+
+Therefore is a kernel
+
+## Exercise 3
+The soft-margin support vector machine imposes box constraints on the dual parameters in training, namely $0 ≤ λ_i ≤ C$. Explain how reducing the value of $C$ has the effect of increasing the margin of separation of the training data. You should assume a linear kernel, and recall the margin can be expressed as $\frac{1}{\lVert w \rVert}$ where $w$ are the primal weights. [8 marks]
+
+Given the following:
+
+$\xi_i \geq y_i(w \times x_i + b)$
+
+And:
+
+$$
+\underset{w,b,\xi}{\text{argmin}}\Big(\frac{1}{2}\lVert w \rVert^2+C\sum^n_{i=1}\xi_i \Big)
+$$
+
+The dual equivalent is:
+
+$$
+\underset{\lambda}{\text{argmax}}\sum^n_{i=1}\lambda_i-\frac{1}{2}\sum^n_{i=1}\sum^n_{j=1}\lambda_i\lambda_jy_iy_jx_i'x_j
+$$
+
+$$
+\text{s.t. } C \geq \lambda_i \geq 0 \text{ and } \sum^n_{i=1}\lambda_iy_i = 0
+$$
+
+In this dual for $\lambda_i$, it essentially works as a regulariser just like for in the primal, it must follow the KTT conditions of being greater than one, but is bounded by $C$ just like the primal. 
+
+Therefore the $C$ value essentially applies a certain penalty to the misclassifications. If the $C$ value is low, the penalty is also small and the SVM will naturally have a larger margin at the expense of lots of misclassifications. If the $C$ value is large, the penalty is large and naturally the SVM will aim to make the margin as small as possible to avoid penalties.
+
+(b) We wish to use the function $k(u, v) = u Bv$ as a kernel, where $B$ is a $d × d$ matrix and $u$, $v$ are both d dimensional vectors. Is this a valid kernel? Do any conditions need to be placed on $B$ for this to be the case? Present a mathematical argument to support your answer. [8 marks]
+
+If $u'Bv \geq 0$, and $B$ has no negative eigenvalues. Also, if $u'Bv = (u'Bv)^T$, therefore is symmetrical and we can say that it is positive semi-definite
+
+## Exercise 4
+Weak duality guarantees that a primal optimum always upper bounds a dual optimum. How can we tell that the support vector machine’s primal and dual optima are always equal? [5 marks]
+
+Because both are derived from the Lagrangian of the primal problem
+
+## Exercise 5
+Suppose you have trained a soft-margin support vector machine (SVM) with a RBF kernel , and the performance is very good on the training set while very poor on the validation set. How will you change the hyperparameters of the SVM to improve the performance of the validation set? List two strategies. [5 marks]
+
+We can adjust the gamma value in the RBF kernel, or we could decrease the $C$ value to increase the margin width
+
+## Exercise 6
+For a support vector machine with a quadratic kernel , in what situation, if any, would it be better to use the primal program instead of the dual program for training? [4 marks]
+
+Dual SVM requires $n^3$ time complexity, primal requires $d^3$, therefore a dataset with low dimensionality and high quantities of instances would be better to use primal.
+
+## Exercise 7
+If $k_1 (a, a_0 )$ and $k_2 (b, b_0 )$ are both valid kernels over vector valued inputs of size $d_1$ and $d_2$ respectively, prove that
+
+![[q15-20210s1.png]]
+
+is also a valid kernel over vectors of size $d_1$ + $d_2$.
+
+Given that both $k_1$ and $k_2$ are valid kernels, they are both positive semi-definite. Therefore the addition of both kernels will also result in a positive semi-definite kernel and is also a valid kernel.
+
+## Exercise 8
+Consider a polynomial kernel of degree $p = 12$ (you may refer to the formula sheet). Explain a benefit of using the kernel trick when using this kernel in the SVM vs explicit basis expansion. 
+
+Using the kernel trick can allow you to save on time complexity and computation by using a factorised version for matrix multiplication, rather than performing a matrix multiplication 12 times. This is an advantage over something like explicit basis expansion

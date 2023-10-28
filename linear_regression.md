@@ -254,3 +254,24 @@ What this above example is basically showing is that you can transform this line
 - Another popular idea is to use training data $z_i \equiv x_i$ 
 	- E.g. $\varphi_i(x) = \varphi(\lVert x - x_i \rVert)$ 
 	- However, for large datasets, this results in a large number of features $\rightarrow$ computational hurdle
+
+## Exercises
+### Exercise 1
+If a training problem allows a _closed form solution_, would there be any advantage to using an _iterative gradient based optimisation_ method? Explain. 
+
+- Closed form solution takes $O(n^3)$ while gradient descent is much smaller in time complexity. 
+
+## Exercise 2
+Consider a 2-dimensional _dataset_, where each point is represented by two _features_ and the _label_ $(x_1,x_2,y)$. The features are binary, the label is the result of XOR function, and so the data consists of four points $(0,0,0)$, $(0,1,1)$, $(1,1,0)$ and $(1,1,0)$. Design a _feature space transformation_ that would make the data _linearly separable_ 
+
+Point 1: $x_3 = (0-0)^2 = 0$
+Point 2: $x_3 = (1 - 0)^2 = 1$
+Point 3: $x_3 = (0-1)^2 = 1$
+Point 4: $x_3 = (1 - 1)^2 = 0$
+
+We now have a new dimension that separates the four data points by class
+
+## Exercise 3
+Consider as an alternate to the popular square loss in supervised regression, the function $(y, \hat{y}) = (\hat{y} − y)^3$ measuring loss between label y and prediction ŷ. Is this loss a good idea or a bad idea? Why? 
+
+This would not be a good loss function because the derivative has no global optimum

@@ -142,3 +142,58 @@ The above diagram is just showing us that we can simply the Naive Bayes graph in
 - Catch is that Bayesians add: **node per parameters**, with table being the parameter's priors
 
 ![](Images/pgms_bayesian.png)
+
+# Exercises
+## Exercise 1
+In words, what does $Pr(A,B|C) = Pr(A|C) Pr(B|C)$ say about the _dependence_ of $A,B,C$? 
+
+$A$ and $B$ are conditionally independent given $C$
+
+## Exercise 2
+Considering we have 4 Boolean random variables $X,Y,Z,V$ (each of them can only take 0 or 1 as its value), if we do not assume any independence among them, how many rows do we have in the probability table regarding the joint distribution of these 4 random variables? 
+
+$2^4 - 1$
+
+## Exercise 3
+Considering we have 4 Boolean random variables $X,Y,X,V$ (each of them can only take 0 or 1 as its value), if we assume $X,Y,Z$ are independent of each other and $V$ depends on $X,Y$, how many rows do we need to represent the probability table regarding the joint distribution of these 4 random variables? 
+
+$X,Y,Z$ are independent and only require one row each. $Pr(V|X,Y)$ requires $2^2$ rows because it has two other random variables that it depends on. Therefore we have:
+
+$1 + 1 + 1 + 2^2 = 7 \text{ random variables}$
+
+## Exercise 4
+Consider the following PGM
+
+![[2023-sample-q4-pgm.png]]
+
+where each random variable is Boolean-valued (True or False)
+
+(a) Write the format (with empty values) of the _conditional probability tables_ for this graph 
+
+| P(A = True) | ? |
+|-------------|---|
+
+| P(B = True) | ? |
+|-------------|---|
+
+| A | B | P(C = True\|A,B) |
+|---|---|------------------|
+| T | T | ?                |
+| T | F | ?                |
+| F | T | ?                |
+| F | F | ?                |
+
+(b) Suppose we observe $n$ sets of values $A,B,C$ (complete observations). The _maximum-likelihood principle_ is a popular approach to training a model such as above. What does it say to do? 
+
+$\arg \max_{tables} \prod^{n}_{i=1}P(A=a_i)P(B=b_i)P(C=c_i|A=a_i,B=b_i)$
+
+(c) Suppose we observe 5 training examples: for $(A, B, C)$ — $(F, F, F ); (F, F, T ); (F, T, F ); (T, F, T );(T, T ; T )$. Determine maximum-likelihood estimates for your tables. 
+
+**Acceptable**: The MLE decouples when we have fully-observed data, and for discrete data as in this case — where the variables are all Boolean — we just count.  The $P r(A = T rue)$ is 2/5 since we observe $A$ as true out of five observations. Similarly for $B$ we have the probability of True being 2/5. Finally for each configuration $TT, TF, FT, FF$ of $AB$ we can count the times we see $C$ as True as a fraction of total times we observe the configuration. So we get for these probability of $C = T rue$ as $1.0, 1.0, 0.0, 0.5$ respectively
+
+| A | B | P(C = True\|A,B) |
+|---|---|------------------|
+| T | T | 1                |
+| T | F | 1                |
+| F | T | 0                |
+| F | F | 1                |

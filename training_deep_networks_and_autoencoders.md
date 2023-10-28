@@ -256,3 +256,87 @@ _A DNN training setup that can be used for unsupervised learning, initialisation
 
 ### My Explanation
 Autoencoders simply learn to copy the input to the output, however the bottleneck in the middle of the network forces the network to compress the input into a lower dimensional latent representation of the input given the constraint of having less dimensions to represent the data.
+
+# Exercises:
+## Exercise 1
+Consider training a _deep neural network_ with _tanh activation functions_ using _backpropagatation_. Can this lead to the _vanishing gradient problem_? Why? 
+-  Yes. The vanishing gradients problem is when the gradients of a loss function given the model's weights becomes so small that it propagates backwards through the network during training, greatly hampering the training time for convergence. Given that the tanh function is an S-shape curve, with most of the plot being approaching 1 or -1 on the y-axis, the activation function being stuck at a really small gradient which is so small that it will propagate backwards through the network during training.
+
+## Exercise 2
+How does the value of the learning rate, $\eta$ in _stochastic gradient descent_ affect the progress of training? 
+- The learning rate affects the size that weights are adjusted during training. As shown by $\theta^{(i + 1)} = \theta^i + \eta \times \nabla L(\theta^i)$ 
+- The size of the learning rate greatly affects the performance of the model during training:
+	- Too large and the model's weights will adjust too greatly, and ultimately never converge to the true optimum point.
+	- Too small and the model's weights will adjust too slowly, taking too long to reach to true optimum point, or may never converge at all.
+
+## Exercise 3
+The Adagrad optimiser is a variant of stochastic gradient descent with a dynamic learning rate. Explain how the dynamic learning rate operates, and why this is important during optimisation of machine learning models. 
+
+Dynamic learning rates operate by adjusting the learning rate differently for different gradient dimensions in terms of their steepness. Steeper dimensions decay more than the more gradual dimensions. This is to steer the model to the global optimum faster than learning rates that follow the steepest gradient dimensions, which often takes longer to converge.
+
+## Exercise 4
+(b) Compared with the Root Mean Square Propagation (RMSProp) algorithm, what’s the main draw-back of the Adaptive Gradient (AdaGrad) algorithm? 
+
+Because the weights accumulate from the start of training for AdaGrad, it often slows down too early to reach the global optimum. RMSProp on the other hand only accumulates the most recent gradients and therefore manages this fallback of AdaGrad.
+
+## Exercise 5
+What strategy makes the Variational Autoencoder (VAE) capable of applying gradient descent through the samples of latent representation $z$ to the encoder? 
+
+By training the autoencoder to replicate the input using gradient descent, but by creating a bottleneck in the middle of the network, we are constraining the model to learn a lower-dimension latent representation of the input in this bottleneck.
+
+## Exercise 6
+Explain why the use of momentum in an optimiser can help avoid getting trapped at local optima or saddle points, with respect to the training of machine learning models with non-convex training objectives. 
+
+It allows the model to accumulate velocity in gradients in dimensions it gained during training to overcome local minima and reach the global optimum.
+
+## Exercise 7
+With respect to learning an autoencoder, explain a failure case that can arise from the use of complex non-linear encoder and decoder components. 
+
+May be overcomplete, where it is just learning to copy the input data to the output.
+
+## Exercise 8
+Describe something that can go wrong specifically with _gradient descent_ while training a learner. Describe one approach to mitigating the problem. 
+
+Getting stuck in local minima, this can be mitigated with momentum
+
+## Exercise 9
+Explain why training examples are weighted within the _AdaBoost_ algorithm. 
+
+To decay the dimensional gradients that are steeper so as to approach the global optimum faster than following the steepest gradients, which often takes longer to reach the global optimum
+
+## Exercise 10
+Suppose you are selecting parameter vector $\theta \in \mathbb{R}^d$ to minimise loss over a training set, with the loss from predicting with $\theta$ on the $i$th example written as $\mathbb{L}(\theta, x_i,y_i)$, for $i \in \{1,...,n\}$ 
+
+(a) Write down the gradient descent algorithm for accomplishing this task. Explain any additional notation/variables you introduce. 
+
+1. Choose $\theta^{(0)}$ and some $T$
+2. For $i$ from 0 to $T-1$
+	1. $\theta^{(i+1)} = \theta^{(i)} - \eta\nabla L(\theta^{(i)})$ 
+3. Return $\hat{\theta} \approx \theta^{(T)}$ 
+
+(b) Explain how stochastic gradient descent would differ in approximating this problem. 
+
+Stochastic gradient descent would not use the whole dataset, rather use individual samples or batches to update the weights. It would pick samples randomly for this.
+
+## Exercise 11
+Melbourne airport security have the responsibility of screening incoming international visitors flying into Melbourne from overseas. They wish to develop a classifier that will predict the probability that a visitor currently has a serious infection that could be transmitted to others. This prediction will be available in real time to airport security as a visitor is having their passport checked. If the visitor is classified as having high probability of possessing a serious infection, they will be invited for a further health screening. Otherwise they will be allowed to enter the country. Airport security have access to training data that records the historical health outcomes (class labels) for 5 million previous international visitors to Melbourne (i.e. whether or not they had a serious infection on entry). This training data also records the following information about passengers:
+- Personal details from their passport.
+- Visa application information (declared reason for travel, health status, health history, ...).
+- Body temperature (captured via hidden thermal cameras at Melbourne airport).
+- The date and time of arrival
+- Previous travel history (all their international flight details for previous 3 years).
+- Names of other passengers who entered Australia on the same flight.
+
+You with developing an accurate classifier for this task. You have access to the training data described above and intend to use a deep neural network (DNN) as the classification algorithm. Based on this scenario, answer the following questions:
+
+(a) What features will you use and not use, and how will you construct features from the data? State any assumptions made. 
+
+I would include all information except for the date and time of arrival, since modelling the time sequences will make the modelling too complex, and in this instance will not provide as much meaningful information as other features
+for accuracy. Personal history as these will not have much correlation in a training dataset
+
+(b) What parameters need to be tuned when using a DNN model? Describe the steps needed for tuning these parameters, whilst avoiding overfitting. 
+
+The last layer can be tuned, or the last two layers. To ensure that overfitting does not occur, we will use early stopping with a patience of $X$ epochs to constrain the model from overfitting. For each batch of sample data, we will calculate the loss of the predicted values and the ground truths to reweight the parameters. To ensure we overcome being stuck in a local minima and make sure that we reach the global optimum fast, we will use Adam optimizer. For number of epochs we will pick something high like 400, as it will stop before it overfits. For batch size, we will use 32 to ensure a smooth training of weights and not experience memory errors with our GPUs.
+
+(c) How can you obtain an unbiased assessment of the accuracy of your DNN model? Describe the steps needed. 
+We will compare recall, precision and F1 score for a held out validation set, ratio of about 85:15. This will give us an accurate measure for accuracy.

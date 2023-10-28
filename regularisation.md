@@ -311,3 +311,21 @@ Therefore we can say that the test error of the model is  $\text{risk / test err
 ## Test Error and Training Error
 
 ![](Images/train_test_error2.png)
+
+# Exercises
+## Exercise 1
+We’ve seen that the square-loss risk of a parameter estimate $θ̂$ is $E_θ [(θ− \hat{\theta})^2] = [B(\hat{\theta})]^2 +Var(\hat{\theta})$ while the square-loss risk of a supervised regression predictor is $E_{X,Y} [(Y − \hat{f}  (X))^2 ] = (E[Y ] − [\hat{f}  (X)])^2 + Var(\hat{f} (X)) + Var[Y ]$ where the last term is known as the irreducible error. Note that in these risks both $\hat{\theta}$ and $\hat{f}$ implicitly depend on a random training set. Why is there no irreducible error term in the first square-loss risk, even though it appears in the second risk? 
+
+In the first equation, we are just trying to find the error between the true risk and our current model's risk. This has no data $Y$ to compare with as these $\theta$ parameters are constant.
+
+## Exercise 2
+With respect to the training of machine learning models, describe a situation where it would be desirable to use an estimator with high bias. 
+
+The bias-variance tradeoff. There is a tug-of-war between both features in machine learning models, so having higher bias may make the model less complex, but it may reduce the variance that it has.
+
+## Exercise 3
+Write an expression relating expected squared loss, bias, and variance. 
+
+![](Images/risk_error.png)
+
+$L = (E[Y] - E[\hat{f}])^2 + Var[\hat{f}] + Var[Y]$

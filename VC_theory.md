@@ -153,3 +153,105 @@ This above graph shows that even if $m$ continues to increase past the $VC(F)$, 
 - VC dim, growth function measure "effective" size of $F$ 
 - VC dim doesn't count functions, but uses geometry of family: projections of family members onto possible samples
 - Example: linear "gap-tolerant" classifiers (like SVMs) with "margin" $\Delta$ have $VC = O(1/\Delta^2)$. Maximising "margin" reduces VC-dimension.
+
+# Exercises
+## Exercise 1
+Why might _VC-dimension based PAC learning theory_ lead to very large or impractical _risk bounds for deep neural networks_ with non-linear activations and multiple hidden layers? 
+
+- VC-dimension based PAC learning goes by the assumption of the VC dimension which is _shatterable_, i.e. the number of samples which a model can find every unique combination for. 
+- Since deep neural networks are universal approximators, they can actually create any function and thus is capable of breaking the previous notion of bounding by the VC-dimension. 
+- Thus we would need to bound by $2^m$ which is too large for risk bounds.
+
+## Exercise 2
+(a) Consider an input domain of five points x1 , . . . , x5 , and binary classifier family G defined by the table of dichotomies given below. Calculate VC(G) and show a corresponding shattered set of points. 
+
+![[vc_dimension_q32023s1.png]]
+
+VC-dimension = 2
+
+| $x_1$ | $x_2$ |
+|-------|-------|
+| 0     | 0     |
+| 1     | 0     |
+| 0     | 1     |
+| 1     | 1     
+
+(b) In class we saw that the family of linear classifiers in $R^2$ (the 2D plane) have VC dimension 3. This question asks you to consider VC dimension of an unrelated family of classifiers also in the plane. Consider the family $F$ of rectangle classifiers parametrised by reals $a, b, c, d$ where $a < b$ and $c < d$: for any instance $x \in R2$ we have the classifier
+
+![[q3formula-20230s1.png]]
+
+or in words, a rectangle classifier predicts +1 if the instance lies within the rectange, and -1 if the instance falls outside the rectangle. What is the VC dimension of $F$, and why?
+
+VC dimension is 4, because if we set up 4 points diagonally like a diamond, we can get every single combination with a rectangle
+
+![[rectangle_dichotomy.png]]
+
+(c) If you answered some number $d$ to Part (a), prove that $V C(F) < d + 1$ in this part by arguing why there can be no set of $d + 1$ points that can be labelled in all ways by classifiers in $F$. 
+
+If we add an extra point in the centre of the above drawing, there is no way we can completely isolate a combination with the new point, it will always overlap with another point.
+
+## Exercise 3
+(h) _Probably approximately correct (PAC)_ learning theory aims to _upper bound_ the _true risk $R[f]$_ of a learned model $f \in F$ by the _empirical risk_ $\hat{R}[f]$ of that model plus an error term that might involve a sample $m$, VC-dimension $VC(F)$, confidence parameter $\delta$, etc. Why do PAC bounds hold only "with high probability $1 - \delta$", and not deterministically? 
+
+- Because we can only provide a confidence parameter, as data is not deterministic. If we have little data, we are naturally less confident that we are close to the true risk $R[f]$, hence we will have a larger $\delta$. If we have more data, we can be more confident that we are close to the true risk, and thus have a lower $\delta$. 
+
+## Exercise 4
+(a) Consider any binary classifier family $F$ of classifiers that output labels in $\{0, 1\}$. For any classifier $f ∈ F$ define its complementary classifier as $f = 1 − f$. That is, for any input $x$,
+
+![[q5-2022-s2.png]]
+
+Then define a new family $\bar{F}$ as being made up of all the complementary classifiers of family $F$. That is, $F = \{\bar{f} : f ∈ F\}$. How are $VC(F)$ and $VC(\bar{F})$ related, and why? 
+
+- They are related because they have the same VC dimensions. This is because the number of samples that $F$ can shatter is the same number of samples that $\bar{F}$ can shatter.
+
+(b) Consider any finite input domain $X = \{x_1, . . . , x_n \}$ and a family of binary classifiers $F_{n,k}$ containing all classifiers that output +1 on at most $k < n$ inputs from $X$. That is, this family contains: the classifier outputting all -1; the $n$ classifiers outputting +1 on only one input and otherwise -1; and so on up to classifiers outputting +1 on $k$ inputs and -1 on $n − k$ inputs. What is the VC dimension of this family for general $n$ and $k < n$? Why? 
+
+- Because it can only ever output a sequence of $k$ 0's and $k$ 1's
+
+$VC(F_{n,k}) = k$ 
+
+## Exercise 5
+A model family $F$’s growth function $SF (m)$ could potentially be $2^m$, growing exponentially larger with increasing sample size $m$. Why would this be bad news for the PAC bound with growth function for $F$? 
+
+Because this is the upper bound of the growth function. Our confidence threshold will essentially be rendered meaningless with such large numbers.
+
+## Exercise 6
+The two parts of this question are related to the VC dimension but are otherwise unrelated and can be answered separately.
+
+(a) Consider an input domain of five points x1, . . . , x5, and binary classifier family F defined by the table of dichotomies given below. Calculate VC(F) and show a corresponding shattered set of points. 
+
+![[q3-2022-s1-exam.png]]
+
+3
+
+The middle 3 columns
+
+(b) For any $t ∈ [0, 1]$, define the function It on $x ∈ [0, 1]$ to be
+
+![[formula-q3-2022-s1.png]]
+
+What is the Vapnik-Chervonenkis dimension of the family $F = \{I_t : t ∈ [0, 1]\}$ and why? 
+
+1, because we can have $x_1 < t < x_2$, $x_1 < x_2 < t$, $t < x_1 < x_2$, these can give us [0,1], [1,1], [0, 0], but it does not give us the last one
+
+(c) Referring to the functions defined in the previous part, what is the Vapnik-Chervonenkis dimension of family $F^′ = F ∪ \{1 − I_t : t ∈ [0, 1]\}$ and why? (Hint: function $1 − I_t$ outputs 0 on inputs $x ≥ t$, and 1 otherwise.) 
+
+Also one, because it will have the same combinations as above.
+
+## Exercise 7
+Consider an input domain of six points $x_1, . . . , x_6$, and binary classifier family $F$ defined by the table of dichotomies given below.
+
+![[2021-s1-q16.png]]
+
+a) Calculate $VC(F)$ and show a corresponding shattered set of points. 
+
+$VC(F) = 3$
+
+b) List all shattered sets of points. How many are there in total? 
+
+![[IMG_9852.jpg]]
+m1 =
+
+m2 =
+
+m3 = [x1, x3, x4], [x1, x3, x6]

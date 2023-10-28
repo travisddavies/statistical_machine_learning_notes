@@ -166,3 +166,40 @@ What this is saying is that like MLE, we want to find the parameters (as shown a
 ## Expectation-Maximisation (EM) Algorithm
 
 ![](Images/expectation-maximisation-algorithm.png)
+
+## Exercises
+### Exercise 1
+Gradient descent is typically preferred over coordinate descent. Given this, why is coordinate ascent use in the Expectation Maximisation algorithm? 
+
+Because we want to maintain uncertainties as a component in our algorithm. This uncertainty allows us to gauge which location a point belongs to with a certain probability.
+
+## Exercise 2
+Gradient descent is typically preferred over coordinate descent. Given this, why is coordinate descent used in the Expectation Maximisation algorithm? 
+
+Because we want to maintain uncertainties as a component in our algorithm. This uncertainty allows us to gauge which location a point belongs to with a certain probability.
+
+## Exercise 3
+Describe a benefit of using the _Gaussian mixture model_ (GMM) over _k-means clustering_. 
+
+It also models uncertainty of a point belonging to a certain cluster.
+
+## Exercise 4
+Given a dataset comprising four training points $x_1 = [1,1]$, $x_2 = [2,1]$, $x_3 = [3,3]$ and $x_4 = [4,2]$, with labels $y_1=-1$, $y_2 = +1$, $y_3 = -1$ and $y_4 = +1$. We decide to train a linear logistic regression binary classifier on the dataset.
+
+(a) Draw a diagram illustrating the training data, with the decision boundary shown for two training methods: maximum likelihood estimate (MLE), and maximum a posteriori (MAP) estimate where a Gaussian $L_2$ regularisation term is applied to the weight vector. Ensure the graph is labelled clearly. 
+
+![[my-drawing.jpg]]
+
+(b) Draw a second diagram showing the values of $P (y = +1|x)$ along the horizontal line segment $x = [α, 1]$ where $0 ≤ α ≤ 4$, for both the MLE and MAP trained models. Your graph should have α as on the horizontal axis and $P (y = +1|x)$ on the vertical axis. Ensure you label the two methods clearly. 
+
+![[my-drawing2.jpg]]
+
+(c) Next we try our classifier with a non-linear basis function, namely a radial basis function (RBF). Explain how the Bayesian marginal likelihood of the training data can be used to select how many RBF centres to use, and justify why this method should lead to good generalisation accuracy. 
+
+We would first initialise a set of RBF centres.
+
+We could map something the equivalent of:
+
+$P(x_1, ..., x_n) = \prod_{i=1}^n \sum^k_{j=1} P(Z_j) P(x_i | Z_j)$
+
+Then iteratively optimise and update our weights and $Z$ RBF centres
