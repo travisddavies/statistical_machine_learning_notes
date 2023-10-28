@@ -29,6 +29,7 @@ $$
 	- Don't focus on whole class $F$ as if each $f$ is different
 	- Focus on differences over sample $Z_1, ..., Z_m$ 
 
+### My Explanation
 What this means is that if we think of the probabilities of different functions $f$ occurring, $p(f)$, then we can think of it much like a Gaussian distribution. Since the probability of part of a Gaussian curve relies on the area under the curve, since just the probability of one function has 0 width, the probability of a function occurring becomes zero. This doesn't really make sense and is therefore an ill-posed problem.
 # Growth Function
 _Focusing on the size of model families on data samples_
@@ -128,6 +129,7 @@ This example:
 
 ![](Images/shatter_example2.png)
 
+### My Explanation
 What this means is that this function $F$ for 4 samples only has a dichotomy of 10, which is less than $2^4$ and thus cannot shatter $m=4$, so what we do instead is we then check if it can shatter $m=3$, which turns out has $2^3$ dichotomies once the duplicate rows were removed. We can therefore say that for this function, $VC(F)=3$, which means that this function can shatter up to $m=3$. 
 ## Sauer-Shelah Lemma
 
@@ -139,6 +141,7 @@ What this means is that this function $F$ for 4 samples only has a dichotomy of 
 
 ![](Images/vc_bound.png)
 
+### My Explanation
 What the above basically means is that we can consider growth function as being bounded a _combination_ in the mathematical term of $k$ shatterable samples of function $F$ and $m$ total samples. However, we should remember that a combination is bounded by $m^k$, simply because it will always be bigger. 
 
 So according to some derivations that we can overlook, we can claim that given that number of samples is greater than or equal to the number of samples that a function can shatter, we can claim the bottom formula as the bound between the true risk of the function and the measured risk. 
