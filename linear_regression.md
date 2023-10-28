@@ -245,6 +245,7 @@ Therefore, instance 1 is Class A because the dot product is $\sqrt{2}$
 - Similar result could be achieved with the linear RBF: $\varphi(x) = \lVert x - 7 \rVert$ 
 
 What this above example is basically showing is that you can transform this linearly inseparable data into a gaussian distribution around the mean value of (northern hemisphere) summer month, which in this case is July. This can then be linearly separable as the high $\varphi(x)$ values will imply summer and the very low values will imply winter. 
+
 ## Challenges of Basis Expansion
 - Basis expansion can significantly increase the utility of methods, especially, linear methods
 - In the above examples, one limitation is that the transformation needs to be defined beforehand
