@@ -402,16 +402,17 @@ $$
 MAP \propto \arg \max_{\theta} {p(y|X, \theta)p(\theta)}
 $$
 
-## Exercise 3
+## Exercise 2
 Why are both maximum-likelihood estimators and maximum a posteriori estimators both asymptotically efficient? 
 
 Because if given infinite data, their variance would converge to 0 of estimator $\theta$
-## Exercise 4
+
+## Exercise 3
 Let $E$ be the set of all extremum estimators, $L$ be the set of all maximum-likelihood estimators, and $M$ be the set of all $M$ -estimators. Fill in the blanks in your answers with $E$, $L$, $M$ to make the following expression correct:  $\_\_\_⊂\_\_\_⊂\_\_\_$. 
 
 $\text{MLE} \subset M\text{-estimators} \subset \text{extremum estimators}$
 
-## Exercise 5
+## Exercise 4
 (a) Consider an i.i.d. sequence of random variables $X_1 , X_2 , . . .$ coming from some distribution with mean $θ$. Consider a simple estimator $\hat{θ̂}_n = \hat{\theta}(X_1 , . . . , X_n ) = X_1$ of the mean. That is, use the first observation $X_1$ as the estimate and ignore the rest.
 
 $E(\hat{\theta}_n) = E(X_1) = \theta$
@@ -424,23 +425,23 @@ No
 
 Because variance is not zero, for variance to approach zero the sample size has to approach infinity
 
-## Exercise 6
+## Exercise 5
 Consider a setting with high uncertainty over model parameters. Describe what effect, if any, this will have for the maximum likelihood estimate. 
 
 High variance in the parameters of the model
 
-## Exercise 7
+## Exercise 6
 Explain why using the training likelihood, $p(y|X, θ)$, for model selection can be problematic when choosing between models from different families. 
 
 Choosing based on training likelihood may lead to choosing a model that is overfitting the training data, not accurately predicting the data to unseen data.
 
-
-## Exercise 8
+## Exercise 7
 In words or a mathematical expression, what quantity is minimised by _linear regression_? 
 
 The squared error between the true label and the predicted label
 
-(b) In words or a mathematical expression, what is the _marginal likelihood_ for a _Bayesian probabilistic model_? 
+## Exercise 8
+In words or a mathematical expression, what is the _marginal likelihood_ for a _Bayesian probabilistic model_? 
 
 $P(x|\theta) = \int P(\theta|x)P(\theta)\delta \theta$
 
