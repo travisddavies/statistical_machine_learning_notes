@@ -143,30 +143,27 @@ Attention mechanisms allow a decoder to focus on the appropriate words (as encod
 ![](Images/transformer1.png)
 
 ## Exercises
-### Exercise 1
-_Padding_ can be used to make the output and input dimensions of a _convolutional layer_ the same. What is another use of _padding_? 
-- Padding can also be used for NLP applications to give input text samples the same dimensions, despite their variance in length. Padding will be performed by giving the padding 0 value tokens when inputting into a model.
 
-### Exercise 2
+### Exercise 1
 Why are _vanishing gradients_ a more pressing concern for _recurrent neural networks (RNNs)_ than for other neural architectures? 
 - Because backpropagation through time means that it is backpropagating gradients through each time step, and as the gradients get exponentially small, it essentially loses memory of its relationships with previous time steps.
 
-### Exercise 3
+### Exercise 2
 Both convolutional networks (CNNs) and recurrent networks (RNNs) can be applied to sequence inputs. Explain the key benefit that RNNs have over CNNs for this type of input. 
 
 RNNs look at each individual token sequentially and process it as a hidden state, where it is fed to the next layer of the RNN with the subsequent token as a second hidden state until it reaches the end of the data input. This allows the neural net to learn patterns patterns in a dynamic, sequential manner which is important for time series forecasting and natural language processing. CNNs are limited by the fixed-width nature of their filters, which limits its applicability to inputs that vary in length.
 
-### Exercise 4
+### Exercise 2
 Explain in words how Attention can be used to allow for neural models to process dynamic sized inputs. 
 
 Attention can add more weight to certain words that hold important information in the sequence, i.e. "football" should be weighted highly after "I like". We do this by taking a weighted average over the outputs for each part of a dynamically sized sequence, which essentially removes the bottleneck of just using the output from the end of the sequence. 
 
-## Exercise 5
+## Exercise 3
 For the recurrrent neural network (RNN) that takes a sequence as the input, explain why we need to use backpropogation through time to update weights. 
 
 We require BPTT because we have sequential data, and therefore the typical feedforward network methods of training can't be applied. Each time step in the network has dependencies on the time step before it, and therefore these gradients need to be accumulated and propagated to the start of the network to learn these dependencies.
 
-## Exercise 6
+## Exercise 4
 A recurrent neural network is as a type of deep artificial neural network. In what respect is it deep? 
 
 It is deeper than 3 layers, as each time step in a sequence requires its own layer in a neural network.

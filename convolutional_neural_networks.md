@@ -221,11 +221,9 @@ $32 \times ((11 \times 11 * 3)+1) = 11648$
 
 (b) In order to reduce the number of parameters of the convolutional layer in the figure, while keeping the receptive field the same, one possible method is to stack one 3 × 3 convolutional layer and one 9 × 9 convolutional layer. Describe five different possible stackings, i.e., different combinations of multiple (can be two or more than two) convolutional layers. (Note: changing the order of the multiple convolutional layers is counted as the same stack, e.g., “Stacking a 9 × 9 and a 3 × 3 convolutional layer” is counted as the same stack as “Stacking a 3 × 3 and a 9 × 9 convolutional layer”.) 
 
-9 x 9 and 5 x 5
-7 x 7 and 5 x 5
-7 x 7 and 5 x 5 and 3 x 3
-9 x 9 and 3 x 3
-9 x 9 and 7 x 7
+5 - 1 + 3 - 1 + 3 = 9, therefore 5 x 5 and 3 x 3 and 3 x 3
+5  - 1 + 5 = 9, therefore 5 x 5 and 5 x 5
+3 x 3 and 3 x 3 and 3 x 3 and 3 x 3 also works
 
 ## Exercise 6
 How many _parameters_ does the following _convolutional neural network_ have (exclude the bias)? Show your working.
@@ -310,3 +308,8 @@ $Pixel4 = 1 \times 0 + 1 \times 0 + 0 \times 0 + 0 \times 1 = 0$
 ![[2020-q4-convolutional.png]]
 
 ![[signal-2023-10-27-162240.jpeg]]
+
+## Exercise 10
+Padding can be used to make the output and input dimensions of a convolutional layer the same. What is another use of padding?
+
+Retaining edge information when performing convolutional operation

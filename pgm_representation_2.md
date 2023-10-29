@@ -174,4 +174,4 @@ $$
 
 $Pr(A = F, B = F, C = F ) = \frac{1}{132} \times ( + 3) \times (2 + 4 + 4 + 1)$ 
 
-$Pr(A = F, B = F, C = F ) = \frac{3 \times 11}{352} = 0.25$
+$Pr(A = F, B = F, C = F ) = \frac{3 \times 11}{132} = 0.25$
