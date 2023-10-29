@@ -14,7 +14,7 @@ _A.K.A Markov Random Field_
  
 **Directed PGM**
 - Graph
-	- Edged directed
+	- Edges directed
 - Probability
 	- Each node a r.v.
 	- Joint = product of cond'ls
@@ -131,3 +131,47 @@ _Conditional random field (CRF);_
 ### Exercise 1
 Can the joint probability distribution described by any _undirected probabilistic graphical model_ be expressed as a _directed probabilistic graphical model_? Explain why or why not
 - No, because we have no information about which is parent or child node
+
+## Exercise 2
+Consider the following undirected probabilistic graphical model (PGM) on four Boolean-valued variables, where the clique potentials $f (A, B, C)$ and $g(C, D)$ are unnormalised.
+
+![[2019-q8-pgm.png]]
+
+1. Using these tables, calculate the _normalising constant_ $Z = \sum_{A∈\{T,F \}} \sum_{B∈\{T,F \}} \sum_{C∈\{T,F \}} \sum_{D∈\{T,F \}}f(A,B,C)g(C,D)$ [2 marks]
+
+$Z = 3 \times 3 + 1 \times 3 + 2 \times 3 + 4 \times 3 + 1 \times 3 + 6 \times 3 + 4 \times 3 + 0$
+
+$Z=63$
+
+2. Calculate $Pr (A = F, B = T, C = F )$. You may leave your answer as a fraction. (If you were unable to answer the previous part, leave the constant as Z in your workings here.) [2 marks]
+
+$P(A=F, B=T, C=F) = \frac{1}{Z}P(A,B,C)P(C,D)$
+$= \frac{1}{63} \times 4 \times 3$
+$= \frac{12}{63}$
+
+## Exercise 3
+Consider the following undirected probabilistic graphical model (U-PGM) on five Boolean-valued variables, where the clique potentials $f (A, B, C)$ and $G(C, D, E)$ are shown below.
+
+![[2021-s1-pgm-question.png]]
+
+(a) Using the given clique potential tables, calculate the normalising constant (aka partition function) for the joint distribution on $A, B, C, D, E$. 
+
+$Z = f(A,B,C) \cdot g(C,D,E)$
+
+We need to do a dot product on the joints of the two tables, which in this case is on $C$, which is when $C=T$ and $C=F$. In this case, all cases in table 2 where $C=T$ are zero, so there's no point considering any cases in table 1 where $C=T$.
+
+The sum of $C=F$ in table 2 is 11, so we do sum up the tables with that
+
+$Z = 3 \times 11 + 3 \times 11 + \times 11 + 3 \times 11 = 132$ 
+
+(b) Calculate $Pr(A = F, B = F, C = F )$. You may leave your answer as a fraction. (If you were unable to answer the previous part, leave the constant as Z in your workings here.) 
+
+We sum up all the combinations in the above table where $A=F$, $B=F$ and $C=F$, and then use it in the below formula:
+
+$$
+P(a,b,c,d,e) = \frac{1}{Z} \psi_1(a,b,c) \psi_2(c,d,e) 
+$$
+
+$Pr(A = F, B = F, C = F ) = \frac{1}{132} \times ( + 3) \times (2 + 4 + 4 + 1)$ 
+
+$Pr(A = F, B = F, C = F ) = \frac{3 \times 11}{352} = 0.25$
