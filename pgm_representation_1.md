@@ -195,3 +195,24 @@ $\arg \max_{tables} \prod^{n}_{i=1}P(A=a_i)P(B=b_i)P(C=c_i|A=a_i,B=b_i)$
 | T | F | 1                |
 | F | T | 0                |
 | F | F | 1                |
+
+## Exercise 5
+Your task is to design a system for alerting residents of the Dandenongs that they should evacuate for an impending bushfire. The Dandenongs is an area of Victoria that suffers from regular bushfires in the summer when temperatures are high, and humidity low. When fires are close to a fictional town called Bayesville, you must alert residents that they should evacuate. If fires are too close, then you should not advise evacuation as residents are safer if they stay where they are (at home). The Country Fire Association has deployed sensors around the area that monitor whether a fire is in progress at each sensor’s location; in particular if any of three sensors $S_1, S_2, S_3$ are ‘on’ then residents should evacuate. However if either of the closer sensors $C_1, C_2$ are ‘on’ then residents should stay put.   
+
+(a) Model the above problem as a directed probabilistic graphical model (D-PGM). In particular, you need not provide any probabilty tables, just the graph relating random variables $S_1, S_2, S_3, C_1, C_2$ and an additional r.v. A for alerting residents to evacuate. [5 marks]  
+
+![[practice-exam-pgm1.png]]
+
+b) How many conditional probability tables (CPTs) should be specified for your model, and how many columns should each table have? Note that, even if $P (S_1|S_2, S_3, C_1, C_2) = P (S_1)$, $P (S_1|S_2, S_3, C_1, C_2)$ is also a CPT, but this table only has one column (i.e., $S_1$ itself). 
+
+One table per r.v. so 6 tables. All 5 sensor r.v.’s should have tables with one column — a value for the probability that entry is True (probability of False is one minus this). The CPT for $A$ should have 6 columns, one per parent and one for $A$.
+
+(c) Suppose you are told by the Fire Commissioner that the sensors are always accurate. What could you say about your CPTs? 
+
+Write your answers below: Acceptable: This doesn’t tell you how often the sensors are ‘on’ so nothing about the sensors’ tables. However, it tells us that you can trust the sensors and you can determine the CPT for $A$ exactly.
+
+d) How would you change your model if the Commissioner then tells you that the sensor $S_1$ is not perfectly accurate? 
+
+We should add a r.v. $F_1$ as to whether there’s really a fire at $S_1$, and another r.v. $o_1$ as to whether $S_1$ is operational. Now we have that the alarm should depend on the unobserved $F_1$.
+
+![[practice-exam-last-pgm2.png]]

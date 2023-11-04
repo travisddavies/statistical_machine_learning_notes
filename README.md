@@ -2,7 +2,7 @@
 My notes for COMP90051 Statistical Machine Learning at The University of Melbourne.
 
 ### Note
-These notes are written from Obsidian Notes, so some latex and embedded media may may not render. To have a better experience clone this repo and read it via Obsidian.
+These notes are written from [Obsidian](https://obsidian.md/) Notes, so some latex and embedded media may may not render. To have a better experience clone this repo and read it via Obsidian.
 
 ## Table of Contents
 1. [Math Review](math_review.md)
