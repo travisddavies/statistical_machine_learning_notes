@@ -8,13 +8,13 @@ _This deck: how to do it effectively_
 	- Chooses most likely class given data
 	- $Pr(Y|X_1, ..., X_d) = \frac{Pr(Y, X_1, ..., X_d)}{Pr(X_1, ..., X_d)} = \frac{Pr(Y, X_1, ..., X_d)}{\sum_y Pr(Y=y, X_1, ..., X_d)}$ 
 
-![](Images/two_familar_examples1.png)
+![](two_familar_examples1.png)
 
 - Data $X|\theta \thicksim N(\theta, 1)$ with prior $\theta \thicksim N(0, 1)$ **(Bayesian)**
 	- Given observation $X = x$ update posterior
 	- $Pr(\theta|X) = \frac{Pr(\theta, X)}{Pr(X)} = \frac{Pr(\theta, X)}{\sum_{\theta}Pr(\theta, X)}$  
 
-![](Images/two_familiar_examples2.png)
+![](two_familiar_examples2.png)
 
 - **Joint + Bayes rule + marginalisation $\rightarrow$ anything**
 
@@ -23,7 +23,7 @@ _This deck: how to do it effectively_
 - $Pr(HT|AS = t) = \frac{Pr(HT, AS=t)}{Pr(AS=t)}$ 
 - $\frac{\sum_{FG, HG, FA} Pr(AS=t, FA, HG, FG, HT)}{\sum_{FG, HG, FA, HT'}Pr(AS=t, FA, HR, FG, FG, HT')}$ 
 
-![](Images/nuclear_power_plant_22_example.png)
+![](nuclear_power_plant_22_example.png)
 
 - Numerator (denominator similar) 
 	- expanding out sums, joint _summing once over 2^5 table_
@@ -41,7 +41,7 @@ What we notice when we start to sum out the the parameters, as shown in the seco
 
 ## Nuclear Power Plant (Cont.)
 
-![](Images/nuclear_power_plant_cont.png)
+![](nuclear_power_plant_cont.png)
 
 ### My Explanation
 In the above slide, the general procedure is to:
@@ -56,11 +56,11 @@ Also note that the parent nodes are connected each time we eliminate their child
 
 ## Elimination Algorithm
 
-![](Images/elimination_algorithm.png)
+![](elimination_algorithm.png)
 
 ## Runtime of Elimination Algorithm
 
-![](Images/runtime_of_elimination_algorithm.png)
+![](runtime_of_elimination_algorithm.png)
 
 - Each step of elimination
 	- Removes a node
@@ -79,11 +79,11 @@ Also note that the parent nodes are connected each time we eliminate their child
 	- Approximate **distribution** by **histogram of a sample**
 	- We can't trivially sample: (1) only know desired distribution up to a (normalising) constant (2) naive sampling approaches are inefficient in high dimensions
 
-![](Images/probabilistic_inference_by_solution.png)
+![](probabilistic_inference_by_solution.png)
 
 ## Gibbs Sampling
 
-![](Images/gibbs_sampling.png)
+![](gibbs_sampling.png)
 
 1. Given: D-PGM on $d$ random variables
 2. Given: evidence values $x_E$ over variables $E \subset \{1, ..., d\}$ 
@@ -109,15 +109,15 @@ Also note that the parent nodes are connected each time we eliminate their child
 	- Parents of $i$, children of $i$, parents of children of $i$
 	- $p(X_i | MB(X_i)) \propto p(X_i | X_{\pi_i}) \prod_{k:i \in \pi_k} p(X_k | X_{\pi_k})$ 
 
-![](Images/markov_blanket.png)
+![](markov_blanket.png)
 
 ## Markov Chain Monte Carlo (MCMC)
 
-![](Images/markov_chain_monte_carlo.png)
+![](markov_chain_monte_carlo.png)
 
 ## Initialising Gibbs: Forward Sampling
 
-![](Images/initialising_gibbs_forward_sampling.png)
+![](initialising_gibbs_forward_sampling.png)
 
 ## Now What??
 - With our $X^{(1)}, ..., X^{(T)}$ in hand after running Gibbs for a while with burn-in and thinning...
@@ -133,7 +133,7 @@ _Learning from data - fitting probability tables to observations (eg as a freque
 
 ## Have PGM, Some Observations, No Tables
 
-![](Images/have-ogm-some-observation-no-tables.png)
+![](have-ogm-some-observation-no-tables.png)
 
 ## Fully-Observed Case in "Easy"
 - Max-Likelihood Estimator (MLE) says
@@ -141,7 +141,7 @@ _Learning from data - fitting probability tables to observations (eg as a freque
 	- Then maximise the _full_ joint
 		$\underset{\theta \in \Theta}{\text{argmax}} \prod^n_{i=1}\prod_j p(X^j = x_i^j | X^{parents(j)} = x_i^{parents(j)})$  
 
-![](Images/fully-observed-case-in-easy.png)
+![](fully-observed-case-in-easy.png)
 
 - Decomposes easily, leads to counts-based estimates
 	- Maximise log-likelihood instead; becomes sum of logs
@@ -151,7 +151,7 @@ _Learning from data - fitting probability tables to observations (eg as a freque
 
 ## Example: Fully-Observed Case
 
-![](Images/example-fully-observed-case.png)
+![](example-fully-observed-case.png)
 
 ## Presence of Unobserved Variables Trickier
 - But most PGMs you'll encounter will have latent, or unobserved, variables

@@ -11,7 +11,7 @@ _Where we learn to take actions; we receive only indirect supervision in the for
 	- Stochastic search in games (e.g. AlphaGo!)
 	- Adaptive A/B testing
 
-![](Images/pokies.png)
+![](pokies.png)
 
 ## Stochastic MAB Setting
 - Possible actions $\{1,...,k\}$ called "**arms**"
@@ -54,7 +54,7 @@ $$
 
 ## Kicking the Tyres
 
-![](Images/kicking_the_tyres.png)
+![](kicking_the_tyres.png)
 
 - 10-armed bandit
 - Rewards $P_i = Normal(\mu_i,1)$ with $\mu_i \thicksim Normal(0,1)$ 
@@ -63,7 +63,7 @@ $$
 
 ## Kicking the Tyres: More Rounds
 
-![](Images/kicking_the_tyres_more_rounds.png)
+![](kicking_the_tyres_more_rounds.png)
 
 - Greedy increases fast, but levels off at low rewards
 - $\epsilon$-Greedy does **better long-term by exploring**
@@ -71,7 +71,7 @@ $$
 
 ## Optimistic Initialisation Improves Greedy
 
-![](Images/optimistic_initialisation_improves_greedy.png)
+![](optimistic_initialisation_improves_greedy.png)
 
 - **Pessimism**: init $Q$'s below observable rewards $\rightarrow$ Only try one arm
 - **Optimism**: Init $Q$'s above observable rewards $\rightarrow$ Explore arms once
@@ -130,15 +130,15 @@ $$
 
 ## Kicking the Tyres: How Does UCB Compare?
 
-![](Images/kicking_the_tyre_how_does_ucb_compare.png)
+![](kicking_the_tyre_how_does_ucb_compare.png)
 
 - UCB quickly overtakes the $\epsilon$-greedy approaches
 
-![](Images/kicking_the_tyre_how_does_ucb_compare2.png)
+![](kicking_the_tyre_how_does_ucb_compare2.png)
 
 - Continues to overtake on per round rewards for some time
 
-![](Images/kickingthe_tyre_down_the_road_3.png)
+![](kickingthe_tyre_down_the_road_3.png)
 
 - More striking when viewed as mean cumulative rewards
 
@@ -175,7 +175,7 @@ _State transitions/dynamics with reinforcement learning._
 	- **Now conditional**: $E[R_i(t)|X_i(t)]$
 - A **regression problem**!!
 
-![](Images/but_wait_theres_more.png)
+![](but_wait_theres_more.png)
 
 ## MABs vs. Reinforcement Learning
 - Contextual bandits introduce state

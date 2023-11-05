@@ -14,7 +14,7 @@ _A large branch of ML that concerns with learning structure of the data in the a
 - Aim of unsupervised learning is to **explore the structure** (patterns, regularities) of data
 - The aim of "exploring the structure" is vague
 
-![](Images/unsupervised_learning.png)
+![](unsupervised_learning.png)
 
 ## Unsupervised Learning Tasks
 - Diversity of tasks fall into unsupervised learning category
@@ -37,7 +37,7 @@ _A large branch of ML that concerns with learning structure of the data in the a
 
 Still one of the most popular data mining algorithms
 
-![](Images/refresher-k-means.png)
+![](refresher-k-means.png)
 
 # Gaussian Mixture Models
 _A probabilistic view of clustering. Simple example of a latent variable model._
@@ -58,7 +58,7 @@ _A probabilistic view of clustering. Simple example of a latent variable model._
 ## Clustering: Probabilistic Model
 Data points $x_i$ are independent and identically distributed (i.i.d.) samples from a **mixture** of $K$ distributions (components)
 
-![](Images/clustering-probabilistic-model.png)
+![](clustering-probabilistic-model.png)
 
 In principle, we can adopt any probability distribution for the **components**, however, the normal distribution is a common modelling choice $\rightarrow$ Gaussian Mixture Model
 
@@ -79,7 +79,7 @@ $$
 - $|\Sigma|$ denotes determinant
 - No need to memorise the full formula
 
-![](Images/normal_distribution_adka_gaussian.png)
+![](normal_distribution_adka_gaussian.png)
 
 ## Gaussian Mixture Model (GMM): One Point
 - Cluster assignment of point
@@ -91,7 +91,7 @@ $$
 	- $P(X|Z=j) = N(\mu_j, \Sigma_j)$ class conditional density
 - Model's parameters: $w_j, \mu_j, \Sigma_j, j = 1, ..., k$ 
 
-![](Images/gaussin_mixture_model_one_point.png)
+![](gaussin_mixture_model_one_point.png)
 
 ## From Marginalisation to Mixture Distribution
 - When fitting the model to observations, we'll be maximising likelihood of observed portions of the data (the $X$'s) not the latent parts (the $Z$'s)
@@ -109,7 +109,7 @@ $$
 - A convex combination of Gaussians
 - Simply marginalisation at work
 
-![](Images/from-marginalisation-to-mixture-distribution.png)
+![](from-marginalisation-to-mixture-distribution.png)
 
 ### My Explanation
 This equation is just to determine the observed probability of $x$. What this looks like as a plot is shown in the above plot.
@@ -121,7 +121,7 @@ This equation is just to determine the observed probability of $x$. What this lo
 - Clustering now amounts to finding parameters of the GMM that "best explains" observed data
 - Call upon old friend **MLE** principle to find parameters values that maximise $p(x_1, x_n)$
 
-![](Images/clustering_as_model_estimation.png)
+![](clustering_as_model_estimation.png)
 
 # Briefing Expectation-Maximisation Algorithm
 _We want to implement MLE but we have unobserved r.v.'s that prevent clean decomposition as happens in fully observed settings_
@@ -145,7 +145,7 @@ $$
 
 $\rightarrow$ **Expectation-Maximisation (EM)**
 
-![](Images/fitting-the-gmm.png)
+![](fitting-the-gmm.png)
 
 ### My Explanation
 What this is saying is that like MLE, we want to find the parameters (as shown above) that maximises the probability of the function. To do that, we marginalise out the $Z_i$ node from $x_i$ and find the parameters with the above function. This is why we have the inner sum, it is to marginalise out $Z_i$ since it is unobserved, this makes things very difficult for us otherwise if we wanted to do the conditional probability.
@@ -156,7 +156,7 @@ What this is saying is that like MLE, we want to find the parameters (as shown a
 	- Equivalently maximise $\log p (X|\theta)$ 
 - There can be a couple of issues with this task
 
-![](Images/crying.png)
+![](crying.png)
 
 1. Sometimes we **don't observe** some of the variables needed to compute the log likelihood
 	- Example: GMM cluster membership $Z$ is not known in advance
@@ -165,7 +165,7 @@ What this is saying is that like MLE, we want to find the parameters (as shown a
 
 ## Expectation-Maximisation (EM) Algorithm
 
-![](Images/expectation-maximisation-algorithm.png)
+![](expectation-maximisation-algorithm.png)
 
 ## Exercises
 ### Exercise 1

@@ -86,7 +86,7 @@ _From small training sets, we rarely have complete confidence in any models lear
 	- in $\hat{w}$?
 	- in the predictions?
 
-![](Images/lin_reg_chart.png)
+![](lin_reg_chart.png)
 
 **Linear regression**: $y = w_0 + w_1x$ (here $y$ is humidity and $x$ is temperature)
 
@@ -108,7 +108,7 @@ _Retain and model all unknowns (e.g., uncertainty over parameters) and use this 
 	- Less sensitive to overfitting, particularly with small training sets
 	- Can give rise to more expressive model class (Bayesian logistic regression becomes non-linear!)
 
-![](Images/uncertainty_over_params.png)
+![](uncertainty_over_params.png)
 
 ## Frequentist vs Bayesian "Divide"
 - **Frequentist**: learning using _point estimates_, regularisation, $p$-values
@@ -126,13 +126,13 @@ _Application of Bayesian inference to linear regression, using Normal prior over
 - Recall probabilistic formulation of linear regression
 - Bayes rule:
 
-![](Images/revisiting_linear_regression.png)
+![](revisiting_linear_regression.png)
 
 - Gives rise to penalised objective (ridge regression)
 
 - Rewind one step, consider full posterior
 
-![](Images/linear_regression_bayesian_rewing.png)
+![](linear_regression_bayesian_rewing.png)
 
 - Can we compute the denominator (**marginal likelihood** or **evidence**)?
 	- If so, we can use the full posterior, not just its mode
@@ -179,7 +179,7 @@ $$
 
 ## Bayesian Linear Regression Example
 
-![](Images/bayesian_linear_regression_example.png)
+![](bayesian_linear_regression_example.png)
 
 ## Sequential Bayesian Updating
 - Can formulate $p(w|X,y, \sigma^2)$ for given dataset
@@ -195,13 +195,13 @@ $$
 - Posterior becomes more refined/peaked as more data introduced
 - **Approaches a point mass**
 
-![](Images/sequential_bayesian_updating.png)
+![](sequential_bayesian_updating.png)
 
 ## Stages of Training
 1. Decide on model formulation & prior
 2. Compute _posterior_ over parameters $p(w|X,y)$
 
-![](Images/stages_of_training.png)
+![](stages_of_training.png)
 
 ## Prediction with Uncertain $w$
 - Could predict using sampled regression curves
@@ -233,7 +233,7 @@ $\ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ = \int \text{Normal}(y
 
 ## Bayesian Prediction Example
 
-![](Images/bayesian_prediction_example.png)
+![](bayesian_prediction_example.png)
 
 ## Caveats
 - Assumptions

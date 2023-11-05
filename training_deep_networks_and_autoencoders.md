@@ -15,7 +15,7 @@ $$
 
 - This will simplify description of backpropagation. In other settings, the training procedure is similar.
 
-![](Images/simple_ann.png)
+![](simple_ann.png)
 
 ## Loss Function for NNet Training
 - Need **loss** between training example $\{x,y\}$ & prediction $\hat{f}(x, \theta)=z$, where $\theta$ is parameter vector of $v_{ij}$ and $w_j$
@@ -50,7 +50,7 @@ Need to compute partial derivatives $\frac{\delta L}{\delta v_{ij}}$ and $\frac{
 	1. $\theta^{(i+1)} = \theta^{(i)} - \eta\nabla L(\theta^{(i)})$ 
 3. Return $\hat{\theta} \approx \theta^{(T)}$ 
 
-![](Images/gd.png)
+![](gd.png)
 
 **Stochastic G.D.**
 1. Choose $\theta^{(0)}$ and some $T$, $k=0$
@@ -75,18 +75,18 @@ What the above is saying is that gradient descent uses the whole dataset for wei
 	- Balances computation and stability
 	- Parallelise over cluster of GPUs (size batch for GPU)
 
-![](Images/mini-batch.png)
+![](mini-batch.png)
 
 ## (non-)Convex Objective Functions
 - Recall linear regression, convex '**Bowl shaped**' objective
 	- Gradient descent finds a **global** optimum
 
-![](Images/convex_sgd.png)
+![](convex_sgd.png)
 
 - In contrast, most DNN objectives are **not convex**
 	- Gradient methods get trapped in **local optima** or **saddle points**
 
-![](Images/global_optima.png)
+![](global_optima.png)
 
 ## Importance of Learning Rate
 - Choice of $\eta$ has big effect on quality of final parameters
@@ -96,7 +96,7 @@ What the above is saying is that gradient descent uses the whole dataset for wei
 	- Large $\eta$ fluctuate around optima, even diverge
 	- Small $\eta$ barely moves, stuck at local optima
 
-![](Images/learning_steps.png)
+![](learning_steps.png)
 
 ## Momentum as a Solution
 - Consider a ball with some mass rolling down the objective surface
@@ -108,7 +108,7 @@ What the above is saying is that gradient descent uses the whole dataset for wei
 	- $\alpha$ decays the velocity, e.g., 0.9
 - Less oscillation, more robust
 
-![](Images/ball_rolling.png)
+![](ball_rolling.png)
 
 ## Adagrad: Adaptive Learning Rates
 - Why just one learning rate applied to _all_ params?
@@ -149,7 +149,7 @@ However, one downfall of AdaGrad is that it accumulates the gradients over the e
 	- Adam
 	- ...
  
- ![](Images/optimiser.png)
+ ![](optimiser.png)
  
 - Lots of choice, and rapidly changing as deep learning matures
 
@@ -162,7 +162,7 @@ _Best practices in preventing overfitting, a big problem for such high capacity 
 - Implicit regularisation: **early stopping**
 	- With some activation functions, this **shrinks** the DNN towards a linear model
  
-![](Images/tanh_function.png)
+![](tanh_function.png)
 
 ## Explicit Regularisation
 - Alternatively, an **explicit regularisation** can be used, much like in ridge regression
@@ -199,13 +199,13 @@ _A DNN training setup that can be used for unsupervised learning, initialisation
 	- Regularise s.t. $u$ is sparse
 	- Regularise to contract inputs
 
-![](Images/autoencoder_topology.png)
+![](autoencoder_topology.png)
 
 ## Introducing the Bottleneck
 - Suppose you managed to train a network that gives a good **restoration** of the original signal $z(x_i) \approx x_i$
 - This means that the data structure can be effectively described (**encoded**) by a lower dimensional representational $u$
 
-![](Images/bottleneck.png)
+![](bottleneck.png)
 
 ## Under-/Over-Completeness
 - Manner of bottleneck gives rise to:
@@ -228,14 +228,14 @@ _A DNN training setup that can be used for unsupervised learning, initialisation
 - Given a dataset $x_1, ..., x_n, x_i \in R^m$, PCA aims to find a new coordinate system that most of the **variance is concentrated** along the first coordinate, then most of the remaining variance along the second (**orthogonal**) coordinate, etc.
 - Dimensionality reduction is then based on **discarding coordinates** except the first $l < m$. Coordinates = axes of data = **principal components**
 
-![](Images/pca.png)
+![](pca.png)
 
 ## PCA: Solving the Optimisation
 - PCA aims to find **principal component** $p_1$ that maximises variance of data projected onto the PC, $p_1'\sum_X p_1$
 	- Subject to $\lVert p_1 \rVert = p_1'p_1 = 1$ 
 	- Have to first subtract the centre of the data from the data
  
-	![](Images/pca_unexamined.png)
+	![](pca_unexamined.png)
 
 - $\sum_Xp_1 = \lambda_1 p_1$
 - Precisely defines $p_1$ as an **eigenvector** of covariance $\sum_X$ with $\lambda_1$ being the corresponding **eigenvalue**

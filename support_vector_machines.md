@@ -12,13 +12,13 @@ _A new twist to binary linear classification_
 - Predict class $A$ if $x \geq 0$ predict class $B$ if $s < 0$ where $s = b + \sum^m_{i=1}x_iw_i$ 
 - SVM is a <u>linear classifier</u>: $s$ is a linear function of inputs, and the separating boundary is linear
 
-![](Images/separating_hyperplanes.png)
+![](separating_hyperplanes.png)
 
 ## Choosing Separation Boundary
 - An SVM is a linear binary classifier: choosing parameters means choosing a separating boundary (hyperplane)
 - In 2D:
 
-![](Images/separation_boundary.png)
+![](separation_boundary.png)
 
 Which boundary would you choose?
 - A (Green)
@@ -31,14 +31,14 @@ Answer: A, because it generalises the best.
 - If defining loss as 0-1 mistakes, $A$ and $B$ are equally good.
 - But... line $A$ seems more reliable. When new data point arrives, line $B$ is likely to misclassify it
 
-![](Images/boundary_example.png)
+![](boundary_example.png)
 
 ## Aiming for the Safest Boundary
 - Intuitively, the most reliable boundary would be the one that is between the classes and as far away from both classes as possible
 - SVM objective captures this observation
 - SVMs aim to find the separation boundary that **maximises the margin** between the classes
 
-![](Images/safest_boundary.png)
+![](safest_boundary.png)
 
 ## Maximum-Margin Classifier
 - An SVM is a linear binary classifier. SVM training aims to find the separating boundary that maximises margin
@@ -54,7 +54,7 @@ _A geometric derivation of the (hard-margin) SVM's objective_
 - Point(s) on margin boundaries called **_support vectors_** 
 - We want to maximise the distance to support vectors
 
-![](Images/support_vectors.png)
+![](support_vectors.png)
 
 ## Distance from Point to Hyperplane
 - Consider an arbitrary point $x$ (from either of the classes, and not necessarily the closest one to the boundary), and let $x_p$ denote the **projection** of $x$ onto the separating boundary
@@ -63,16 +63,16 @@ _A geometric derivation of the (hard-margin) SVM's objective_
 - From our linear algebra slides, recall that $w$ is a vector normal (perpendicular) to the boundary
 - In the figure, $w$ is drawn from an arbitrary starting point on boundary
 
-![](Images/point_hyperplane.png)
+![](point_hyperplane.png)
 
 ## Distance from Point to Hyperplane
 - **Distance** is $\lVert r \rVert = \frac{w'x+b}{\lVert w \rVert}$, or more generally$\lVert r \rVert = \pm \frac{w'x + b}{\lVert w \rVert}$ 
 
-![](Images/hyperplane_distance.png)
+![](hyperplane_distance.png)
 
 $\frac{\lVert r \rVert}{\lVert w \rVert}w$ is just a factor which equals the same as r, since they are parallel. Therefore, this plus $x$ will take us to $x_p$ 
 
-![](Images/svm_solution.png)
+![](svm_solution.png)
 
 ## Encoding the Side Using Labels
 - Training data is a collection $\{x_i, y_i\}, i = 1, ... n,$ where each $x_i$ is an $m$-dimensional instance and $y_i$ is the corresponding binary label encoded as  -1, or 1
@@ -96,7 +96,7 @@ What this basically means is that $y_i$ will be either +1 or -1, therefore we ca
 - However, the same set of points will also satisfy $\tilde{w}'x + \tilde{b} = 0$, with $\tilde{w} = \alpha w$ and $\tilde{b} = \alpha b$, where $\alpha > 0$ is arbitrary
 - The same boundary, and essentially the same classifier can be expressed with **infinitely** many parameters combinations - that **diverge**!
 
-![](Images/diverge.png)
+![](diverge.png)
 
 ## Constraining the Objective for Uniqueness
 - SVMs aim to maximise $(\underset{i=1,...,n}{\min} \frac{y_i(w'x_i + b)}{\lVert w \rVert})$ 
@@ -116,7 +116,7 @@ Note 1: parameters $b$ is optimised indirectly by influencing constraints
 Note 2: all points are enforced to be on or outside the margin
 Therefore, this version of SVM is called _hard-margin_ SVM
 
-![](Images/hard-margin.png)
+![](hard-margin.png)
 
 # SVM Objective as Regularised Loss
 Relating the resulting objective functions to that of other machine learning methods
@@ -130,7 +130,7 @@ How do SVMs fit this pattern
 
 ## SVM as Regularised ERM
 
-![](Images/svm-erm.png)
+![](svm-erm.png)
 - Remember that $+\text{ve} \times \text{+ve} = \text{+ve} \text{ and } \text{-ve} \times \text{-ve} = \text{+ve}$ 
 ## Hard Margin SVM Loss
 - The constraints can be interpreted as loss
@@ -159,14 +159,14 @@ SVMs offer 3 approaches to address this problem:
 2. **Relax** the constraints 
 3. The combination of 1 and 2
 
-![[Images/linearly_separable.png]]
+![[linearly_separable.png]]
 
 ## Soft-Margin SVM
 - Relax constraints to allow points to be **inside the margin** or even on the **wrong side** of the boundary
 - However, we **penalise boundaries by the extent of "violation"**
 - In the figure, the objective penalty will take into account the orange distances
 
-![](Images/soft-margin.png)
+![](soft-margin.png)
 
 ## Hinge Loss: Soft-Margin SVM Loss
 - Hard-margin SVM loss
@@ -180,7 +180,7 @@ $$
 
 - Soft-margin SVM loss (**hinge loss**)
 
-![](Images/soft-margin-svm.png)
+![](soft-margin-svm.png)
 
 ## Soft-Margin SVM Objective
 - Soft-margin SVM **objective** 

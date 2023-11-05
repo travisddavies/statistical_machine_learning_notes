@@ -7,7 +7,7 @@ Let $S$ be the sample space and $A_i$, $A_j$ be events in $S$, i.e. $A \in S$:
 
 An example of this is demonstrated below, as it can be seen with the two sets below, there is no intersection between the two sets, therefore the probability of either event happening, i.e. _the joint probability_ $P(A \cup B)$, is simply equal to the probability of both events occurring.
 
-![](Images/2_independent_sets_union.png)
+![](2_independent_sets_union.png)
 
 ## Random Variables
 **Random variables** map outcomes of random processes to numbers, in other words, a random variable $X$ is a numeric function of
@@ -33,7 +33,7 @@ Discrete data is data that can be **counted** rather than measured, or having a 
 
 Discrete data on a graph will also not be connected, it will show jumps in the data, as shown below:
 
-![](Images/discrete_data_graph.png)
+![](discrete_data_graph.png)
 
 ### Continuous Data
 Continuous data on the other hand, is data which can be **measured**, and can be a real number. Examples include:
@@ -43,12 +43,12 @@ Continuous data on the other hand, is data which can be **measured**, and can be
 
 Continuous data on a graph is connected, as shown below:
 
-![](Images/continuous_data_graph.png)
+![](continuous_data_graph.png)
 
 ### Discrete Distribution Functions
 Discrete data is described by the **probability mass function** (PMF), an example is shown below:
 
-![](Images/discrete_distribution_function.png)
+![](discrete_distribution_function.png)
 
 In this distribution, we would calculate probability in the following way: 
 
@@ -67,7 +67,7 @@ Examples of discrete distribution functions include the following:
 ### Continuous Distribution Function
 Continuous data is described by the **probability density function** (PDF), an example is shown below:
 
-![](Images/continuous_density_function.png)
+![](continuous_density_function.png)
 
 In this distribution, we could calculate the probability in the following way: 
 
@@ -75,7 +75,7 @@ $$P(X \leq x) = \int^x_{} P(a)\delta a$$
 
 In the example above, if we wanted $P(X \leq 160)$, we would find the area under the curve, as shown in the picture below:
 
-![](Images/area_under_density_function.png)
+![](area_under_density_function.png)
 
 Examples of continuous distribution functions include the following:
 - Uniform
@@ -116,11 +116,11 @@ $$E[X] = \int_x xP(X=x) \delta x$$
 
 An example for how we would calculate this is shown below, we calculate the areas under the curve for a set interval, by multiplying the height and width.
 
-![](Images/expected_value_continuous.png)
+![](expected_value_continuous.png)
 
 We do this for each interval as shown below, then we multiply each area by the value on the graph.
 
-![](Images/areas_under_continuous_function.png)
+![](areas_under_continuous_function.png)
 
 $E[X] = 0.4 \times 10 + 0.2 \times 20 + 0.1 \times 30 + 0.09 \times 40 + 0.05 \times 50 + 0.03 \times 60 + 0.02 \times 70 + 0.01 \times 80 + 0.01 \times 90$
 
@@ -189,11 +189,11 @@ $Var(X) = 0.48$
 ## Multivariate Distributions
 Much like the univariate cases for probability distribution, there exists probability distributions for multivariate cases. Below shows a Gaussian distribution, but in 3D.
 
-![](Images/3D_gaussian.png)
+![](3D_gaussian.png)
 
 To calculate the joint probabilities from the probability mass function or probability density function, it is just like the univariate method, but we add an extra dimension. Imagine instead of taking the area under the graph, you now take the volume under the graph. The height will be $P(x,y)$, the width will be $x$, and the breadth will be $y$.
 
-![](Images/joint_pdf.png)
+![](joint_pdf.png)
 
 The formulas for calculating these probabilities are as shown below:
 **Discrete**:  $P(X, Y \in A) = \sum_{(x,y)\in A} p(x,y)$
@@ -220,7 +220,7 @@ Using conditional probabilities, we can tell if $X,Y$ are **independent** if $P(
 
 In the following graph, we can see that $x$ clearly influences $y$ given that the expected value of $x$ is proportional with the given values of $y$.
 
-![](Images/dependent_graph.png)
+![](dependent_graph.png)
 
 ## Inverting Conditioning: Bayes' Theorem
 Bayes Theorem defines the following formula:
@@ -239,9 +239,9 @@ We want to know the probability of success of movies of a specific genre ($A=\{c
 
 $P(A) = \underset{b \in \beta} \sum P(A, B=b)$
 
-![](Images/sum_rule_example.png)
+![](sum_rule_example.png)
 
-![](Images/sum_rule_example2.png)
+![](sum_rule_example2.png)
 
 # Vectors
 ## What are Vectors?
@@ -250,11 +250,11 @@ Suppose $u = [u_1, u_2]'$. What does $u$ really represent?
 	$\{u_1, u_2, u_3, u_4, u_5, u_6\}$ 
 - **Cartesian coordinates of a point**:
 
-![](Images/cartesian_plane.png)
+![](cartesian_plane.png)
 
  - **A direction**:
 
-![](Images/direction.png)
+![](direction.png)
 
 ## Dot Product: Algebraic Definition
 Given two $m$-dimensional vectors $u$ and $v$, their dot product is:
@@ -310,7 +310,7 @@ $$u_v = \lVert u \rVert \cos \theta$$
 
 This visually can be seen below, which basically casts a shadow on the other vector.
 
-![](Images/scalar_projection.png)
+![](scalar_projection.png)
 
 Thus dot product is:
 
@@ -321,7 +321,7 @@ $$u'v = u_v \lVert v \rVert = v_u \lVert u \rVert$$
 - If two vectors are parallel then $u'v = \lVert u \rVert \lVert v \rVert$, if they are anti-parallel then $u'v = -\lVert u \rVert \lVert v \rVert$ 
 - $u'u = \lVert u \rVert ^2$, so $\lVert u \rVert = \sqrt{u_1^2 + ... + u_m^2}$ defines the Euclidean vector length
 
-![](Images/two_vectors.png)
+![](two_vectors.png)
 
 ## Hyperplanes and Normal Vectors
 A **hyperplane** defined by parameters $w$ and $b$ is a set of points that satisfy $X'W + b = 0$. What this means can be seen in the following way:
@@ -329,17 +329,17 @@ A **hyperplane** defined by parameters $w$ and $b$ is a set of points that satis
 - A 3D equation such as $az + by + cz + d = 0$ which can be defined as $w_3x_3 + w_2x_2 + w_1x_1 + w_0 = 0$, we call a <u>plane</u>.
 - An $n$-dimensional plane such as $w_0 + w_1x_1 + w_2x_2 + ... + w_nx_n = 0$ is a called a <u>hyperplane</u>.
 
-![](Images/normal_hyperplane.png)
+![](normal_hyperplane.png)
 
 A normal vector is defined in the following way:
 - Consider a line defined by $w_1$, $w_2$ and b
 - Vector $w = [w_1. w_2]'$ is a normal vector
 
-![](Images/normal_vector.png)
+![](normal_vector.png)
 
 A visual demonstration of the difference between a **line** and a **hyperplane** are shown below.
 
-![](Images/hyperplane_v_line.png)
+![](hyperplane_v_line.png)
 
 ## $L_1$ and $L_2$ Norms
 - Intuitively, norms measure lengths of vectors in some sense
@@ -373,11 +373,11 @@ The **span** of vectors $v_1, ..., v_k \in V$ is the set of all obtainable linea
 
 The below graph shows the plots for $v_1$ and $v_2$ in the vectors above. These two vectors can create a linear combination that can plot anything in this 2D space, you just simply adjust the weights applied to the vectors. Therefore for the **below graph** we can say that the **span** is $span(b_1, v_2) = \mathbb{R} ^2$. 
 
-![](Images/span.png)
+![](span.png)
 
 For the two vectors shown below, no matter what scalars you apply to either vector, the linear combination will only span along that single axis. Therefore we can say that the **span** is $c_1x + c_2x$ 
 
-![](Images/no_span.png)
+![](no_span.png)
 
 A set of vectors $B = \{v_1, ..., v_k\} \subseteq V$ is called a **basis** for a vector subspace $V' \subseteq V$ if
 1. The set $B$ is linearly independent; and
@@ -421,11 +421,11 @@ Scalar, vector pair $(\lambda, v)$ are called an **eigenvalue-eigenvector** pair
 
 You have a typical plane as shown below, with two vectors acting as axes as shown below.
 
-![](Images/normal_plane.png)
+![](normal_plane.png)
 
 Now we stretch it with a matrix as shown below, now the whole plane is distorted and stretched. The horizontal axis is now stretched 3 times longer, and the vertical axis is now slanted to the right and stretched out vertically.
 
-![](Images/stretched_plane.png)
+![](stretched_plane.png)
 
 Take note of what happens to the vector below, it currently spans out along the white line.
 
@@ -433,21 +433,21 @@ Take note of what happens to the vector below, it currently spans out along the 
 
 With this matrix distorting the plane, this vector has now been stretched and distorted along a different span, as most vectors would.
 
-![](Images/stretched_vector.png)
+![](stretched_vector.png)
 
 Some vectors, however remain in their same span, as can be seen from the horizontal vector in the picture below, it was stretched by a factor of 3, but it remained on its original span. This is an **eigenvector**. 
 
-![](Images/eigenvector1.png)
+![](eigenvector1.png)
 
 Another eigenvector in this space is shown below, as you can see, it is stretched but not moved off its span.
 
-![](Images/diagonal_eigenvector.png)
+![](diagonal_eigenvector.png)
 
-![](Images/diagonal_eigonvector2.png)
+![](diagonal_eigonvector2.png)
 
 The eigenvalue is just merely the factor by which the eigenvectors are stretched by from the scalar factor matrix, as shown below.
 
-![](Images/2_eigenvectors.png)
+![](2_eigenvectors.png)
 
 So to find the eigenvectors and eigenvalues in a space, we can use the following formula:
 
@@ -461,13 +461,13 @@ This essentially means we would subtract $\lambda$ along the diagonals of the ma
 
 What this essentially does is remove a dimension in the plane to become a single line, as shown below:
 
-![](Images/undistorted_plane.png)
+![](undistorted_plane.png)
 
-![](Images/remove_dimension.png)
+![](remove_dimension.png)
 
 In the above case, the eigenvalue $\lambda$ equalled 1, so therefore the eigenvector for $A\vec{v}$ is $1\vec{v}$, as shown below.
 
-![](Images/eigenvector_matrix.png)
+![](eigenvector_matrix.png)
 
 ## Spectra of Common Matrices
 - Eigenvalues of **symmetric matrices** are always real (no imaginary component)
@@ -499,7 +499,7 @@ Where $\mathbb{N}$ is an arbitrary non-negative integer. This is a sequence
 - A sequence $\{ x_i \}_{i \in \mathbb{N}}$ **converges** if its elements become and remain arbitrarily close to a fixed **limit** point $L$.
 - Formally: $x_i \rightarrow L$ if, for all $\epsilon > 0$, there exists $N \in \mathbb{N}$ such that for all $n \geq N$ we have $\lVert x_n - L \rVert < \epsilon$ 
 
-![](Images/convergence.png)
+![](convergence.png)
 
 **Notes**:
 - Epsilon $\epsilon$ represents distance of sequence to limit point
@@ -558,7 +558,7 @@ This equals a constant, therefore this sequence converges
 		- What this means that the upper bound $u$ must be smaller than all other upper bounds to be considered a supremum
 - When we don't know, or can't guarantee, that a set or sequence has a max, it is better to use its **sup**
 
-![](Images/supremum.png)
+![](supremum.png)
 
 # Stochastic Convergence
 ## Why Simple Limits Aren't Enough
@@ -579,8 +579,8 @@ What this all means is that as our sequence approaches infinity, the sample mean
 
 An example is shown below, for an ordinary convergence, there is a point where the numbers in sequence $a_n$ will converge between $a + \epsilon$ and $a - \epsilon$. In the plot below, that point in $n_0$.
 
-![](Images/ordinary_convergence.png)
+![](ordinary_convergence.png)
 
 For probability convergence, it's a similar concept, but we can think of it as the Gaussian distribution will eventually become confined between $a + \epsilon$ and $a - \epsilon$, meaning that the probability of a sequence number being outside of this range will approach 0.
  
-![](Images/probability_convergence.png)
+![](probability_convergence.png)

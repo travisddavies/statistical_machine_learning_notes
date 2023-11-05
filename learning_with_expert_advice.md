@@ -5,7 +5,7 @@ _Warming up example_
 - **Experts** $E_1,...,E_n$ predict the stock market daily 
 	- Each expert prediction is binary: stocks will go up/down
 
-![](Images/stock_market.png)[
+![](stock_market.png)[
 
 - Learner's game, daily: 
 	- Observe predictions of all experts 
@@ -20,11 +20,11 @@ _Warming up example_
 	3. Observe correct outcome
 	4. **Remove mistaken experts** from E
 
-![](Images/expert_voters.png)
+![](expert_voters.png)
 
 ## Mistake Bound for Majority Vote
 
-![](Images/mistake_bound_majoruty_vote.png)
+![](mistake_bound_majoruty_vote.png)
 
 **Proof**
 - Loop invariant: If algorithm makes a mistake, then at least $|E|/2$ experts must have been wrong
@@ -43,7 +43,7 @@ _Warming up example_
 **Online**
 - A **repeated game**
 
-![](Images/prediction_learning_games.png)
+![](prediction_learning_games.png)
 
 # Imperfect Experts and the Halving Algorithm
 _Similar proof techniques; similar algorithm; much more interesting setting_
@@ -67,11 +67,11 @@ _Similar proof techniques; similar algorithm; much more interesting setting_
 	4. **Downweigh each mistaken expert** $E_i$
 		  $w_i \leftarrow w_i/2$ 
 
-![](Images/biggest_expert.png)
+![](biggest_expert.png)
 
 ## Mistake Bound for Halving
 
-![](Images/mistake_bound_for_halving.png)
+![](mistake_bound_for_halving.png)
 
 Proof
 - Invariant: If algorithm makes a mistake, then weight of wrong expert is at least half the total weight $W = \sum_{i=1}^n w_i$ 
@@ -87,14 +87,14 @@ Proof
 - Scaling to many experts is no problem
 - Online learning vs. PAC frameworks
 
-![](Images/pac_v_online.png)
+![](pac_v_online.png)
 
 # From Halving to Multiplying to Multiplying Weights by 1 - $\epsilon$ 
 _Generalising weighted majority_
 
 ## Useful (but Otherwise Boring) Inequalities
 
-![](Images/useful_but_boring_inequalities.png)
+![](useful_but_boring_inequalities.png)
 
 ## Weighted Majority Vote Algorithm
 1. Initialise $w_i = 1$ weight of expert $E_i$
@@ -104,11 +104,11 @@ _Generalising weighted majority_
 	3. Observe correct outcome
 	4. Downweigh each mistaken expert $E_i$ $w_i \leftarrow \textcolor{red}{(1-\epsilon)}w_i$ 
 
-![](Images/weighted_majority.png)
+![](weighted_majority.png)
 
 ## Mistake Bound
 
-![](Images/mistake_bound_prop.png)
+![](mistake_bound_prop.png)
 
 **Proof**
 - Whenever learner mistakes, at least half of total weight reduced by factor of $1 - \epsilon$. So after $M$ mistakes, $W \leq n(1 - \epsilon/2)^M$ 
@@ -142,13 +142,13 @@ _Wherein randomisation helps us do better!_
 
 ## Probabilistic Experts: Expected Loss Bound
 
-![](Images/probabilistic_experts_bound.png)
+![](probabilistic_experts_bound.png)
 
 - Proof: next, follows similar "potential" pattern
 - Beats deterministic! **Shaves off optimal constant 2**
 - Generalises in many directions. Active area of research in ML, control, economics, in top labs
 
-![](Images/prediction_learning_games.png)
+![](prediction_learning_games.png)
 
 ## Proof: Upper Bounding Potential Function
 - Learner's round $t$ expected loss: $L_t = \frac{\sum_{i=1}^nw_i^{(t)}l_i^{(t)}}{W(t)}$ 

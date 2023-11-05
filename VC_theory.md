@@ -47,21 +47,21 @@ $$
 Pr(B_1 \text{ or } B_{|F|}) \leq Pr(B_1)+... + Pr(B_{|F|}) \leq 2|F|\exp(-2m\epsilon^2)
 $$
 
-![](Images/overlaps.png)
+![](overlaps.png)
 
 ## How Do Overlaps Arise?
 
-![](Images/overlaps2.png)
+![](overlaps2.png)
 
 Significantly **overlapping** events $B_1$ and $B_2$ 
 
 VC theory focuses on the pattern of labels any $f \in F$ could make
 
-![](Images/overlaps3.png)
+![](overlaps3.png)
 
 ## Dichotomies and Growth Function
 
-![](Images/dichotomies.png)
+![](dichotomies.png)
 
 - **Unique dichotomies** $F(x) = \{(f(x_1), ..., f(x_m)): f \in F\}$, patterns of labels with the family
 - Even when $F$ infinite, $|F(x)| \leq 2^m$ (why?)
@@ -74,7 +74,7 @@ VC theory focuses on the pattern of labels any $f \in F$ could make
 
 ## $S_F(3)$ for $F$ linear classifiers in 2D
 
-![](Images/sf_3.png)
+![](sf_3.png)
 
 $|F(x)| = 6$ but still have $S_F(3) = 8$ because as proven in the previous example, we can have an example with 3 samples that has a **dichotomy** of 8.
 
@@ -84,7 +84,7 @@ $|F(x)| = 6$ but still have $S_F(3) = 8$ because as proven in the previous examp
 - What about $m = 4$ points?
 - Can never produce the criss-cross (XOR) dichotomy
 
-![](Images/sf_4.png)
+![](sf_4.png)
 
 - In fact $S_F(4) = 14 < 2^4$ 
 	- This is because if we exclude these two _impossible classifications with a linear model_, we will have $2^8 - 2$ dichotomies for 4 samples, which results in $S_F(4) = 14$  
@@ -93,7 +93,7 @@ $|F(x)| = 6$ but still have $S_F(3) = 8$ because as proven in the previous examp
 
 ## PAC Bound with Growth Function
 
-![](Images/pac_bound_growth_function.png)
+![](pac_bound_growth_function.png)
 
 - Compare to PAC bounds so far
 	- A few negligible extra constants (the 2s, the 4)
@@ -106,13 +106,13 @@ _Computable, bounds growth function_
 
 ## Vapnik-Chervonenkis Dimension
 
-![](Images/vc_dimension.png)
+![](vc_dimension.png)
 
 - Points $x = (x_1, x_m)$ are **shattered** by $F$ if $|F(x)| = 2^m$ 
 - So $VC(F)$ is the size of the largest set shattered by $F$ 
 - Example: linear classifiers in $\mathbb{R}^2$, $VC(F)=3$
 
-![](Images/shattered.png)
+![](shattered.png)
 
 ## Example: $VC(F)$ From $F(x)$ on Whole Domain
 - Columns are _all_ points in domain
@@ -120,26 +120,26 @@ _Computable, bounds growth function_
 - Obtain dichotomies on a subset of points $x' \subseteq \{x_1, ... x_2\}$ by columns, drop dupe rows
 - $F$ shatters $x'$ if number of rows is $2^{|x'|}$ 
 
-![](Images/shatter_example.png)
+![](shatter_example.png)
 
 This example:
 - Dropping column 3 leaves 8 rows behind: $F$ shatters $\{x_1,x_2,x_4\}$ 
 - Original table has $< 2^4$ rows: $F$ doesn't shatter more than 3
 - $VC(F) = 3$
 
-![](Images/shatter_example2.png)
+![](shatter_example2.png)
 
 ### My Explanation
 What this means is that this function $F$ for 4 samples only has a dichotomy of 10, which is less than $2^4$ and thus cannot shatter $m=4$, so what we do instead is we then check if it can shatter $m=3$, which turns out has $2^3$ dichotomies once the duplicate rows were removed. We can therefore say that for this function, $VC(F)=3$, which means that this function can shatter up to $m=3$. 
 ## Sauer-Shelah Lemma
 
-![](Images/sauer_shela_lemma.png)
+![](sauer_shela_lemma.png)
 
 - From basic facts of Binomial coefficients
 	- Bound is $O(m^k)$: finite VC $\implies$ eventually polynomial growth!
 	- For $m \geq k$, it is bounded by $(\frac{em}{m})^k$ 
 
-![](Images/vc_bound.png)
+![](vc_bound.png)
 
 ### My Explanation
 What the above basically means is that we can consider growth function as being bounded a _combination_ in the mathematical term of $k$ shatterable samples of function $F$ and $m$ total samples. However, we should remember that a combination is bounded by $m^k$, simply because it will always be bigger. 
@@ -147,7 +147,7 @@ What the above basically means is that we can consider growth function as being 
 So according to some derivations that we can overlook, we can claim that given that number of samples is greater than or equal to the number of samples that a function can shatter, we can claim the bottom formula as the bound between the true risk of the function and the measured risk. 
 ## VC Bound Big Picture
 
-![](Images/big_picture.png)
+![](big_picture.png)
 
 This above graph shows that even if $m$ continues to increase past the $VC(F)$, the number of dichotomies that the function can have becomes lower and lower (as you can imagine with the above examples).
 

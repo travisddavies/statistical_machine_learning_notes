@@ -49,7 +49,7 @@ $$
 	- Outer for loop: each loop (called **epoch**) sweeps through all training data
 	- Within each epoch, randomly shuffle training data; then for loop: do gradient steps only on batches of data. Batch might be 1 or few
 
-![](Images/regression.png)
+![](regression.png)
 
 ## Convex Objective Functions
 - 'Bowl shaped' functions
@@ -58,7 +58,7 @@ $$
 - Strictly convex if inequality is strict (<)
 - Gradient descent on (strictly) convex function guaranteed to find a (unique) global minimum!
 
-![](Images/convex.png)
+![](convex.png)
 
 
 In simpler terms:
@@ -72,7 +72,7 @@ This geometric interpretation is important because it has implications for optim
 
 # Newton-Raphson
 
-![](Images/newton-raphson.png)
+![](newton-raphson.png)
 
 - Critical points of $L(\theta) = \text{} L'(\theta)$
 - Crossing case of scalar $\theta$. Starting at given/random $\theta_0$, iteratively:
@@ -105,14 +105,14 @@ This geometric interpretation is important because it has implications for optim
 	- Predict "Yes" if $s \geq 0.5$ 
 	- Predict "No" if $s < 0.5$ 
  
-![](Images/binary_regression.png)
+![](binary_regression.png)
 
 ## Why Not Linear Regression
 - Due to the square loss, points far from boundary have loss squared - even if they're confidently correct!
 - Such "outliers" will "pull at" the linear regression
 - Overall, the least-squares criterion looks unnatural in this setting
 
-![](Images/binary_pulling.png)
+![](binary_pulling.png)
 
 - Probabilistic approach to classification
 	- $P(Y=1|x)=f(x)= ?$ 
@@ -122,7 +122,7 @@ This geometric interpretation is important because it has implications for optim
 - Logistic regression model
 	$P(Y=1|x) = \frac{1}{1+\exp(-x'w)}$ 
 	
-![](Images/logistic_regression.png)
+![](logistic_regression.png)
 
 ## How is Logistic Regression Linear?
 - Logistic regression model:

@@ -4,9 +4,9 @@ In regression, the task is to numeric response (aka dependent variable) from fea
 Assume a linear relation: $H = a + bT$
 ($H$ - humidity; $T$ - temperature; $a$, $b$, $b$ - parameters)
 
-![](Images/coords.png)
+![](coords.png)
 
-![](Images/lin_reg_chart.png)
+![](lin_reg_chart.png)
 
 In this above example, we would iteratively change the slope and bias until we have the lowest possible sum of **squared errors**
 ## Example: Minimise Sum Squared Errors
@@ -81,7 +81,7 @@ Here $w_0, ..., w_m \in \mathbb{R}$ denote weights (models parameters)
 ## Data is Noisy!
 **Example**: predict mark for Statistical Machine Learning (SML) from mark for Intro ML (IML aka KT)
 
-![](Images/IML_stats.png)
+![](IML_stats.png)
 
 ## Regression as a Probabilistic Model
 - Assume a **probabilistic model**: $Y=X'w + \epsilon$ 
@@ -130,7 +130,7 @@ $$
 
 - Unknown parameters: $w$, $\not {\sigma^2}$ 
 
-![](Images/gaussian_line_fit.png) 
+![](gaussian_line_fit.png) 
 
 - Given observed data $\{(X_1, Y_1), ..., (X_n, Y_n)\}$, we want to find parameter values that "best" explain the data
 - **Maximum-likelihood estimation**: choose parameter values that maximise the probability of observed data
@@ -174,14 +174,14 @@ $$\hat{w} = (X'X)^{-1}X'y$$
 - How to marry non-linear data to a linear method?
 If you can't beat em, join em!
 
-![](Images/linear_graph.png) 
+![](linear_graph.png) 
 
 ## Transform the Data
 - The trick is to **transform the data**: Map data into another features space, s.t. data is linear in that space
 - Denote this transformation $\varphi$: $\mathbb{R}^m \rightarrow \mathbb{R}^k$. If $x$ is the original set of features, $\varphi(x)$ denotes new feature set
 - **Example**: suppose there is just one feature $x$, and the data is scattered around a parabola rather than a straight line
 
-![](Images/dots_on_plane.png)
+![](dots_on_plane.png)
 
 ## Example: Polynomial Regression
 - Define 
@@ -202,7 +202,7 @@ $$
 
 Where $z_i$ some pre-defined constants
 - Choose $z_1 = [0,0]' , z_2 = [0, 1]', z_3 = [1,0]', z_4 = [1,1]'$ 
-![](Images/linear_classification.png)
+![](linear_classification.png)
 
 In the above example, what is essentially done is that we find the Euclidean distance between the $x$ components of an instance and the 4 $z$ components. These distances will be used as the $\varphi(x)$ components, and then we will multiply these with 4 $w$ components, where the weights of one class will be much higher than the other class. Once we do the dot product, the output will be distinctly $2$ for one class and $\sqrt{2}$ for the other class, this is then used as a way to classify the dataset into the two linearly inseparable classes.
 
@@ -229,16 +229,16 @@ Therefore, instance 1 is Class A because the dot product is $\sqrt{2}$
 - $\varphi(x) = \lVert x - z \rVert$ 
 - $\varphi(x) = \exp(\frac{1}{\sigma}\lVert x - z \rVert^2)$ 
 
-- ![](Images/radial_basis.png)
+- ![](radial_basis.png)
 
 ## Example
 - Predict whether it is summer based on the month of the year
 
-![](Images/radial_basis_plot.png)
+![](radial_basis_plot.png)
 
 - Transform using $\varphi(x) = \exp(-\frac{1}{\sigma}\lVert x - 7 \rVert^2)$ 
 
-![](Images/radial_basis_gaussian.png)
+![](radial_basis_gaussian.png)
 
 - New features (points on $y$ axis) are linearly separable
 - Could use $\varphi(x)$ and $x$ as features, or drop $x$ 

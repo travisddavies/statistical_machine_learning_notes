@@ -27,7 +27,7 @@ _A.K.A Markov Random Field_
 	- **Clique**: a set of _fully connected nodes_ (e.g., A-D, C-D, C-D-F)
 	- **Maximal clique**: _largest cliques in graph (not C-D, due to C-D-F_)
 
-![](Images/undirected_pgm_formulation.png)
+![](undirected_pgm_formulation.png)
 
 - Joint probability defined as
 
@@ -55,7 +55,7 @@ where $\pi$ indexes parents
 	- Clique structure links **_groups of variables_**, i.e., $\{\{X_i\} \cup X_{\pi_i}, \forall i\}$ 
 	- Normalisation term trivial, $Z=1$
 
-![](Images/undirected_to_directed.png)
+![](undirected_to_directed.png)
 
 ## Why U-PGM
 - Pros
@@ -74,12 +74,12 @@ _Conditional random field (CRF);_
 ## The HMM (and Kalman Filter)
 - Sequential observed **outputs** from hidden state
 
-![](Images/the_hmm.png)
+![](the_hmm.png)
 
 - The **Kalman filter** same with continuous Gaussian r.v.'s
 - A **CRF** is the undirected analogue
 
-![](Images/kalman_filter.png)
+![](kalman_filter.png)
 
 ## HMM Applications
 - NLP - **part of speech tagging**: given words in sentence, infer hidden parts of speech
@@ -88,18 +88,18 @@ _Conditional random field (CRF);_
 
 - **Speech recognition**: given waveform, determine phonemes
 
-![](Images/hmm_applications.png)
+![](hmm_applications.png)
 
 - Biological sequences: classification, search, **alignment**
 - Computer vision: identify who's walking in video, **tracking**
 
 ## Fundamental HMM Tasks
 
-![](Images/fundamental_hmm_tasks.png)
+![](fundamental_hmm_tasks.png)
 
 ## Pixel Labelling Tasks in Computer Vision
 
-![](Images/pixel_labelling_in_compute_vision.png)
+![](pixel_labelling_in_compute_vision.png)
 
 ## What These Tasks Have in Common
 - Hidden state representation semantics of image
@@ -110,11 +110,11 @@ _Conditional random field (CRF);_
 	- What we observe of hidden state
 - Remind you of HMMs?
 
-![](Images/what-these-tasks-have-in-common.png)
+![](what-these-tasks-have-in-common.png)
 
 ## A Hidden Square-Lattice Markov Random Field
 
-![](Images/a-hidden-square-lattice.png)
+![](a-hidden-square-lattice.png)
 
 ## Application to Sequences: CRFs
 - **Conditional Random Field: Same model applied to sequences**
@@ -124,7 +124,7 @@ _Conditional random field (CRF);_
 	- Versus HMM's which are generative, $P(Q|O)$
 	- Undirected PGM more general and expressive
 
-![](Images/application-to-sequences.png)
+![](application-to-sequences.png)
 
 ## Exercises
 

@@ -39,27 +39,27 @@ _A DNN tailored to variable length sequential inputs_
 	- Process each symbol from left to right, to form a sequence of hidden states $h^{(t)}$
 	- Each $h^{(t)}$ encodes all inputs up to $t$
 
-![](Images/rnn_architecture.png)
+![](rnn_architecture.png)
 
 ## RNN Applications: Seq. Classification
 - Sequence classification: labelling sequence
 	- Use last hidden state as input to linear model (classifier etc.)
 
-![](Images/rnn_classification.png)
+![](rnn_classification.png)
 
 ## Sequence Tagging RNN
 - Assign each item/token a label in sequence
 	- Given targets per item, can measure loss per item
 
-![](Images/sequence_tagging_rnn.png)
+![](sequence_tagging_rnn.png)
 
 ## Encoder-Decoder for Sequence Translation
 
-![](Images/encoder-decoder.png)
+![](encoder-decoder.png)
 
 ## RNN Parameterisation
 
-![](Images/rnn_parameterisation.png)
+![](rnn_parameterisation.png)
 
 - Parameters are $b, W, U, c, V$
 	- Not specific to timestep $t$, but shared across all positions
@@ -84,7 +84,7 @@ We require BPTT because we have sequential data, and therefore the typical feedf
 - Gradient magnitude now maintained
 	- Can handled 100+ distance phenomena (vs 5-10 for RNN)
 
-![](Images/lstm.png)
+![](lstm.png)
 
 ### My Explanation
 Due to the transformation that the data goes through when traversing an RNN, some information is lost at each time step. After a while, the RNN's state contains virtually no trace of the first inputs. This can be a showstopper. Imagine Dory the fish trying to translate a long sentence; by the time she's finished reading it, she has no clue how it started. To tackle this problem, various types of cells with long-term memory have been introduced. They have been proven to be so effective that the basic cells are not used much anymore. Let's first look at the most popular of these long-term memory cells: the LSTM cell.
@@ -104,7 +104,7 @@ _A method for processing sequence inputs in highly parallelisable manner, using 
 	- $e_j = f(h^{(j)})$ 
 - E.g., key phrase in review
 
-![](Images/attention.png)
+![](attention.png)
 
 ### My Explanation
 Attention mechanisms allow a decoder to focus on the appropriate words (as encoded by the encoder) at each time step. For example, we want our decoder to focus more on the word "le football" at each time step if we output the word "soccer". It does this by taking the output of each sequence and performing a weighted sum over the outputs, allowing us to put more focus on certain words in the sequence. For the word "I like soccer", it is appropriate to expect that the verb "like" is very fitting with the noun "soccer". This solves the bottleneck formed when just looking at the output for the last part of the sequence.
@@ -117,16 +117,16 @@ Attention mechanisms allow a decoder to focus on the appropriate words (as encod
 	- $e_{ij} = a(s^{i-1}, h^{(j)})$ 
 - Avoids bottleneck, and uncovers meaningful structure
 
-![](Images/se2seq.png)
+![](se2seq.png)
 
 ## Attention in Vision
 - Can attend to other representations, e.g., images
 	- Attention over matrix input
 	- Roves during generation of caption
 
-![](Images/cnn_transformer.png)
+![](cnn_transformer.png)
 
-![](Images/bird_kernels.png)
+![](bird_kernels.png)
 
 ## Self-Attention
 - **Transformers** use attention as means of representing sequences directly, instead of RNN
@@ -136,11 +136,11 @@ Attention mechanisms allow a decoder to focus on the appropriate words (as encod
 	- No explicit position information (add to each symbol position index)
 	- Cheap: easily done in parallel
 
-![](Images/self-attention.png)
+![](self-attention.png)
 
 ## Transformer
 
-![](Images/transformer1.png)
+![](transformer1.png)
 
 ## Exercises
 

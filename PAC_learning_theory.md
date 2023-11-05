@@ -61,7 +61,7 @@ $$
 R[f_m] - R^* = (R[f_m] - R[f^*])+(R[f^*]-R^*)
 $$
 
-![](Images/formula.png)
+![](formula.png)
 
 - **Good**: what we'd aim for in our class, with infinite data
 	- $R[f^*]$ true risk of **best in class** $f^* \in \text{argmin}_{f \in F}R[f]$ 
@@ -77,11 +77,11 @@ $$
 - Simple family $\rightarrow$ may underfit due to approximation error
 - Complex family $\rightarrow$ may overfit due to estimation error
 
-![](Images/approx_estimation_error.png)
+![](approx_estimation_error.png)
 
 ## About Bayes Risk
 
-![](Images/bayes_risk.png)
+![](bayes_risk.png)
 
 - **Bayes risk** $R^* \in \inf_f R[f]$
 	- Best risk possible, ever; but can be large
@@ -130,11 +130,11 @@ $$
 
 - Two-sided case in words: The probability that the empirical average is far from the expectation is **small**.
 
-![](Images/bell_curve.png)
+![](bell_curve.png)
 
 ## Et Voila: A Bound on True Risk!
 
-![](Images/bound_on_risk.png)
+![](bound_on_risk.png)
 
 ### Proof
 - Take the $Z_i$ as labelled examples $(X_i, Y_i)$ 
@@ -148,7 +148,7 @@ $$
 	- For any event $A$, $Pr(\bar{A}) = 1 - Pr(A)$ 
 	- Application: $Pr(X > \epsilon) \leq \delta$ implies $Pr(X \leq \epsilon) \geq 1 - \delta$ 
 
-![](Images/sets.png)
+![](sets.png)
 
 - Solving for, in high-probability bounds:
 	- For given $\epsilon$ with $\delta(\epsilon)$ function $\epsilon: Pr(X > \epsilon) \leq \delta(\epsilon)$ 

@@ -3,7 +3,7 @@ _Modelling non-linearity via function composition_
 
 ## Recap: Perceptron Model
 
-![](Images/perceptron_recap.png)
+![](perceptron_recap.png)
 
 - A linear classifier
 - $x_1, x_2$ - inputs
@@ -16,7 +16,7 @@ Some problems are linearly separable, but many are not
 - In/out value 1
 - In/out value 0
 
-![](Images/problem_with_perceptron.png)
+![](problem_with_perceptron.png)
 
 Possible solution: **composition**
 $x_1 \text{ XOR } x_2 = (x_1 \text{ OR } x_2) \text{ AND } \text{ not} (x_1 \text{ AND } x_2)$ 
@@ -27,17 +27,17 @@ We are going to compose perceptrons...
 - ANNs are not restricted to binary classification
 - Nodes in ANN can have various **activation functions**
 
-![](Images/ann_build_block.png)
+![](ann_build_block.png)
 
 _...many others, many variations_
 
 ## Feed-Forward Artificial Neural Network
 
-![](Images/feed-forward.png)
+![](feed-forward.png)
 
 ## ANN as Function Composition
 
-![](Images/ann_function_composition.png)
+![](ann_function_composition.png)
 
 ## ANN in Supervised Learning
 - ANNs can be naturally adapted to various supervised learning setups. Requires setting: output layer dimension, output layer activations, appropriate loss
@@ -54,7 +54,7 @@ _...many others, many variations_
 - ANNs are capable of approximating plethora non-linear functions, e.g., $z(x) = x^2$ and $z(x) = \sin(x)$ 
 - For example, consider the following network. In this example, hidden unit activation functions are $\tanh$ 
 
-![](Images/ann_example.png)
+![](ann_example.png)
 
 ![](tanh.png)
 
@@ -95,13 +95,13 @@ $$
 
 ## ANN Layers as Data Transformation
 
-![](Images/data_transformation_1.png)
+![](data_transformation_1.png)
 
-![](Images/preprocessing_data_transformation.png)
+![](preprocessing_data_transformation.png)
 
-![](Images/preprocessed_data_transformation2.png)
+![](preprocessed_data_transformation2.png)
 
-![](Images/preprocessed_data_transformation3.png)
+![](preprocessed_data_transformation3.png)
 
 ## Depth vs. Width
 - A single arbitrarily wide layer in theory gives a universal approximator
@@ -119,9 +119,9 @@ $$
 - Deep learning automates feature engineering
 	- No need for expert analysis
 	
-![](Images/bird_data.png)
+![](bird_data.png)
 
-![](Images/bird_type_images.png)
+![](bird_type_images.png)
 
 ## Backpropagation
 ##### = "backward propagation of errors"
@@ -135,19 +135,19 @@ _Calculating the gradient of loss of a composition_
 - $\frac{\delta L}{\delta w_j}=\frac{\delta L}{\delta z}\frac{\delta z}{\delta s}\frac{\delta s}{\delta w_j}$ 
 - $\frac{\delta L}{\delta v_{ij}}=\frac{\delta L}{\delta z}\frac{\delta z}{\delta s}\frac{\delta s}{\delta u_j}\frac{\delta u_j}{\delta r_j}\frac{\delta r_j}{\delta v_{ij}}$ 
 
-![](Images/backprop_ann.png)
+![](backprop_ann.png)
 
 ## Backpropagation Equations
 
-![](Images/backpropagation_equations.png)
+![](backpropagation_equations.png)
 
 ## Forward Propagation
 
-![](Images/foward_propagation.png)
+![](foward_propagation.png)
 
 ## Backward Propagation of Errors
 
-![](Images/backprop_of_errors.png)
+![](backprop_of_errors.png)
 
 # Exercises
 ## Exercise 1

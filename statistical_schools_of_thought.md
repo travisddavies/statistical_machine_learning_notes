@@ -41,7 +41,7 @@ What this example means is that a frequentist has essentially tried to predict t
 
 As you can see by the gap, the bias of this mode is quiet low. If the model's probability distribution was more skewed away from the true mean, as shown below, then we would say that the bias is much higher. This would be considered a **bias** estimator.
 
-![](Images/high_bias_estimator.png)
+![](high_bias_estimator.png)
 
 ## Estimator Variance
 Frequentists seek good behaviour, in ideal conditions
@@ -50,7 +50,7 @@ Frequentists seek good behaviour, in ideal conditions
 **Example** continued:
 - Plot each $(\hat{\theta}_{i} - E_{\theta}[\hat{\theta}_i])^2 = \hat{\theta}_i^2$ as a blue dot as shown below
 
-![](Images/variance_estimator.png)
+![](variance_estimator.png)
 
 ### My Explanation
 What the above is essentially saying is how much does the **estimator's** predictions vary from the mean predicted value, which basically means how stable is our estimator at predicting. This should not be mistaken with the variance of the data itself, this variance is focused on the estimator.
@@ -357,7 +357,7 @@ $P(\theta|X=1) \propto N(0.5,0.5)$
 	- Posterior mode $\underset{\theta}{\text{argmax}}P(\theta|X)$ (max a posteriori or MAP)
 	- There're Bayesian decision-theoretic interpretations of these
  
-![](Images/MAP.png)
+![](MAP.png)
 
 ## MLE in Bayesian Context
 - MLE formulation: find parameters that best fit data
@@ -381,7 +381,7 @@ $\ \ = \underset{\theta}{\text{argmax}} P(X=x|\theta)P(\theta)$
 - Past: controversy; animosity; almost a 'religious' choice
 - Nowadays: deeply connected
 
-![](Images/bayesians_v_frequentists.png)
+![](bayesians_v_frequentists.png)
 
 # Exercises
 ## Exercise 1

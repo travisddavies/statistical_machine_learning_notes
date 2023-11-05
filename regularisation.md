@@ -16,7 +16,7 @@ _Linear regression on rank-deficient data_
 	- $X$ is matrix on $n = 4$ instances (rows)
 	- Model: $y = w_1x_1 + w_2x_2 + w_3x_3 + w_0$
  
-![](Images/regularisation_example.png)
+![](regularisation_example.png)
 
 Question: Which feature is more important?
 $x_3$ is more important, because it has the highest weight
@@ -25,13 +25,13 @@ Now consider this:
 - First two columns of $X$ for the above weights are identical
 - Feature 2 (or 1) is **irrelevant** 
 
-![](Images/same_X_column.png)
+![](same_X_column.png)
 
 Now what is the effect of perturbations on model predictions?
 - Add $\Delta$ to $w_1$ 
 - Subtract $\Delta$ from $w_2$ 
 
-![](Images/delta_added_weights.png)
+![](delta_added_weights.png)
 
 This is what we will explore now
 
@@ -65,7 +65,7 @@ $$X._{j} = \sum_{l \not = j} \alpha_l X._{l}$$
 	- Only one data point
 - Undetermined system
 
-![](Images/lack_of_data.png)
+![](lack_of_data.png)
 
 ## Ill-Posed Problems
 - In both examples, finding the best parameters becomes an **ill-posed problem**
@@ -79,7 +79,7 @@ $$
 
 - With irrelevant/multicolinear features, matrix $X'X$ has **no inverse**
 
-![](Images/infinite_solutions.png)
+![](infinite_solutions.png)
 
 The above has a convex, but there is no strict convex. This means that the we could keep travelling to infinity, meaning there is no strict finite amount of solutions to this problem. This is a visual representation of the problem we mentioned in the example before, where there are an infinite number of solutions to reach the minimum for the objective function. We say that matrix $X'X$ has no inverse because it it has no eigenvalues, meaning there is no axis to rotate on.
 
@@ -104,7 +104,7 @@ $$
 	- Turns the ridge into a deep, singular valley
 	- Adds $\lambda$ to eigenvalues of $X'X$: makes invertible
  
-![](Images/change_to_convex.png)
+![](change_to_convex.png)
 
 This above graph is now strictly convex.
 
@@ -129,7 +129,7 @@ What this means as that we treat $w$ as a prior probability in terms of the Baye
 ## Computing Posterior Using Bayes Rule
 - The prior is then used to compute the posterior
 
-![](Images/bayes_rule.png)
+![](bayes_rule.png)
 
 - Instead of maximum likelihood (MLE), take **maximum a posteriori** estimate (MAP)
 - Apply log trick, so that
@@ -167,7 +167,7 @@ $$
 - For illustrative purposes, consider a modified problem:
 	minimise $\lVert y - Xw \rVert^2_2$ subject to $\lVert w \rVert^2_2 \leq \lambda$ for $\lambda > 0$
 
-![](Images/ridge_lasso_regression.png)
+![](ridge_lasso_regression.png)
 
 - **Lasso ($L_1$ regularisation)** encourages solutions to sit on the axes
 	- Some of the weights are set to zero $\rightarrow$ **solution is sparse**
@@ -179,7 +179,7 @@ For lasso regression, since it is the $L_1$ norm, it will form a diamond. The sa
 What this also means is that the larger we choose lambda to be, the larger the circle or diamond will be, which will take the loss function further from the true minimum of the sum of squares error. Meaning **the more we increase $\lambda$, the more we increase the bias in the model**.
 ## Regularised Linear Regression
 
-![](Images/types_of_regression.png)
+![](types_of_regression.png)
 
 # Regularisation in Non-Linear Models
 _Model selection in ML_
@@ -187,22 +187,22 @@ _Model selection in ML_
 ## Example Regression Problem
 **How complex** should our model be for the below plot?
 
-![](Images/regression_dot_plot.png)
+![](regression_dot_plot.png)
 
 ## Underfitting (Linear Regression)
 Model class $\varTheta$ can be **too simple** to possibly fit true model.
 
-![](Images/underfitting.png)
+![](underfitting.png)
 
 ## Overfitting (Non-Parametric Smoothing)
 Model class $\varTheta$ can be **so complex** it can fit true model + noise
 
-![](Images/overfitting.png)
+![](overfitting.png)
 
 ## Actual Model ($x\sin x$)
 The **right model class** $\varTheta$ will sacrifice some training error, for test error.
 
-![](Images/good_fit.png)
+![](good_fit.png)
 
 ## Approach: Explicit Model Selection
 - Try different classes of models. Example, try polynomial models of various degree $d$ (linear, quadratic, cubic, ...)
@@ -240,9 +240,9 @@ $$
 
 regularised with $\lambda \lVert w \rVert ^2_2$ term
   
-![](Images/train_test_error.png)
+![](train_test_error.png)
 
-![](Images/different_lambdas.png)
+![](different_lambdas.png)
 
 What these charts are showing that as the $\lambda$ value increases, so does the bias of the model. When $\lambda$ is 0, then the model is much more complex and thus has more variance, as the $\lambda$ value increases, we can see that the model captures less and less complexities in the data.
 
@@ -261,7 +261,7 @@ _Train error, test error and model complexity in **supervised regression**_
 - More complex model $\rightarrow$ training error goes down
 - Finite number of points $\rightarrow$ usually can reduce training error to 0 (is it always possible?)
 
-![](Images/train_error_complexity.png)
+![](train_error_complexity.png)
 
 ## (Another) Bias-Variance Decomposition
 - Squared loss for **supervised-regression** predictions
@@ -277,7 +277,7 @@ E[l(Y,\hat{X_0})] = (E[Y] - E[\hat{f}])^2 + Var[\hat{f}] + Var[Y]
 $$
 
 
-![](Images/risk_error.png)
+![](risk_error.png)
 
 ## Decomposition Proof Sketch
 - Here ($x$) is omitted to de-clutter
@@ -298,19 +298,19 @@ Therefore we can say that the test error of the model is  $\text{risk / test err
 
 ## Training Data as a Random Variable
 
-![](Images/training_data_random_variable.png)
+![](training_data_random_variable.png)
 
-![](Images/training_data_random_variable2.png)
+![](training_data_random_variable2.png)
 
 ## Intuition: Model Complexity and Variance
 - Simple model $\rightarrow$ low variance
 -  Complex model $\rightarrow$ high variance
 
-![](Images/simple_complex_model.png)
+![](simple_complex_model.png)
 
 ## Test Error and Training Error
 
-![](Images/train_test_error2.png)
+![](train_test_error2.png)
 
 # Exercises
 ## Exercise 1
@@ -326,7 +326,7 @@ The bias-variance tradeoff. There is a tug-of-war between both features in machi
 ## Exercise 3
 Write an expression relating expected squared loss, bias, and variance. 
 
-![](Images/risk_error.png)
+![](risk_error.png)
 
 $L = (E[Y] - E[\hat{f}])^2 + Var[\hat{f}] + Var[Y]$
 
