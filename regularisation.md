@@ -129,7 +129,7 @@ What this means as that we treat $w$ as a prior probability in terms of the Baye
 ## Computing Posterior Using Bayes Rule
 - The prior is then used to compute the posterior
 
-![](bayes_rule.png)
+![](Statistical%20Machine%20Learning/Images/bayes_rule.png)
 
 - Instead of maximum likelihood (MLE), take **maximum a posteriori** estimate (MAP)
 - Apply log trick, so that
