@@ -4,6 +4,12 @@ My notes for COMP90051 Statistical Machine Learning at The University of Melbour
 ### Note
 These notes should be read via [Obsidian](https://obsidian.md/). The latex and embedded media does not render very well via GitHub. 
 
+To get the notes, simply use the following:
+
+```
+git clone git@github.com:travisddavies/computer_vision_notes.git
+```
+
 ## Table of Contents
 1. [Math Review](math_review.md)
 2. [Statistical Schools of Thought](statistical_schools_of_thought.md)
