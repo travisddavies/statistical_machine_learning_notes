@@ -7,7 +7,7 @@ These notes should be read via [Obsidian](https://obsidian.md/). The latex and e
 To get the notes, simply use the following:
 
 ```
-git clone git@github.com:travisddavies/computer_vision_notes.git
+git clone git@github.com:travisddavies/statistical_machine_learning_notes.git
 ```
 
 ## Table of Contents
